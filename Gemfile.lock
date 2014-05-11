@@ -1,228 +1,80 @@
-GIT
-  remote: git://github.com/banister/binding_of_caller.git
-  revision: e9737006a0425f3921484a970a60c8e55f4f2d91
+GEM
+  remote: https://rubygems.org/
   specs:
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
-
-GIT
-  remote: git://github.com/bmabey/database_cleaner.git
-  revision: 35bd646903fc56af185a9fa9e360c568bb56756e
-  specs:
-    database_cleaner (1.2.0)
-
-GIT
-  remote: git://github.com/charliesome/better_errors.git
-  revision: 2a47f454ded90949f311145d747020a3eb6da68e
-  specs:
-    better_errors (1.1.0)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
-
-GIT
-  remote: git://github.com/ctran/annotate_models.git
-  revision: c60fa282d74051e2fb5d41b600f919a39d9edcb4
-  specs:
-    annotate (2.6.3)
-      activerecord (>= 2.3.0)
-      rake (>= 0.8.7)
-
-GIT
-  remote: git://github.com/evrone/quiet_assets.git
-  revision: f0dbab1a1e7e5d1df2909e0fb711e2116fd9dcaf
-  specs:
-    quiet_assets (1.0.2)
-      railties (>= 3.1, < 5.0)
-
-GIT
-  remote: git://github.com/haml/haml.git
-  revision: ec6493f3940aea8abad768b45859ff196e2ea507
-  specs:
-    haml (4.1.0.beta.1)
-      tilt
-
-GIT
-  remote: git://github.com/indirect/haml-rails.git
-  revision: 4fdb180516168d6c39871e012a951dcfdc6c1af9
-  specs:
-    haml-rails (0.5.3)
-      actionpack (>= 4.0.1)
-      activesupport (>= 4.0.1)
-      haml (>= 3.1, < 5.0)
-      railties (>= 4.0.1)
-
-GIT
-  remote: git://github.com/jnicklas/capybara.git
-  revision: 2b778ae6dcdaab067edde542b5dd8f05df3ee3ba
-  specs:
-    capybara (2.2.0)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
-
-GIT
-  remote: git://github.com/lautis/uglifier.git
-  revision: b2ebc80686155671d3d33edafc23301fc23007cd
-  specs:
-    uglifier (2.5.0)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
-
-GIT
-  remote: git://github.com/puma/puma.git
-  revision: de59a88c864c98d6a39b930405ab464f3ddd17f9
-  specs:
-    puma (2.8.2)
-      rack (>= 1.1, < 2.0)
-
-GIT
-  remote: git://github.com/qoobaa/sqlite3.git
-  revision: 33c0dd3ccb8d4bbccf86aad998604103dec37aa3
-  specs:
-    sqlite3 (0.1.1)
-      ffi (>= 0.6.3)
-
-GIT
-  remote: git://github.com/rails/arel.git
-  revision: 51d552c2cdcb749c2aaa96e982b5789b73f12f56
-  specs:
-    arel (6.0.0.20140505020427)
-
-GIT
-  remote: git://github.com/rails/coffee-rails.git
-  revision: 044d0d683b436128dedf45f780b8fca138d005e2
-  specs:
-    coffee-rails (4.0.1)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
-
-GIT
-  remote: git://github.com/rails/jbuilder.git
-  revision: 41daf893d54b9b69b54c8ef93dc504ed7f2e902c
-  specs:
-    jbuilder (2.0.7)
-      activesupport (>= 3.0.0, < 5)
-      multi_json (~> 1.2)
-
-GIT
-  remote: git://github.com/rails/jquery-rails.git
-  revision: 469171f4f24bbca1c38e741dcb258ba885724e5d
-  specs:
-    jquery-rails (3.1.0)
-      railties (>= 3.0, < 5.0)
-      thor (>= 0.14, < 2.0)
-
-GIT
-  remote: git://github.com/rails/rails.git
-  revision: 7dce1e6d98f78d0cce963456f226811c22bb645d
-  specs:
-    actionmailer (4.2.0.alpha)
-      actionpack (= 4.2.0.alpha)
-      actionview (= 4.2.0.alpha)
+    actionmailer (4.1.1)
+      actionpack (= 4.1.1)
+      actionview (= 4.1.1)
       mail (~> 2.5.4)
-    actionpack (4.2.0.alpha)
-      actionview (= 4.2.0.alpha)
-      activesupport (= 4.2.0.alpha)
+    actionpack (4.1.1)
+      actionview (= 4.1.1)
+      activesupport (= 4.1.1)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    actionview (4.2.0.alpha)
-      activesupport (= 4.2.0.alpha)
+    actionview (4.1.1)
+      activesupport (= 4.1.1)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    activemodel (4.2.0.alpha)
-      activesupport (= 4.2.0.alpha)
+    activemodel (4.1.1)
+      activesupport (= 4.1.1)
       builder (~> 3.1)
-    activerecord (4.2.0.alpha)
-      activemodel (= 4.2.0.alpha)
-      activesupport (= 4.2.0.alpha)
-      arel (~> 6.0.0)
-    activesupport (4.2.0.alpha)
+    activerecord (4.1.1)
+      activemodel (= 4.1.1)
+      activesupport (= 4.1.1)
+      arel (~> 5.0.0)
+    activesupport (4.1.1)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    rails (4.2.0.alpha)
-      actionmailer (= 4.2.0.alpha)
-      actionpack (= 4.2.0.alpha)
-      actionview (= 4.2.0.alpha)
-      activemodel (= 4.2.0.alpha)
-      activerecord (= 4.2.0.alpha)
-      activesupport (= 4.2.0.alpha)
-      bundler (>= 1.3.0, < 2.0)
-      railties (= 4.2.0.alpha)
-      sprockets-rails (~> 2.1)
-    railties (4.2.0.alpha)
-      actionpack (= 4.2.0.alpha)
-      activesupport (= 4.2.0.alpha)
-      rake (>= 0.8.7)
-      thor (>= 0.18.1, < 2.0)
-
-GIT
-  remote: git://github.com/rails/sass-rails.git
-  revision: 3a9e47db7d769221157c82229fc1bade55b580f0
-  specs:
-    sass-rails (4.0.1)
-      railties (>= 4.0.0, < 5.0)
-      sass (~> 3.2)
-      sprockets (~> 2.12)
-      sprockets-rails (~> 2.0)
-
-GIT
-  remote: git://github.com/rails/spring.git
-  revision: 32d20539d9f83e8e3b4285740f0a9620a51ca9cf
-  specs:
-    spring (1.1.2)
-
-GIT
-  remote: git://github.com/rails/turbolinks.git
-  revision: 23e5937ca74d4e81f8322c7afb735d096186061d
-  specs:
-    turbolinks (2.2.2)
-      coffee-rails
-
-GIT
-  remote: git://github.com/rspec/rspec-rails.git
-  revision: 9e09d5030d6e8ef49c968a8079fbced9cc16a781
-  specs:
-    rspec-rails (3.0.0.beta2)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (= 3.0.0.beta2)
-      rspec-expectations (= 3.0.0.beta2)
-      rspec-mocks (= 3.0.0.beta2)
-      rspec-support (= 3.0.0.beta2)
-
-GIT
-  remote: git://github.com/voloko/sdoc.git
-  revision: 78a72965680f82ec7908a031dedf532b889b2628
-  specs:
-    sdoc (0.4.1)
-      json (~> 1.7, >= 1.7.7)
-      rdoc (~> 4.0)
-
-GEM
-  remote: https://rubygems.org/
-  specs:
     addressable (2.3.6)
+    annotate (2.6.3)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
+    arel (5.0.1.20140414130214)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.2.2)
+    capybara (2.2.1)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
+    coffee-rails (4.0.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
     ffi (1.9.3)
+    haml (4.0.5)
+      tilt
+    haml-rails (0.5.3)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 3.1, < 5.0)
+      railties (>= 4.0.1)
     hike (1.2.3)
     i18n (0.6.9)
+    jbuilder (2.0.7)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
+    jquery-rails (3.1.0)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
@@ -236,28 +88,60 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     polyglot (0.3.4)
+    puma (2.8.2)
+      rack (>= 1.1, < 2.0)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
+    rails (4.1.1)
+      actionmailer (= 4.1.1)
+      actionpack (= 4.1.1)
+      actionview (= 4.1.1)
+      activemodel (= 4.1.1)
+      activerecord (= 4.1.1)
+      activesupport (= 4.1.1)
+      bundler (>= 1.3.0, < 2.0)
+      railties (= 4.1.1)
+      sprockets-rails (~> 2.0)
+    railties (4.1.1)
+      actionpack (= 4.1.1)
+      activesupport (= 4.1.1)
+      rake (>= 0.8.7)
+      thor (>= 0.18.1, < 2.0)
     rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
-    rspec-core (3.0.0.beta2)
-      rspec-support (= 3.0.0.beta2)
-    rspec-expectations (3.0.0.beta2)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.0.0.beta2)
-    rspec-mocks (3.0.0.beta2)
-      rspec-support (= 3.0.0.beta2)
-    rspec-support (3.0.0.beta2)
+    rspec-core (2.14.8)
+    rspec-expectations (2.14.5)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.14.6)
+    rspec-rails (2.14.2)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 2.14.0)
+      rspec-expectations (~> 2.14.0)
+      rspec-mocks (~> 2.14.0)
     rubyzip (1.1.3)
-    sass (3.3.7)
+    sass (3.2.19)
+    sass-rails (4.0.3)
+      railties (>= 4.0.0, < 5.0)
+      sass (~> 3.2.0)
+      sprockets (~> 2.8, <= 2.11.0)
+      sprockets-rails (~> 2.0)
+    sdoc (0.4.0)
+      json (~> 1.8)
+      rdoc (~> 4.0, < 5.0)
     selenium-webdriver (2.41.0)
       childprocess (>= 0.5.0)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
-    sprockets (2.12.1)
+    spring (1.1.2)
+    sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -266,14 +150,20 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sqlite3 (1.3.9)
     thor (0.19.1)
     thread_safe (0.3.3)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    turbolinks (2.2.2)
+      coffee-rails
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
+    uglifier (2.5.0)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     websocket (1.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -282,26 +172,26 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate!
-  arel!
-  better_errors!
-  binding_of_caller!
-  capybara!
-  coffee-rails!
-  database_cleaner!
-  haml!
-  haml-rails!
-  jbuilder!
-  jquery-rails!
+  annotate
+  arel
+  better_errors
+  binding_of_caller
+  capybara
+  coffee-rails
+  database_cleaner
+  haml
+  haml-rails
+  jbuilder
+  jquery-rails
   launchy
-  puma!
-  quiet_assets!
-  rails!
-  rspec-rails!
-  sass-rails!
-  sdoc!
+  puma
+  quiet_assets
+  rails
+  rspec-rails
+  sass-rails
+  sdoc
   selenium-webdriver
-  spring!
-  sqlite3!
-  turbolinks!
-  uglifier!
+  spring
+  sqlite3
+  turbolinks
+  uglifier
