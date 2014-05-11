@@ -24,7 +24,7 @@ gem 'haml-rails', github: 'indirect/haml-rails'
 # just change the parts of the page that need to be changed
 gem 'turbolinks', github: 'rails/turbolinks'
 # web asset library with dependency management
-gem 'sprockets', github: 'sstephenson/sprockets'
+#gem 'sprockets', github: 'sstephenson/sprockets' # just with bootstrap?
 
 # SQL AST manager for ruby
 gem 'arel', github: 'rails/arel'
