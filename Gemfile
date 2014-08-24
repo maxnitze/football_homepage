@@ -1,11 +1,17 @@
 source 'https://rubygems.org'
 
 ruby '2.0.0'
-#ruby-gemset=bcms_demo_3_2_18
+#ruby-gemset=vfb_oxstedt_rails_4_1
 
 # ruby web application framework
-gem 'rails', '3.2.18' #, github: 'rails'
+gem 'rails' #, github: 'rails'
 
+# Sass stylesheet integration
+gem 'sass-rails' #, github: 'rails/sass-rails'
+# JavaScript compressor
+gem 'uglifier' #, github: 'lautis/uglifier'
+# CoffeeScript adapter
+gem 'coffee-rails' #, github: 'rails/coffee-rails'
 # jquery for rails
 gem 'jquery-rails' #, github: 'rails/jquery-rails'
 # JSon DSL
@@ -20,24 +26,6 @@ gem 'turbolinks' #, github: 'rails/turbolinks'
 
 # SQL AST manager for ruby
 gem 'arel' #, github: 'rails/arel'
-
-# automatic deployment by recipes
-gem 'capistrano' #, github: 'capistrano'
-
-# content management system
-gem 'browsercms' #, github: 'browsermedia/browsercms'
-
-group :assets do
-  # Sass stylesheet integration
-  gem 'sass-rails' #, github: 'rails/sass-rails'
-  # CoffeeScript adapter
-  gem 'coffee-rails' #, github: 'rails/coffee-rails'
-
-  gem 'therubyracer', :platforms => :ruby
-
-  # JavaScript compressor
-  gem 'uglifier' #, github: 'lautis/uglifier'
-end
 
 group :development, :test do
   # Puma Web Server
