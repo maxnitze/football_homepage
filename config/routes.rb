@@ -1,56 +1,15 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  root 'general_static_pages#home'
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  match '/contact', to: 'general_static_pages#contact', via: 'get'
+  match '/help', to: 'general_static_pages#help', via: 'get'
+  match '/home', to: 'general_static_pages#home', via: 'get'
+  match '/notice', to: 'general_static_pages#site_notice', via: 'get'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  match '/field', to: 'club_static_pages#field', via: 'get'
+  match '/history', to: 'club_static_pages#history', via: 'get'
+  match '/management', to: 'club_static_pages#management', via: 'get'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  devise_for :users
+  resources :users
 end

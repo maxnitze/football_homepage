@@ -21,11 +21,23 @@ gem 'jbuilder' #, github: 'rails/jbuilder'
 gem 'haml' #, github: 'haml'
 gem 'haml-rails' #, github: 'indirect/haml-rails'
 
+# Twitter Bootstrap with Sass-Stylesheets
+gem 'bootstrap-sass'
+# add browser vendor prefixes automatically
+gem 'autoprefixer-rails'
+
 # just change the parts of the page that need to be changed
 gem 'turbolinks' #, github: 'rails/turbolinks'
 
 # SQL AST manager for ruby
 gem 'arel' #, github: 'rails/arel'
+
+# Authentication
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google'
 
 group :development, :test do
   # Puma Web Server
