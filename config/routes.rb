@@ -10,6 +10,16 @@ Rails.application.routes.draw do
   match '/history', to: 'club_static_pages#history', via: 'get'
   match '/management', to: 'club_static_pages#management', via: 'get'
 
-  devise_for :users
-  resources :users
+  devise_for :users,
+              controllers: {
+                omniauth_callbacks: 'omniauth_callbacks',
+                registrations: 'registrations'
+              }
+  match '/users/:id/finish_signup', to: 'users#finish_signup', via: [:get, :patch], as: :finish_signup
+
+  resources :coaches
+  resources :clubs
+  resources :referees
+  resources :players
+  resources :teams
 end

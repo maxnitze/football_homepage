@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Surname:
+  = @coach.surname
+%p
+  %b Givenname:
+  = @coach.givenname
+%p
+  %b Birthday:
+  = @coach.birthday
+%p
+  %b Picture:
+  = @coach.picture
+
+= link_to 'Edit', edit_coach_path(@coach)
+\|
+= link_to 'Back', coaches_path

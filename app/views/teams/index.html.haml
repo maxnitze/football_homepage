@@ -1,0 +1,27 @@
+%h1 Listing teams
+
+%table
+  %tr
+    %th Name
+    %th Ishometeam
+    %th Hometeamname
+    %th Isfemale
+    %th Classid
+    %th
+    %th
+    %th
+
+  - @teams.each do |team|
+    %tr
+      %td= team.name
+      %td= team.ishometeam
+      %td= team.hometeamname
+      %td= team.isfemale
+      %td= team.classid
+      %td= link_to 'Show', team
+      %td= link_to 'Edit', edit_team_path(team)
+      %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Team', new_team_path

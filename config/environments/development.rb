@@ -35,6 +35,18 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  # action mailer
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    # General Settings
+  config.app_domain = 'localhost:3000'
+
+  # Email
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: config.app_domain }
+  config.action_mailer.smtp_settings = {
+    address: 'localhost', 
+    port: '1025'
+  }
+
+  # use sass as the default css syntax
+  config.sass.preferred_syntax = :sass
 end

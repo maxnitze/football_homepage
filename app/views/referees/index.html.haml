@@ -1,0 +1,23 @@
+%h1 Listing referees
+
+%table
+  %tr
+    %th Surname
+    %th Givenname
+    %th Clubid
+    %th
+    %th
+    %th
+
+  - @referees.each do |referee|
+    %tr
+      %td= referee.surname
+      %td= referee.givenname
+      %td= referee.clubid
+      %td= link_to 'Show', referee
+      %td= link_to 'Edit', edit_referee_path(referee)
+      %td= link_to 'Destroy', referee, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Referee', new_referee_path

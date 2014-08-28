@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Surname:
+  = @player.surname
+%p
+  %b Givenname:
+  = @player.givenname
+%p
+  %b Birthday:
+  = @player.birthday
+%p
+  %b Picture:
+  = @player.picture
+%p
+  %b Positionid:
+  = @player.positionid
+%p
+  %b Legid:
+  = @player.legid
+
+= link_to 'Edit', edit_player_path(@player)
+\|
+= link_to 'Back', players_path

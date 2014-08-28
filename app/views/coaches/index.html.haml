@@ -1,0 +1,25 @@
+%h1 Listing coaches
+
+%table
+  %tr
+    %th Surname
+    %th Givenname
+    %th Birthday
+    %th Picture
+    %th
+    %th
+    %th
+
+  - @coaches.each do |coach|
+    %tr
+      %td= coach.surname
+      %td= coach.givenname
+      %td= coach.birthday
+      %td= coach.picture
+      %td= link_to 'Show', coach
+      %td= link_to 'Edit', edit_coach_path(coach)
+      %td= link_to 'Destroy', coach, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Coach', new_coach_path

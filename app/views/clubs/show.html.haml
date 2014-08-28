@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @club.name
+%p
+  %b Officestreet:
+  = @club.officestreet
+%p
+  %b Officepostalcode:
+  = @club.officepostalcode
+%p
+  %b Officetown:
+  = @club.officetown
+%p
+  %b Stadiumstreet:
+  = @club.stadiumstreet
+%p
+  %b Stadiumpostalcode:
+  = @club.stadiumpostalcode
+%p
+  %b Stadiumtown:
+  = @club.stadiumtown
+%p
+  %b Homepage:
+  = @club.homepage
+%p
+  %b Crest:
+  = @club.crest
+%p
+  %b Description:
+  = @club.description
+
+= link_to 'Edit', edit_club_path(@club)
+\|
+= link_to 'Back', clubs_path

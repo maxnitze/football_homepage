@@ -37,7 +37,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem 'omniauth-google'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # Puma Web Server
@@ -49,6 +49,9 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring' #, github: 'rails/spring'
 
+  # nicer scaffolding templates
+  gem 'nifty-generators' #, github: 'ryanb/nifty-generators'
+
   # more powerfull error page
   gem 'better_errors' #, github: 'charliesome/better_errors'
   # shows a interactive terminal at error page
@@ -57,6 +60,9 @@ group :development, :test do
   gem 'quiet_assets' #, github: 'evrone/quiet_assets'
   # annotate data classes with its attribute names and types
   gem 'annotate' #, github: 'ctran/annotate_models'
+
+  # catch mails send by the app at http://localhost:1080/
+  gem 'mailcatcher' #, github: 'sj26/mailcatcher'
 end
 
 group :test do

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Surname:
+  = @referee.surname
+%p
+  %b Givenname:
+  = @referee.givenname
+%p
+  %b Clubid:
+  = @referee.clubid
+
+= link_to 'Edit', edit_referee_path(@referee)
+\|
+= link_to 'Back', referees_path

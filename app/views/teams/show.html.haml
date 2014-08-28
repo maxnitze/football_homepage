@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @team.name
+%p
+  %b Ishometeam:
+  = @team.ishometeam
+%p
+  %b Hometeamname:
+  = @team.hometeamname
+%p
+  %b Isfemale:
+  = @team.isfemale
+%p
+  %b Classid:
+  = @team.classid
+
+= link_to 'Edit', edit_team_path(@team)
+\|
+= link_to 'Back', teams_path

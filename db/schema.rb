@@ -11,7 +11,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824121847) do
+ActiveRecord::Schema.define(version: 20140828114845) do
+
+  create_table "clubs", force: true do |t|
+    t.string   "name"
+    t.string   "officestreet"
+    t.string   "officepostalcode"
+    t.string   "officetown"
+    t.string   "stadiumstreet"
+    t.string   "stadiumpostalcode"
+    t.string   "stadiumtown"
+    t.string   "homepage"
+    t.string   "crest"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "coaches", force: true do |t|
+    t.string   "surname"
+    t.string   "givenname"
+    t.datetime "birthday"
+    t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "identities", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "players", force: true do |t|
+    t.string   "surname"
+    t.string   "givenname"
+    t.datetime "birthday"
+    t.string   "picture"
+    t.integer  "positionid"
+    t.integer  "legid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "referees", force: true do |t|
+    t.string   "surname"
+    t.string   "givenname"
+    t.integer  "clubid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.string   "name"
+    t.boolean  "ishometeam"
+    t.string   "hometeamname"
+    t.boolean  "isfemale"
+    t.integer  "classid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "surname"
@@ -35,6 +98,7 @@ ActiveRecord::Schema.define(version: 20140824121847) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
