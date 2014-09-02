@@ -1,0 +1,31 @@
+= form_for @league do |f|
+  - if @league.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@league.errors.count, "error")} prohibited this league from being saved:"
+      %ul
+        - @league.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :start
+    = f.datetime_select :start
+  .field
+    = f.label :end
+    = f.datetime_select :end
+  .field
+    = f.label :class_id
+    = f.number_field :class_id
+  .field
+    = f.label :iscup
+    = f.check_box :iscup
+  .field
+    = f.label :isfemale
+    = f.check_box :isfemale
+  .field
+    = f.label :noreferee
+    = f.check_box :noreferee
+  .actions
+    = f.submit 'Save'

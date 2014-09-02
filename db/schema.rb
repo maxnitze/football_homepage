@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828114845) do
+ActiveRecord::Schema.define(version: 20140902220809) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -47,13 +47,84 @@ ActiveRecord::Schema.define(version: 20140828114845) do
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
+  create_table "league_team_players", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "league_id"
+    t.integer  "player_id"
+    t.integer  "position"
+    t.boolean  "ex"
+    t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "league_teams", force: true do |t|
+    t.integer  "league_id"
+    t.integer  "team_id"
+    t.string   "picture"
+    t.string   "picturecaption"
+    t.integer  "squadleague_id"
+    t.boolean  "unsubscribed"
+    t.integer  "wincount"
+    t.integer  "losecount"
+    t.integer  "remiscount"
+    t.integer  "goalsshot"
+    t.integer  "goalsgot"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "leagues", force: true do |t|
+    t.string   "name"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "class_id"
+    t.boolean  "iscup"
+    t.boolean  "isfemale"
+    t.boolean  "noreferee"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "match_players", force: true do |t|
+    t.integer  "match_id"
+    t.integer  "player_id"
+    t.integer  "position"
+    t.integer  "backnumber"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "matches", force: true do |t|
+    t.integer  "league_id"
+    t.integer  "matchday"
+    t.integer  "home_id"
+    t.integer  "guest_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "goals_home"
+    t.integer  "goals_guest"
+    t.integer  "referee_id"
+    t.integer  "assistant1_id"
+    t.integer  "assistant2_id"
+    t.boolean  "overtime"
+    t.boolean  "penalty"
+    t.boolean  "hncompete"
+    t.boolean  "gncompete"
+    t.boolean  "noreferee"
+    t.boolean  "canceled"
+    t.boolean  "enabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "players", force: true do |t|
     t.string   "surname"
     t.string   "givenname"
     t.datetime "birthday"
     t.string   "picture"
-    t.integer  "positionid"
-    t.integer  "legid"
+    t.integer  "position"
+    t.integer  "leg"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,12 +142,13 @@ ActiveRecord::Schema.define(version: 20140828114845) do
     t.boolean  "ishometeam"
     t.string   "hometeamname"
     t.boolean  "isfemale"
-    t.integer  "classid"
+    t.integer  "class_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
+    t.string   "name"
     t.string   "surname"
     t.string   "givenname"
     t.datetime "created_at"
@@ -98,7 +170,6 @@ ActiveRecord::Schema.define(version: 20140828114845) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

@@ -5,7 +5,7 @@ class CreateTeams < ActiveRecord::Migration
       t.boolean :ishometeam
       t.string :hometeamname
       t.boolean :isfemale
-      t.integer :classid
+      t.integer :class_id
 
       t.timestamps
     end

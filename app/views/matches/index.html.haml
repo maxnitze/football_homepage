@@ -1,0 +1,53 @@
+%h1 Listing matches
+
+%table
+  %tr
+    %th League
+    %th Matchday
+    %th Home
+    %th Guest
+    %th Start
+    %th End
+    %th Goals home
+    %th Goals guest
+    %th Referee
+    %th Assistant1
+    %th Assistant2
+    %th Overtime
+    %th Penalty
+    %th Hncompete
+    %th Gncompete
+    %th Noreferee
+    %th Canceled
+    %th Enabled
+    %th
+    %th
+    %th
+
+  - @matches.each do |match|
+    %tr
+      %td= match.league_id
+      %td= match.matchday
+      %td= match.home_id
+      %td= match.guest_id
+      %td= match.start
+      %td= match.end
+      %td= match.goals_home
+      %td= match.goals_guest
+      %td= match.referee_id
+      %td= match.assistant1_id
+      %td= match.assistant2_id
+      %td= match.overtime
+      %td= match.penalty
+      %td= match.hncompete
+      %td= match.gncompete
+      %td= match.noreferee
+      %td= match.canceled
+      %td= match.enabled
+      %td= link_to 'Show', match
+      %td= link_to 'Edit', edit_match_path(match)
+      %td= link_to 'Destroy', match, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Match', new_match_path

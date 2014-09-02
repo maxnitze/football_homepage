@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :leagues
+
+  resources :matches
+
   root 'general_static_pages#home'
 
   match '/contact', to: 'general_static_pages#contact', via: 'get'

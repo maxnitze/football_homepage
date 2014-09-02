@@ -7,7 +7,7 @@
 #  ishometeam   :boolean
 #  hometeamname :string(255)
 #  isfemale     :boolean
-#  classid      :integer
+#  class_id     :integer
 #  created_at   :datetime
 #  updated_at   :datetime
 #

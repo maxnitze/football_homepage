@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @league.name
+%p
+  %b Start:
+  = @league.start
+%p
+  %b End:
+  = @league.end
+%p
+  %b Class:
+  = @league.class_id
+%p
+  %b Iscup:
+  = @league.iscup
+%p
+  %b Isfemale:
+  = @league.isfemale
+%p
+  %b Noreferee:
+  = @league.noreferee
+
+= link_to 'Edit', edit_league_path(@league)
+\|
+= link_to 'Back', leagues_path
