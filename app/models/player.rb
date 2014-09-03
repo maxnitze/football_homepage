@@ -18,6 +18,6 @@ class Player < ActiveRecord::Base
   has_many :teams, through: :league_team_players
   has_many :leagues, through: :league_team_players
 
-  enum position: [ :goal, :defense, :midfield, :attack ]
+  enum position: [ :goal, :defense, :midfield, :offense ]
   enum leg: [ :right, :left, :both ]
 end

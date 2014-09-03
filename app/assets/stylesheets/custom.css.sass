@@ -3,7 +3,7 @@ body
     color: lightgreen
     image: url('page_background.jpg')
     attachment: fixed
-    repeat: no-repeat
+    repeat: yes
   max-width: 1000px
   margin:
     left: auto
@@ -19,14 +19,17 @@ main
     left: 5px
     right: 5px
 
-.footer
+footer
+  background-color: white
+  border-radius: 5px
   margin:
     top: 45px
-    left: 5px
-    right: 5px
   padding:
     top: 5px
-    bottom: 5px
+    left: 5px
+    right: 5px
+
+  overflow: hidden
 
   border-top: 1px solid #eaeaea
   color: grey
@@ -34,7 +37,7 @@ main
     color: grey
     &:hover
       color: grey
-  small
+  .left
     float: left
   ul
     float: right

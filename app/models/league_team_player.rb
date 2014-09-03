@@ -16,5 +16,5 @@
 class LeagueTeamPlayer < ActiveRecord::Base
   validates_uniqueness_of :league_id, scope: [ :team_id, :player_id ]
 
-  enum position: [ :goal, :defense, :midfield, :attack ]
+  enum position: [ :goal, :defense, :midfield, :offense ]
 end

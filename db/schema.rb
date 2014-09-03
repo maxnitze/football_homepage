@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902220809) do
+ActiveRecord::Schema.define(version: 20140903170243) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 20140902220809) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "clubs_teams", id: false, force: true do |t|
+    t.integer "club_id"
+    t.integer "team_id"
   end
 
   create_table "coaches", force: true do |t|
@@ -114,6 +119,31 @@ ActiveRecord::Schema.define(version: 20140902220809) do
     t.boolean  "noreferee"
     t.boolean  "canceled"
     t.boolean  "enabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news", force: true do |t|
+    t.integer  "team_id"
+    t.string   "topic"
+    t.integer  "author"
+    t.string   "author_name"
+    t.datetime "created"
+    t.integer  "edit_count"
+    t.datetime "edit_time"
+    t.string   "abstract"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news_comments", force: true do |t|
+    t.integer  "news_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created"
+    t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

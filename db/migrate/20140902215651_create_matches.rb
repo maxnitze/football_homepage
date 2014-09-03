@@ -9,6 +9,8 @@ class CreateMatches < ActiveRecord::Migration
       t.datetime :end
       t.integer :goals_home
       t.integer :goals_guest
+      t.integer :goals_home_ht
+      t.integer :goals_guest_ht
       t.integer :referee_id
       t.integer :assistant1_id
       t.integer :assistant2_id

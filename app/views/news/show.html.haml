@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Team:
+  = @news.team_id
+%p
+  %b Topic:
+  = @news.topic
+%p
+  %b Author:
+  = @news.author
+%p
+  %b Author name:
+  = @news.author_name
+%p
+  %b Created:
+  = @news.created
+%p
+  %b Edit count:
+  = @news.edit_count
+%p
+  %b Edit time:
+  = @news.edit_time
+%p
+  %b Abstract:
+  = @news.abstract
+%p
+  %b Text:
+  = @news.text
+
+= link_to 'Edit', edit_news_path(@news)
+\|
+= link_to 'Back', news_index_path

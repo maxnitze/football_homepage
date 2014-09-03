@@ -6,8 +6,8 @@
     %th Givenname
     %th Birthday
     %th Picture
-    %th Positionid
-    %th Legid
+    %th Position
+    %th Leg
     %th
     %th
     %th
@@ -18,8 +18,8 @@
       %td= player.givenname
       %td= player.birthday
       %td= player.picture
-      %td= player.positionid
-      %td= player.legid
+      %td= player.position
+      %td= player.leg
       %td= link_to 'Show', player
       %td= link_to 'Edit', edit_player_path(player)
       %td= link_to 'Destroy', player, :method => :delete, :data => { :confirm => 'Are you sure?' }

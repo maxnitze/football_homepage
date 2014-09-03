@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  resources :leagues
-
-  resources :matches
-
   root 'general_static_pages#home'
 
   match '/contact', to: 'general_static_pages#contact', via: 'get'
@@ -15,15 +11,18 @@ Rails.application.routes.draw do
   match '/management', to: 'club_static_pages#management', via: 'get'
 
   devise_for :users,
-              controllers: {
-                omniauth_callbacks: 'omniauth_callbacks',
-                registrations: 'registrations'
-              }
+    controllers: {
+      omniauth_callbacks: 'omniauth_callbacks',
+      registrations: 'registrations'
+    }
   match '/users/:id/finish_signup', to: 'users#finish_signup', via: [:get, :patch], as: :finish_signup
 
-  resources :coaches
   resources :clubs
-  resources :referees
+  resources :coaches
+  resources :leagues
+  resources :matches
+  resources :news
   resources :players
+  resources :referees
   resources :teams
 end
