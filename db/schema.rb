@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903170243) do
+ActiveRecord::Schema.define(version: 20140923161546) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -124,15 +124,13 @@ ActiveRecord::Schema.define(version: 20140903170243) do
   end
 
   create_table "news", force: true do |t|
-    t.integer  "team_id"
-    t.string   "topic"
-    t.integer  "author"
-    t.string   "author_name"
-    t.datetime "created"
-    t.integer  "edit_count"
-    t.datetime "edit_time"
-    t.string   "abstract"
-    t.string   "text"
+    t.string   "title",                   null: false
+    t.string   "subtitle",   default: "", null: false
+    t.integer  "author_id",               null: false
+    t.integer  "editor_id"
+    t.integer  "edit_count", default: 0,  null: false
+    t.string   "abstract",   default: "", null: false
+    t.string   "text",       default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -177,6 +175,35 @@ ActiveRecord::Schema.define(version: 20140903170243) do
     t.datetime "updated_at"
   end
 
+  create_table "user_role_permissions", force: true do |t|
+    t.string   "symbol"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_role_permissions_roles", force: true do |t|
+    t.integer  "user_role_id"
+    t.integer  "user_role_permission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_roles", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "symbol"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_roles_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "user_role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "surname"
@@ -200,6 +227,7 @@ ActiveRecord::Schema.define(version: 20140903170243) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.integer  "roles_mask"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

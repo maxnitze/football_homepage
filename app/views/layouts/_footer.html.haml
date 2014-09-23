@@ -1,8 +1,12 @@
+.clear
+
 %footer
   .left
     VfB Oxstedt v.1950 e.V.
-  %nav
-    %ul
-      %li= link_to "Hilfe", help_path
-      %li= link_to "Kontakt", contact_path
-      %li= link_to "Impressum", notice_path
+  .right
+    %span= link_to "Hilfe", help_path
+    \|
+    %span= link_to "Kontakt", contact_path
+    \|
+    %span= link_to "Impressum", notice_path
+  .clear

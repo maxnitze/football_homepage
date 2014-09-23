@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  name                   :string(255)
 #  surname                :string(255)
 #  givenname              :string(255)
 #  created_at             :datetime
@@ -24,7 +25,7 @@
 #  failed_attempts        :integer          default(0), not null
 #  unlock_token           :string(255)
 #  locked_at              :datetime
-#  name                   :string(255)
+#  roles_mask             :integer
 #
 
 class User < ActiveRecord::Base
@@ -32,6 +33,9 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\Achange@me/
 
   has_one :identity
+  has_and_belongs_to_many :user_roles
+  has_many :authored_news, class_name: 'News', foreign_key: :author_id
+  has_many :edited_news, class_name: 'News', foreign_key: :editor_id
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
@@ -43,7 +47,7 @@ class User < ActiveRecord::Base
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist
-    identity = Identity.find_for_oauth(auth)
+    identity = Identity.find_for_oauth auth
 
     # If a signed_in_resource is provided it always overrides the existing user
     # to prevent the identity being locked with accidentally created accounts.
@@ -59,17 +63,15 @@ class User < ActiveRecord::Base
       # user to verify it on the next step via UsersController.finish_signup
       email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
       email = auth.info.email if email_is_verified
-      user = User.where(:email => email).first if email
+      user = User.where(email: email).first if email
 
       # Create the user if it's a new registration
       if user.nil?
         user = User.new(
           name: auth.extra.raw_info.name,
-          #username: auth.info.nickname || auth.uid,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
-        user.skip_confirmation!
         user.save!
       end
     end
@@ -88,5 +90,17 @@ class User < ActiveRecord::Base
 
   def needs_password?
     !self.identity || !self.identity.provider
+  end
+
+  def has_user_role? user_role
+    user_roles.any? { |role| role.symbol.eql? user_role.to_s }
+  end
+
+  def has_user_role_permission? user_role_permission
+    user_roles.any? do |role|
+      role.symbol.eql? :admin or role.user_role_permissions.any? do |role_permission|
+        role_permission.symbol.eql? user_role_permission.to_s
+      end
+    end
   end
 end

@@ -1,0 +1,25 @@
+- if flash[:danger]
+  .alert.alert-danger.alert-dismissable
+    = flash[:danger].html_safe
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+- elsif flash[:warning]
+  .alert.alert-warning.alert-dismissable
+    = flash[:warning].html_safe
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+- elsif flash[:info]
+  .alert.alert-info.alert-dismissable
+    = flash[:info].html_safe
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+- elsif flash[:success]
+  .alert.alert-success.alert-dismissable
+    = flash[:success].html_safe
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+
+-if notice
+  %p.alert.alert-success
+    = notice
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+-if alert
+  %p.alert.alert-danger
+    = alert
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;

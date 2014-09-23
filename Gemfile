@@ -33,11 +33,21 @@ gem 'turbolinks' #, github: 'rails/turbolinks'
 gem 'arel' #, github: 'rails/arel'
 
 # Authentication
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-twitter'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
+gem 'devise' #, github: 'plataformatec/devise'
+gem 'omniauth' #, github: 'intridea/omniauth'
+gem 'omniauth-twitter' #, github: 'arunagw/omniauth-twitter'
+gem 'omniauth-facebook' #, github: 'mkdynamic/omniauth-facebook'
+gem 'omniauth-google-oauth2' #, github: 'zquestz/omniauth-google-oauth2'
+gem 'cancan' #, github: 'ryanb/cancan'
+gem 'role_model' #, github: 'martinrehfeld/role_model'
+
+# What-You-See-Is-What-You-Get Editor
+gem 'simple_form' #, github: 'plataformatec/simple_form'
+gem 'bootsy' #, github: 'volmer/bootsy'
+
+# Pagination
+gem 'kaminari' #, github: 'amatsuda/kaminari'
+gem 'bootstrap-kaminari-views' #, github: 'matenia/bootstrap-kaminari-views'
 
 group :development, :test do
   # Puma Web Server

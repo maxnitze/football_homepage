@@ -1,0 +1,21 @@
+%h1 Listing user_role_permissions
+
+%table
+  %tr
+    %th Symbol
+    %th Description
+    %th
+    %th
+    %th
+
+  - @user_role_permissions.each do |user_role_permission|
+    %tr
+      %td= user_role_permission.symbol
+      %td= user_role_permission.description
+      %td= link_to 'Show', user_role_permission
+      %td= link_to 'Edit', edit_user_role_permission_path(user_role_permission)
+      %td= link_to 'Destroy', user_role_permission, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New User role permission', new_user_role_permission_path

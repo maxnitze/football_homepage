@@ -1,0 +1,9 @@
+= simple_form_for(@user_role_permission) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :symbol
+    = f.input :description
+
+  .form-actions
+    = f.button :submit

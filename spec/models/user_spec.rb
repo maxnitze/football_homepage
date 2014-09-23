@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  name                   :string(255)
 #  surname                :string(255)
 #  givenname              :string(255)
 #  created_at             :datetime
@@ -24,7 +25,7 @@
 #  failed_attempts        :integer          default(0), not null
 #  unlock_token           :string(255)
 #  locked_at              :datetime
-#  name                   :string(255)
+#  roles_mask             :integer
 #
 
 require 'rails_helper'

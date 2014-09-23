@@ -1,35 +1,20 @@
-%h1 Listing news
+-provide(:title, 'Nachrichten')
 
-%table
-  %tr
-    %th Team
-    %th Topic
-    %th Author
-    %th Author name
-    %th Created
-    %th Edit count
-    %th Edit time
-    %th Abstract
-    %th Text
-    %th
-    %th
-    %th
+.news-index
+  -if permitted_to_create_news?
+    %span.nav.btn-group.btn-group-xs
+      = link_to 'Neue Nachricht', new_news_path, class: 'btn btn-default', role: 'button'
+    %hr
 
-  - @news.each do |news|
-    %tr
-      %td= news.team_id
-      %td= news.topic
-      %td= news.author
-      %td= news.author_name
-      %td= news.created
-      %td= news.edit_count
-      %td= news.edit_time
-      %td= news.abstract
-      %td= news.text
-      %td= link_to 'Show', news
-      %td= link_to 'Edit', edit_news_path(news)
-      %td= link_to 'Destroy', news, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  - @news.each_with_index do |news, i|
+    -if i != 0
+      %hr
+    %p.title= link_to news.full_title, news
+    -if !news.abstract.blank?
+      %p.abstract= news.abstract.html_safe
+    -else
+      %p.abstract= news.text.truncate(250).html_safe
 
 %br
 
-= link_to 'New News', new_news_path
+= paginate @news, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm custom-pagination'

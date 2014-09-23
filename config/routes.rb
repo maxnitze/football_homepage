@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :user_role_permissions
+
+  resources :user_roles
+
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   root 'general_static_pages#home'
 
   match '/contact', to: 'general_static_pages#contact', via: 'get'
@@ -13,9 +18,15 @@ Rails.application.routes.draw do
   devise_for :users,
     controllers: {
       omniauth_callbacks: 'omniauth_callbacks',
-      registrations: 'registrations'
-    }
+      registrations: 'registrations' },
+    path: '',
+    path_names: {
+      sign_in:  '/login',
+      sign_out: '/logout',
+      sign_up:  '/register',
+      edit: '/users/edit' }
   match '/users/:id/finish_signup', to: 'users#finish_signup', via: [:get, :patch], as: :finish_signup
+  resources :users
 
   resources :clubs
   resources :coaches

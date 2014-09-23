@@ -1,10 +1,13 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
+  before_action :check_create_permission, only: [:new, :create]
+  before_action :check_edit_permission, only: [:edit, :update]
+  before_action :check_delete_permission, only: [:destroy]
 
   # GET /news
   # GET /news.json
   def index
-    @news = News.all
+    @news = News.all.page(params[:page]).per 2
   end
 
   # GET /news/1
@@ -24,11 +27,11 @@ class NewsController < ApplicationController
   # POST /news
   # POST /news.json
   def create
-    @news = News.new(news_params)
+    @news = News.new(news_params.merge(author: current_user))
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to @news, notice: 'News was successfully created.' }
+        format.html { redirect_to @news, notice: 'Neue Nachricht erfolgreich erstellt.' }
         format.json { render :show, status: :created, location: @news }
       else
         format.html { render :new }
@@ -41,8 +44,8 @@ class NewsController < ApplicationController
   # PATCH/PUT /news/1.json
   def update
     respond_to do |format|
-      if @news.update(news_params)
-        format.html { redirect_to @news, notice: 'News was successfully updated.' }
+      if @news.update(news_params.merge(editor: current_user, edit_count: (@news.edit_count + 1)))
+        format.html { redirect_to @news, notice: 'Nachricht erfolgreich bearbeitet.' }
         format.json { render :show, status: :ok, location: @news }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class NewsController < ApplicationController
   def destroy
     @news.destroy
     respond_to do |format|
-      format.html { redirect_to news_index_url, notice: 'News was successfully destroyed.' }
+      format.html { redirect_to news_index_url, notice: 'Nachricht erfolgreich gelöscht.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +72,26 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:team_id, :topic, :author, :author_name, :created, :edit_count, :edit_time, :abstract, :text)
+      params.require(:news).permit(:title, :subtitle, :abstract, :text)
+    end
+
+    def check_create_permission
+      if !(current_user and current_user.has_user_role_permission? :can_create_news)
+        redirect_to news_index_path, flash: { danger: 'Sie sind nicht berechtigt neue Nachrichten zu erstellen!' }
+      end
+    end
+
+    def check_edit_permission
+      if !(current_user and (
+          current_user.eql? @news.author or
+          current_user.has_user_role_permission? :can_edit_news))
+        redirect_to @news, flash: { danger: 'Sie sind nicht berechtigt diese Nachricht zu bearbeiten!' }
+      end
+    end
+
+    def check_delete_permission
+      if !(current_user and current_user.has_user_role_permission? :can_delete_news)
+        redirect_to @news, flash: { danger: 'Sie sind nicht berechtigt diese Nachricht zu löschen!' }
+      end
     end
 end

@@ -1,33 +1,29 @@
-%p#notice= notice
+- provide(:title, @news.title.truncate(15))
 
-%p
-  %b Team:
-  = @news.team_id
-%p
-  %b Topic:
-  = @news.topic
-%p
-  %b Author:
-  = @news.author
-%p
-  %b Author name:
-  = @news.author_name
-%p
-  %b Created:
-  = @news.created
-%p
-  %b Edit count:
-  = @news.edit_count
-%p
-  %b Edit time:
-  = @news.edit_time
-%p
-  %b Abstract:
-  = @news.abstract
-%p
-  %b Text:
-  = @news.text
+.news
+  %p.news-top
+    -if @news.subtitle?
+      %span.title= "#{@news.title}:"
+      %span.subtitle= @news.subtitle
+    -else
+      %span.title= @news.title
+    %br
+    %span.author
+      von
+      = news_author @news.author
+      = "am #{get_local_datetime(@news.created_at)}"
+  %hr
+  -if !@news.abstract.blank?
+    %p.abstract= @news.abstract.html_safe
+  %p.text= @news.text.html_safe
 
-= link_to 'Edit', edit_news_path(@news)
-\|
-= link_to 'Back', news_index_path
+  %hr
+  %p.news-bottom
+    %span.nav.btn-group.btn-group-xs
+      = link_to 'Zurück', news_index_path, class: 'btn btn-default', role: 'button'
+      -if permitted_to_edit? @news
+        = link_to 'Bearbeiten', edit_news_path(@news), class: 'btn btn-default', role: 'button'
+    -if @news.edit_count > 0
+      %span.edit-info
+        = "#{@news.edit_count} mal editiert. Zuletzt am #{get_local_datetime(@news.updated_at)} von"
+        = link_to @news.editor.name, user_path(@news.editor)
