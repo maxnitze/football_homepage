@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140828114845) do
 
-  create_table "clubs", force: true do |t|
+  create_table "clubs", force: :cascade do |t|
     t.string   "name"
     t.string   "officestreet"
     t.string   "officepostalcode"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140828114845) do
     t.datetime "updated_at"
   end
 
-  create_table "coaches", force: true do |t|
+  create_table "coaches", force: :cascade do |t|
     t.string   "surname"
     t.string   "givenname"
     t.datetime "birthday"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140828114845) do
     t.datetime "updated_at"
   end
 
-  create_table "identities", force: true do |t|
+  create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140828114845) do
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
-  create_table "players", force: true do |t|
+  create_table "players", force: :cascade do |t|
     t.string   "surname"
     t.string   "givenname"
     t.datetime "birthday"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140828114845) do
     t.datetime "updated_at"
   end
 
-  create_table "referees", force: true do |t|
+  create_table "referees", force: :cascade do |t|
     t.string   "surname"
     t.string   "givenname"
     t.integer  "clubid"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20140828114845) do
     t.datetime "updated_at"
   end
 
-  create_table "teams", force: true do |t|
+  create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.boolean  "ishometeam"
     t.string   "hometeamname"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20140828114845) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "surname"
     t.string   "givenname"
     t.datetime "created_at"
