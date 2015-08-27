@@ -4,9 +4,8 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :surname
       t.string :givenname
       t.datetime :birthday
-      t.string :picture
-      t.integer :positionid
-      t.integer :legid
+      t.integer :position
+      t.integer :leg
 
       t.timestamps
     end

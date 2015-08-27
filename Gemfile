@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
 ruby '2.0.0'
-#ruby-gemset=vfb_oxstedt_rails_4_1
+#ruby-gemset=vfb_oxstedt
 
 # ruby web application framework
 gem 'rails' #, github: 'rails'
+
+# internationalization
+gem 'rails-i18n' #, github: 'svenfuchs/rails-i18n'
 
 # Sass stylesheet integration
 gem 'sass-rails' #, github: 'rails/sass-rails'
@@ -33,11 +36,27 @@ gem 'turbolinks' #, github: 'rails/turbolinks'
 gem 'arel' #, github: 'rails/arel'
 
 # Authentication
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-twitter'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
+gem 'devise' #, github: 'plataformatec/devise'
+gem 'devise-i18n' #, github: 'tigrish/devise-i18n'
+gem 'omniauth' #, github: 'intridea/omniauth'
+gem 'omniauth-twitter' #, github: 'arunagw/omniauth-twitter'
+gem 'omniauth-facebook' #, github: 'mkdynamic/omniauth-facebook'
+gem 'omniauth-google-oauth2' #, github: 'zquestz/omniauth-google-oauth2'
+#gem 'cancan' #, github: 'ryanb/cancan'
+#gem 'role_model' #, github: 'martinrehfeld/role_model'
+
+# What-You-See-Is-What-You-Get Editor
+gem 'simple_form' #, github: 'plataformatec/simple_form'
+gem 'bootsy' #, github: 'volmer/bootsy'
+gem 'searchkick' #, github: 'ankane/searchkick'
+gem 'twitter-typeahead-rails'#, github: 'yourabi/twitter-typeahead-rails'
+
+# Pagination
+gem 'kaminari' #, github: 'amatsuda/kaminari'
+gem 'bootstrap-kaminari-views' #, github: 'matenia/bootstrap-kaminari-views'
+
+# File-Uploads and attachments
+gem "paperclip" #, github: 'thoughtbot/paperclip'
 
 group :development, :test do
   # Puma Web Server
@@ -77,7 +96,7 @@ group :test do
 end
 
 group :doc do
-  # generate searchable HTML dosumentationfor ruby code
+  # generate searchable HTML documentation for ruby code
   gem 'sdoc', require: false #, github: 'voloko/sdoc'
 end
 

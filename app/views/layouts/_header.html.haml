@@ -1,71 +1,38 @@
 %header
   %nav.navbar.navbar-inverse{role: "navigation"}
-    / %container
-    /   %img{src: '/assets/crest.png', alt: 'Wappen VfB Oxstedt', height: '230'}
-    /   %img{src: '/assets/field_aerial.jpg', alt: 'Luftaufnahme Sportplatz', height: '250'}
     .navbar-header
+      %a.navbar-brand{href: root_path}
+        %span
+          %img{src: '/assets/crest.png', alt: 'Wappen VfB Oxstedt', height: '25'}
+          VfB Oxstedt
       %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{href: root_path}
-        VfB Oxstedt
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            Verein
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              %a{href: '/history'} Geschichte
-            %li
-              %a{href: '/management'} Vorstand
-            %li
-              %a{href: '/field'} Sportplatz
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            Fu&szlig;ball
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              %a{href: '/teams/1'} Mannschaft1
-            %li
-              %a{href: '/teams/2'} Mannschaft 2
-            %li
-              %a{href: '/teams/3'} Mannschaft 3
-            %li.divider
-            %li
-              = link_to 'alle Mannschaften', '/teams'
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            Media
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              = link_to 'Galerie', '/gallery'
-            %li
-              = link_to 'Tippspiel', '/bettinggame'
       %ul.nav.navbar-nav.navbar-right
         -if user_signed_in?
           %ul.nav.navbar-nav
+            -if is_admin?
+              %li
+                = link_to t('.admin'), admin_path
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                 = current_user.email
                 %b.caret
               %ul.dropdown-menu
                 %li
-                  = link_to 'Profil bearbeiten', edit_user_registration_path
+                  = link_to t('.edit_profile'), edit_user_registration_path
                 %li
-                  = link_to 'Logout', destroy_user_session_path, method: :delete
+                  = link_to t('.logout'), destroy_user_session_path, method: :delete
         -else
           %ul.nav.navbar-nav
             %li
-              = link_to 'Sign up', new_user_registration_path
+              = link_to t('.sign_up'), new_user_registration_path
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                Login
+                = t '.login'
                 %b.caret
               %ul.dropdown-menu
                 %li
@@ -81,6 +48,58 @@
                         = f.password_field :password, autocomplete: "off"
                       %br/
                       %div
-                        = f.submit 'Log in'
-                        - [:facebook, :google_oauth2, :twitter].each do |provider|
-                          = link_to image_tag("login/#{provider}.png", size: '25x25'), omniauth_authorize_path('user', provider)
+                        = f.submit t '.login'
+                        - OMNIAUTH_PROVIDERS.each do |symbol,_|
+                          = link_to image_tag("login/#{symbol}.png", size: '25x25'), localized_omniauth_path(symbol)
+    .header-image
+      %img{src: '/assets/field_aerial.jpg', alt: t('.field_aerial'), width: '100%'}
+      = render 'layouts/flash'
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-2", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    #bs-example-navbar-collapse-2.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to t('.home'), root_path
+        %li
+          = link_to t('.news'), news_index_path
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            = t '.club'
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              = link_to t('.history'), history_path
+            %li
+              = link_to t('.management'), management_path
+            %li
+              = link_to t('.sports_facilities'), field_path
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            = t '.football'
+            %b.caret
+          %ul.dropdown-menu
+            - get_current_hometeams.each do |team|
+              %li
+                = link_to team.hometeamname, team
+            %li.divider
+            %li
+              = link_to t('.all_teams'), teams_path
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            = t '.media'
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              = link_to t('.gallery'), gallery_path
+            %li
+              = link_to t('.downloads'), downloads_path
+            %li
+              = link_to t('.bettinggame'), bettinggame_path
+      %ul.nav.navbar-nav.navbar-right
+        %form.navbar-form.navbar-left{role: "search"}
+          .form-group
+            %input.form-control{placeholder: t('.search'), type: "text"}/

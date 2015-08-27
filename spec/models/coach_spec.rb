@@ -3,10 +3,10 @@
 # Table name: coaches
 #
 #  id         :integer          not null, primary key
-#  surname    :string(255)
-#  givenname  :string(255)
+#  surname    :string
+#  givenname  :string
 #  birthday   :datetime
-#  picture    :string(255)
+#  picture    :string
 #  created_at :datetime
 #  updated_at :datetime
 #

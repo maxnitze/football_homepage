@@ -14,15 +14,15 @@
     = f.text_field :givenname
   .field
     = f.label :birthday
-    = f.datetime_select :birthday
+    = f.date_select :birthday
   .field
-    = f.label :picture
-    = f.text_field :picture
+    = f.label :portrait
+    = f.file_field :portrait
   .field
-    = f.label :positionid
-    = f.number_field :positionid
+    = f.label :position
+    = f.select :position, Player.positions.keys
   .field
-    = f.label :legid
-    = f.number_field :legid
+    = f.label :leg
+    = f.select :leg, Player.legs.keys
   .actions
     = f.submit 'Save'

@@ -1,0 +1,26 @@
+en:
+  layouts:
+    header:
+      admin: 'Administration'
+      all_teams: 'all Teams'
+      bettinggame: 'Betting Game'
+      club: 'Club'
+      downloads: 'Downloads'
+      edit_profile: 'Edit Profile'
+      field_aerial: 'Field Aerial'
+      football: 'Football'
+      gallery: 'Gallery'
+      home: 'Home'
+      history: 'History'
+      login: 'Login'
+      logout: 'Logout'
+      management: 'Management'
+      media: 'Media'
+      news: 'News'
+      search: 'Search'
+      sign_up: 'Sign Up'
+      sports_facilities: 'Sports Facilities'
+    footer:
+      contact: 'Contact'
+      help: 'Help'
+      notice: 'Site Notice'

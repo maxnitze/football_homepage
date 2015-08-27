@@ -1,0 +1,14 @@
+de:
+  user_roles:
+    admin:
+      name: 'Administrator'
+      description: 'administriert die vollständige Webseite und besitzt alle Rechte.'
+    bettinggame_manager:
+      name: 'Tippspiel-Manager'
+      description: 'darf die Ligen des Tippspiels bearbeiten.'
+    editor:
+      name: 'Editor'
+      description: 'darf neue Nachrichten verfassen und seine eigenen Nachrichten bearbeiten.'
+    super_editor:
+      name: 'Super-Editor'
+      description: 'darf Nachrichten und Kommentare verfassen, bearbeiten und entfernen.'

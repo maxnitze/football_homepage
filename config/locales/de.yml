@@ -1,0 +1,11 @@
+de:
+  lang:
+    de: 'Deutsch'
+    en: 'Englisch'
+  language: 'Deutsch'
+  time:
+    formats: 
+      default: '%d.%m.%Y %I:%M:%S'
+      long: '%a, %d.%m.%Y %I:%M'
+      date: '%d.%m.%Y'
+      time: '%I:%M:%S'

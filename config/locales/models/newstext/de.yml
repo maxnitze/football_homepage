@@ -1,0 +1,4 @@
+de:
+  models:
+    newstext:
+      unique_per_lang: 'darf nur einmal für jede Sprache einer Nachricht erzeugt werden!'

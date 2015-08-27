@@ -1,0 +1,16 @@
+= simple_form_for @news do |f|
+  -lang = params[:lang] || current_lang
+  -I18n.available_locales.each do |l|
+    -newstext = @news.newstexts.detect{|nt| nt.language == l.to_s} || Newstext.new
+    .lang{id: "newsform_#{l}", style: "display: #{l.to_s == lang.to_s ? 'block' : 'none'}"}
+      .field
+        = f.input :title, label: t('.title'), input_html: { name: "newstext[title_#{l}]", value: newstext.title, style: 'width: 100%;' }
+      %br
+      .field
+        = f.input :subtitle, label: t('.subtitle'), input_html: { name: "newstext[subtitle_#{l}]", value: newstext.subtitle, style: 'width: 100%;' }
+      %br
+      .field
+        = f.input :abstract, as: :bootsy, label: t('.abstract'), input_html: { name: "newstext[abstract_#{l}]", value: newstext.abstract, style: 'width: 100%; height: 100px;' }
+      %br
+      .field
+        = f.input :text, as: :bootsy, label: t('.news'), input_html: { name: "newstext[text_#{l}]", value: newstext.text, style: 'width: 100%; height: 400px;' }

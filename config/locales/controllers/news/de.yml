@@ -1,0 +1,20 @@
+de:
+  news:
+    flash:
+      create:
+        permission_failure: 'Sie sind nicht berechtigt neue Nachrichten zu erstellen.'
+        success: 'Neue Nachricht erfolgreich erstellt.'
+      destroy:
+        permission_failure: 'Sie sind nicht berechtigt diese Nachricht zu löschen.'
+        success: 'Nachricht erfolgreich gelöscht.'
+      show:
+        language: 'Diese Nachricht liegt nicht in ihrer Sprache vor.'
+      update:
+        permission_failure: 'Sie sind nicht berechtigt diese Nachricht zu bearbeiten.'
+        success: 'Nachricht erfolgreich bearbeitet.'
+  newstext:
+    flash:
+      create:
+        failed: 'Konnte die Nachricht für "%{lang}" nicht erstellen.'
+      update:
+        failed: 'Konnte die Nachricht für "%{lang}" nicht bearbeiten.'

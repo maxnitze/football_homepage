@@ -1,0 +1,31 @@
+%h1 Listing leagues
+
+%table
+  %tr
+    %th Name
+    %th Start
+    %th End
+    %th Class
+    %th Iscup
+    %th Isfemale
+    %th Noreferee
+    %th
+    %th
+    %th
+
+  - @leagues.each do |league|
+    %tr
+      %td= league.name
+      %td= league.start
+      %td= league.end
+      %td= league.class_id
+      %td= league.iscup
+      %td= league.isfemale
+      %td= league.noreferee
+      %td= link_to 'Show', league
+      %td= link_to 'Edit', edit_league_path(league)
+      %td= link_to 'Destroy', league, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New League', new_league_path

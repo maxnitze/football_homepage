@@ -1,4 +1,3 @@
-
 # This is a manifest file that'll be compiled into application.js, which will include all the files
 # listed below.
 
@@ -13,8 +12,12 @@
 
 #= require jquery
 #= require jquery_ujs
-#= require turbolinks
-#= require_tree .
-
-#= require jquery
+#= require twitter/typeahead
+#= require bootsy
+#= require_directory ./bootsy/locales
 #= require bootstrap-sprockets
+#= require turbolinks
+#= require_self
+#= require_directory ./misc
+#= require_directory ./static_pages
+#= require_directory ./models

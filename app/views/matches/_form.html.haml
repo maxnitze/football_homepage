@@ -1,0 +1,64 @@
+= form_for @match do |f|
+  - if @match.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@match.errors.count, "error")} prohibited this match from being saved:"
+      %ul
+        - @match.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :league_id
+    = f.number_field :league_id
+  .field
+    = f.label :matchday
+    = f.number_field :matchday
+  .field
+    = f.label :home_id
+    = f.number_field :home_id
+  .field
+    = f.label :guest_id
+    = f.number_field :guest_id
+  .field
+    = f.label :start
+    = f.datetime_select :start
+  .field
+    = f.label :end
+    = f.datetime_select :end
+  .field
+    = f.label :goals_home
+    = f.number_field :goals_home
+  .field
+    = f.label :goals_guest
+    = f.number_field :goals_guest
+  .field
+    = f.label :referee_id
+    = f.number_field :referee_id
+  .field
+    = f.label :assistant1_id
+    = f.number_field :assistant1_id
+  .field
+    = f.label :assistant2_id
+    = f.number_field :assistant2_id
+  .field
+    = f.label :overtime
+    = f.check_box :overtime
+  .field
+    = f.label :penalty
+    = f.check_box :penalty
+  .field
+    = f.label :hncompete
+    = f.check_box :hncompete
+  .field
+    = f.label :gncompete
+    = f.check_box :gncompete
+  .field
+    = f.label :noreferee
+    = f.check_box :noreferee
+  .field
+    = f.label :canceled
+    = f.check_box :canceled
+  .field
+    = f.label :enabled
+    = f.check_box :enabled
+  .actions
+    = f.submit 'Save'

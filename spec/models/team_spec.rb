@@ -3,11 +3,11 @@
 # Table name: teams
 #
 #  id           :integer          not null, primary key
-#  name         :string(255)
+#  name         :string
 #  ishometeam   :boolean
-#  hometeamname :string(255)
+#  hometeamname :string
 #  isfemale     :boolean
-#  classid      :integer
+#  class_id     :integer
 #  created_at   :datetime
 #  updated_at   :datetime
 #

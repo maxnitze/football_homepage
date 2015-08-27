@@ -1,0 +1,60 @@
+%p#notice= notice
+
+%p
+  %b League:
+  = @match.league_id
+%p
+  %b Matchday:
+  = @match.matchday
+%p
+  %b Home:
+  = @match.home_id
+%p
+  %b Guest:
+  = @match.guest_id
+%p
+  %b Start:
+  = @match.start
+%p
+  %b End:
+  = @match.end
+%p
+  %b Goals home:
+  = @match.goals_home
+%p
+  %b Goals guest:
+  = @match.goals_guest
+%p
+  %b Referee:
+  = @match.referee_id
+%p
+  %b Assistant1:
+  = @match.assistant1_id
+%p
+  %b Assistant2:
+  = @match.assistant2_id
+%p
+  %b Overtime:
+  = @match.overtime
+%p
+  %b Penalty:
+  = @match.penalty
+%p
+  %b Hncompete:
+  = @match.hncompete
+%p
+  %b Gncompete:
+  = @match.gncompete
+%p
+  %b Noreferee:
+  = @match.noreferee
+%p
+  %b Canceled:
+  = @match.canceled
+%p
+  %b Enabled:
+  = @match.enabled
+
+= link_to 'Edit', edit_match_path(@match)
+\|
+= link_to 'Back', matches_path

@@ -1,0 +1,17 @@
+-flash.each do |type, texts|
+  -if !texts.kind_of?(Array)
+    -texts = [texts]
+  -if type.eql?(:danger) || type.eql?('danger')
+    .alert.alert-danger.alert-dismissable
+  -elsif type.eql?(:warning) || type.eql?('warning')
+    .alert.alert-warning.alert-dismissable
+  -elsif type.eql?(:info) || type.eql?('warning')
+    .alert.alert-info.alert-dismissable
+  -elsif type.eql?(:success) || type.eql?('success') || type.eql?(:notice) || type.eql?('notice')
+    .alert.alert-success.alert-dismissable
+
+      -texts.each_with_index do |t, i|
+        -if i != 0
+          %br
+        =t.html_safe
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} &times;

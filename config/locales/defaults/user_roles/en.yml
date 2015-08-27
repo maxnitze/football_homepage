@@ -1,0 +1,14 @@
+en:
+  user_roles:
+    admin:
+      name: 'Administrator'
+      description: 'administrates the Webpage and has all rights.'
+    bettinggame_manager:
+      name: 'Bettinggame-Manager'
+      description: 'is allowed to update the bettinggame leagues.'
+    editor:
+      name: 'Editor'
+      description: 'is allowed to create new and edit its own news.'
+    super_editor:
+      name: 'Super-Editor'
+      description: 'is allowed to create, edit and destroy news and comments.'

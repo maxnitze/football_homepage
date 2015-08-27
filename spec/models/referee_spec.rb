@@ -3,8 +3,8 @@
 # Table name: referees
 #
 #  id         :integer          not null, primary key
-#  surname    :string(255)
-#  givenname  :string(255)
+#  surname    :string
+#  givenname  :string
 #  clubid     :integer
 #  created_at :datetime
 #  updated_at :datetime

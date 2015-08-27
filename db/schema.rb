@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828114845) do
+ActiveRecord::Schema.define(version: 20150827104856) do
+
+  create_table "bootsy_image_galleries", force: :cascade do |t|
+    t.integer  "bootsy_resource_id"
+    t.string   "bootsy_resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bootsy_images", force: :cascade do |t|
+    t.string   "image_file"
+    t.integer  "image_gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +40,11 @@ ActiveRecord::Schema.define(version: 20140828114845) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "clubs_teams", id: false, force: :cascade do |t|
+    t.integer "club_id"
+    t.integer "team_id"
   end
 
   create_table "coaches", force: :cascade do |t|
@@ -47,15 +66,122 @@ ActiveRecord::Schema.define(version: 20140828114845) do
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
+  create_table "league_team_players", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "league_id"
+    t.integer  "player_id"
+    t.integer  "position"
+    t.boolean  "ex"
+    t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "league_teams", force: :cascade do |t|
+    t.integer  "league_id"
+    t.integer  "team_id"
+    t.string   "picture"
+    t.string   "picturecaption"
+    t.integer  "squadleague_id"
+    t.boolean  "unsubscribed"
+    t.integer  "wincount"
+    t.integer  "losecount"
+    t.integer  "remiscount"
+    t.integer  "goalsshot"
+    t.integer  "goalsgot"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "leagues", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "class_id"
+    t.boolean  "iscup"
+    t.boolean  "isfemale"
+    t.boolean  "noreferee"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "match_players", force: :cascade do |t|
+    t.integer  "match_id"
+    t.integer  "player_id"
+    t.integer  "position"
+    t.integer  "backnumber"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.integer  "league_id"
+    t.integer  "matchday"
+    t.integer  "home_id"
+    t.integer  "guest_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "goals_home"
+    t.integer  "goals_guest"
+    t.integer  "goals_home_ht"
+    t.integer  "goals_guest_ht"
+    t.integer  "referee_id"
+    t.integer  "assistant1_id"
+    t.integer  "assistant2_id"
+    t.boolean  "overtime"
+    t.boolean  "penalty"
+    t.boolean  "hncompete"
+    t.boolean  "gncompete"
+    t.boolean  "noreferee"
+    t.boolean  "canceled"
+    t.boolean  "enabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.integer  "author_id"
+    t.integer  "editor_id"
+    t.integer  "edit_count", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news_comments", force: :cascade do |t|
+    t.integer  "news_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "newstexts", force: :cascade do |t|
+    t.integer  "news_id"
+    t.string   "language",                null: false
+    t.string   "title",                   null: false
+    t.string   "subtitle",   default: "", null: false
+    t.string   "abstract",   default: "", null: false
+    t.string   "text",       default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "players", force: :cascade do |t|
     t.string   "surname"
     t.string   "givenname"
     t.datetime "birthday"
     t.string   "picture"
-    t.integer  "positionid"
-    t.integer  "legid"
+    t.integer  "position"
+    t.integer  "leg"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "portrait_file_name"
+    t.string   "portrait_content_type"
+    t.integer  "portrait_file_size"
+    t.datetime "portrait_updated_at"
   end
 
   create_table "referees", force: :cascade do |t|
@@ -71,14 +197,45 @@ ActiveRecord::Schema.define(version: 20140828114845) do
     t.boolean  "ishometeam"
     t.string   "hometeamname"
     t.boolean  "isfemale"
-    t.integer  "classid"
+    t.integer  "class_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_role_permissions", force: :cascade do |t|
+    t.string   "symbol"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_role_permissions_roles", force: :cascade do |t|
+    t.integer  "user_role_id"
+    t.integer  "user_role_permission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_roles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "symbol"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_roles_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "user_role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "name"
     t.string   "surname"
     t.string   "givenname"
+    t.integer  "roles_mask"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
@@ -98,7 +255,11 @@ ActiveRecord::Schema.define(version: 20140828114845) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "locale"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

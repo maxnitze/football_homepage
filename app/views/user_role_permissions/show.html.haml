@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Symbol:
+  = @user_role_permission.symbol
+%p
+  %b Description:
+  = @user_role_permission.description
+
+= link_to 'Edit', edit_user_role_permission_path(@user_role_permission)
+\|
+= link_to 'Back', user_role_permissions_path

@@ -61,6 +61,10 @@ class PlayersController < ApplicationController
     end
   end
 
+  def autocomplete
+    render json: Player.search(params[:query], autocomplete: true, limit: 10).map { |p| { id_name: "#{p.id}:#{p.givenname} #{p.surname}" } }
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_player
@@ -69,6 +73,6 @@ class PlayersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:surname, :givenname, :birthday, :picture, :positionid, :legid)
+      params.require(:player).permit(:surname, :givenname, :birthday, :portrait, :position, :leg)
     end
 end

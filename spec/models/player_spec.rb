@@ -2,15 +2,19 @@
 #
 # Table name: players
 #
-#  id         :integer          not null, primary key
-#  surname    :string(255)
-#  givenname  :string(255)
-#  birthday   :datetime
-#  picture    :string(255)
-#  positionid :integer
-#  legid      :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id                    :integer          not null, primary key
+#  surname               :string
+#  givenname             :string
+#  birthday              :datetime
+#  picture               :string
+#  position              :integer
+#  leg                   :integer
+#  created_at            :datetime
+#  updated_at            :datetime
+#  portrait_file_name    :string
+#  portrait_content_type :string
+#  portrait_file_size    :integer
+#  portrait_updated_at   :datetime
 #
 
 require 'rails_helper'

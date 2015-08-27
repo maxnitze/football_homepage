@@ -77,6 +77,10 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def autocomplete
+    render json: User.search(params[:query], autocomplete: true, limit: 10).map { |u| { id_name: "#{u.id}:#{u.name}" } }
+  end
   
   private
     def set_user
@@ -84,7 +88,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      accessible = [ :name, :surname, :givenname, :email ]
+      accessible = [ :name, :surname, :givenname, :email, :avatar ]
       accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
       params.require(:user).permit(accessible)
     end

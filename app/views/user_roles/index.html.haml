@@ -1,0 +1,19 @@
+%h1 Listing user_roles
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @user_roles.each do |user_role|
+    %tr
+      %td= user_role.name
+      %td= link_to 'Show', user_role
+      %td= link_to 'Edit', edit_user_role_path(user_role)
+      %td= link_to 'Destroy', user_role, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New User role', new_user_role_path

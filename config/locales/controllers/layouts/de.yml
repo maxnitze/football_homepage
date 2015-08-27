@@ -1,0 +1,26 @@
+de:
+  layouts:
+    header:
+      admin: 'Administration'
+      all_teams: 'alle Mannschaften'
+      bettinggame: 'Tippspiel'
+      club: 'Verein'
+      downloads: 'Downloads'
+      edit_profile: 'Profil bearbeiten'
+      field_aerial: 'Luftaufnahme vom Sportplatz'
+      football: 'Fußball'
+      gallery: 'Gallerie'
+      home: 'Startseite'
+      history: 'Geschichte'
+      login: 'Anmelden'
+      logout: 'Abmelden'
+      management: 'Vorstand'
+      media: 'Media'
+      news: 'Nachrichten'
+      search: 'Suche'
+      sign_up: 'Registrieren'
+      sports_facilities: 'Sportanlage'
+    footer:
+      contact: 'Kontakt'
+      help: 'Hilfe'
+      notice: 'Impressum'

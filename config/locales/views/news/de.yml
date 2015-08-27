@@ -1,0 +1,24 @@
+de:
+  news:
+    edit:
+      edit: 'Bearbeiten'
+    edit_info_html: '%{count} mal editiert. Zuletzt am %{datetime} von %{author}'
+    form:
+      abstract: 'Zusammenfassung'
+      news: 'Nachricht'
+      subtitle: 'Untertitel'
+      title: 'Titel'
+    index:
+      news: 'Nachrichten'
+      new_news: 'Neue Nachricht'
+    nav:
+      create_news: 'Nachricht Erstellen'
+      news_index: 'Zurück zur Übersicht'
+      show_news: 'Nachricht Anzeigen'
+      save_news: 'Nachricht Speichern'
+    new:
+      new_news: 'Neue Nachricht'
+    show:
+      back: 'Zurück'
+      create_info_html: 'von %{author} am %{datetime}'
+      edit: 'Bearbeiten'

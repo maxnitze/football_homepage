@@ -1,0 +1,4 @@
+en:
+  models:
+    news:
+      mandatory: 'is mandatory!'

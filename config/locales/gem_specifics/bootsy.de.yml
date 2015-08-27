@@ -1,0 +1,30 @@
+de:
+  bootsy:
+    action:
+      refresh: 'Aktualisieren'
+      destroy: 'Löschen'
+      close: 'Schließen'
+      load: 'Laden'
+      or: 'oder'
+      upload: 'Neues Bild hochladen'
+      submit_upload: 'Los'
+      enter_image_url: 'Trage eine URL ein...'
+    image_gallery: 'Bildergallerie'
+    image:
+      s: 'Bild'
+      p: 'Bilder'
+      size: 'Größe'
+      large: 'Groß'
+      medium: 'Mittel'
+      small: 'Klein'
+      original: 'Original'
+      new: 'Neues Bild'
+      confirm:
+        destroy: 'Sind Sie sich sicher, dass Sie dieses Bild löschen wollen?'
+      position:
+        left: 'Links'
+        right: 'Rechts'
+        inline: 'Inline'
+    no_images_uploaded: 'Es gibt aktuell keine hochgeladenen Bilder.'
+    js:
+      alert_unsaved: 'Sie haben ungespeicherte Änderungen.'

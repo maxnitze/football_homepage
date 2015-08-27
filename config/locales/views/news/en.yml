@@ -1,0 +1,24 @@
+en:
+  news:
+    edit:
+      edit: 'Edit'
+    edit_info_html: 'Edited %{count} times. Last at %{datetime} by %{author}'
+    form:
+      abstract: 'Abstract'
+      news: 'News'
+      subtitle: 'Subtitle'
+      title: 'Title'
+    index:
+      news: 'News'
+      new_news: 'New News'
+    nav:
+      create_news: 'Create News'
+      news_index: 'Back To Index'
+      show_news: 'Show News'
+      save_news: 'Save News'
+    new:
+      new_news: 'New News'
+    show:
+      back: 'Back'
+      create_info_html: 'by %{author} at %{datetime}'
+      edit: 'Edit'

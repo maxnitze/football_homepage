@@ -1,0 +1,14 @@
+de:
+  user_role_permissions:
+    can_create_news:
+      description: 'darf Nachrichten ertellen'
+    can_destroy_news:
+      description: 'darf Nachrichten löschen'
+    can_destroy_users:
+      description: 'darf Benutzer löschen'
+    can_update_bettinggame:
+      description: 'darf Tippspiel bearbeiten'
+    can_update_users:
+      description: 'darf Benutzer bearbeiten'
+    can_update_users:
+      description: 'darf Nachrichten bearbeiten'

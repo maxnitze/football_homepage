@@ -1,23 +1,20 @@
-%p#notice= notice
-
-%p
-  %b Surname:
-  = @player.surname
-%p
-  %b Givenname:
-  = @player.givenname
-%p
-  %b Birthday:
-  = @player.birthday
-%p
-  %b Picture:
-  = @player.picture
-%p
-  %b Positionid:
-  = @player.positionid
-%p
-  %b Legid:
-  = @player.legid
+%table
+  %tr
+    %td{ rowspan: 4, style: 'width: 40%' }
+      = image_tag @player.portrait.url(:medium)
+    %td{ style: 'width: 60%' }
+      = "#{@player.givenname} #{@player.surname}"
+  %tr
+    %td
+      = l @player.birthday, format: :date
+  %tr
+    %td
+      %b Position:
+      = @player.position
+  %tr
+    %td
+      %b Leg:
+      = @player.leg
 
 = link_to 'Edit', edit_player_path(@player)
 \|

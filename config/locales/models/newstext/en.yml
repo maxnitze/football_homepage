@@ -1,0 +1,4 @@
+en:
+  models:
+    newstext:
+      unique_per_lang: 'must be unique per language and news!'
