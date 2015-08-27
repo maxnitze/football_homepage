@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
     I18n.locale.to_s
   end
 
+  helper_method :default_locale
+  def default_locale
+    current_user ? current_user.locale : I18n.default_locale
+  end
+
   helper_method :lang_from_url?
   def lang_from_url?
     true
@@ -25,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options options = {}
-    (I18n.locale == I18n.default_locale ? { locale: nil } : { locale: I18n.locale }).merge options
+    (I18n.locale.to_s == default_locale ? { locale: nil } : { locale: I18n.locale }).merge options
   end
 
   def after_sign_in_path_for resource
@@ -68,7 +73,6 @@ class ApplicationController < ActionController::Base
     def set_locale
       I18n.locale = params[:locale] || current_user.locale || extract_locale_from_accept_language_header || I18n.default_locale
     end
-
 
     def extract_locale_from_accept_language_header
       request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first

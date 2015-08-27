@@ -42,14 +42,10 @@ gem 'omniauth' #, github: 'intridea/omniauth'
 gem 'omniauth-twitter' #, github: 'arunagw/omniauth-twitter'
 gem 'omniauth-facebook' #, github: 'mkdynamic/omniauth-facebook'
 gem 'omniauth-google-oauth2' #, github: 'zquestz/omniauth-google-oauth2'
-#gem 'cancan' #, github: 'ryanb/cancan'
-#gem 'role_model' #, github: 'martinrehfeld/role_model'
 
 # What-You-See-Is-What-You-Get Editor
 gem 'simple_form' #, github: 'plataformatec/simple_form'
 gem 'bootsy' #, github: 'volmer/bootsy'
-gem 'searchkick' #, github: 'ankane/searchkick'
-gem 'twitter-typeahead-rails'#, github: 'yourabi/twitter-typeahead-rails'
 
 # Pagination
 gem 'kaminari' #, github: 'amatsuda/kaminari'

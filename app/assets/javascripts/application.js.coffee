@@ -12,7 +12,6 @@
 
 #= require jquery
 #= require jquery_ujs
-#= require twitter/typeahead
 #= require bootsy
 #= require_directory ./bootsy/locales
 #= require bootstrap-sprockets

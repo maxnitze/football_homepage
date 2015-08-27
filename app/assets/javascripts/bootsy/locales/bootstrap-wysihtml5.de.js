@@ -42,22 +42,6 @@
             navy: "Marineblau",
             blue: "Blau",
             orange: "Orange"
-        },
-        user: {
-            insert: "Benutzer einfügen",
-            cancel: "Abbrechen"
-        },
-        player: {
-            insert: "Spieler einfügen",
-            cancel: "Abbrechen"
-        },
-        news: {
-            insert: "Nachricht einfügen",
-            cancel: "Abbrechen"
-        },
-        team: {
-            insert: "Mannschaft einfügen",
-            cancel: "Abbrechen"
         }
     };
 }(jQuery));

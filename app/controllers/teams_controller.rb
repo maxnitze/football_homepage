@@ -61,10 +61,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  def autocomplete
-    render json: Team.search(params[:query], autocomplete: true, limit: 10).map { |t| { id_name: "#{t.id}:#{t.name}" } }
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team

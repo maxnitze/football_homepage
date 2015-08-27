@@ -80,10 +80,6 @@ class NewsController < ApplicationController
     end
   end
 
-  def autocomplete
-    render json: Newstext.search(params[:query], autocomplete: true, limit: 10).map { |n| { id_title: "#{n.id}:#{n.title.truncate(15)}" } }
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_news

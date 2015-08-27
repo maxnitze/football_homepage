@@ -47,10 +47,5 @@ Rails.application.routes.draw do
     resources :players
     resources :referees
     resources :teams
-
-    match '/autocomplete/users', to: 'users#autocomplete', via: [:get]
-    match '/autocomplete/players', to: 'players#autocomplete', via: [:get]
-    match '/autocomplete/news', to: 'news#autocomplete', via: [:get]
-    match '/autocomplete/teams', to: 'teams#autocomplete', via: [:get]
   end
 end

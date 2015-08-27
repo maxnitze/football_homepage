@@ -2,7 +2,7 @@ en:
   news:
     edit:
       edit: 'Edit'
-    edit_info_html: 'Edited %{count} times. Last at %{datetime} by %{author}'
+    edit_info_html: 'Edited %{count} times. Last on %{datetime} by %{author}'
     form:
       abstract: 'Abstract'
       news: 'News'
@@ -20,5 +20,5 @@ en:
       new_news: 'New News'
     show:
       back: 'Back'
-      create_info_html: 'by %{author} at %{datetime}'
+      create_info_html: 'by %{author} on %{datetime}'
       edit: 'Edit'

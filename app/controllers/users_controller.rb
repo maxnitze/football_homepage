@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    # authorize! :read, @user
   end
 
   # GET /users/new
@@ -20,7 +19,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    # authorize! :update, @user
   end
 
   # POST /users
@@ -41,7 +39,6 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/:id.:format
   def update
-    # authorize! :update, @user
     respond_to do |format|
       if @user.update(user_params)
         sign_in(@user == current_user ? @user : current_user, :bypass => true)
@@ -56,7 +53,6 @@ class UsersController < ApplicationController
 
   # GET/PATCH /users/:id/finish_signup
   def finish_signup
-    # authorize! :update, @user 
     if request.patch? && params[:user] && params[:user][:email]
       if @user.update(user_params)
         @user.skip_reconfirmation!
@@ -70,7 +66,6 @@ class UsersController < ApplicationController
 
   # DELETE /users/:id.:format
   def destroy
-    # authorize! :delete, @user
     @user.destroy
     respond_to do |format|
       format.html { redirect_to root_url }
@@ -78,10 +73,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def autocomplete
-    render json: User.search(params[:query], autocomplete: true, limit: 10).map { |u| { id_name: "#{u.id}:#{u.name}" } }
-  end
-  
   private
     def set_user
       @user = User.find(params[:id])

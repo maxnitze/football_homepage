@@ -42,22 +42,6 @@
             navy: "Navy",
             blue: "Blue",
             orange: "Orange"
-        },
-        user: {
-            insert: "Insert user",
-            cancel: "Cancel"
-        },
-        player: {
-            insert: "Insert player",
-            cancel: "Cancel"
-        },
-        news: {
-            insert: "Insert news",
-            cancel: "Cancel"
-        },
-        team: {
-            insert: "Insert team",
-            cancel: "Cancel"
         }
     };
 }(jQuery));

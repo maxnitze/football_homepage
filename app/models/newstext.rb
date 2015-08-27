@@ -14,8 +14,6 @@
 #
 
 class Newstext < ActiveRecord::Base
-  searchkick autocomplete: ['title', 'subtitle', 'abstract', 'text']
-
   belongs_to :news
 
   validates :language, uniqueness: { scope: :news, message: I18n.t('models.newstext.unique_per_lang') }

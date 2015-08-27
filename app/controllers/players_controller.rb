@@ -61,10 +61,6 @@ class PlayersController < ApplicationController
     end
   end
 
-  def autocomplete
-    render json: Player.search(params[:query], autocomplete: true, limit: 10).map { |p| { id_name: "#{p.id}:#{p.givenname} #{p.surname}" } }
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_player

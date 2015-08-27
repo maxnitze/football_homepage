@@ -15,6 +15,6 @@ module ApplicationHelper
   end
 
   def add_lang_to_links text
-    text.gsub %r{/:lang}, (lang_from_url? && !current_lang.to_s.eql?(I18n.default_locale.to_s) ? "/#{current_lang}" : '')
+    text.gsub %r{/:lang}, (lang_from_url? && !current_lang.to_s.eql?(default_locale.to_s) ? "/#{current_lang}" : '')
   end
 end
