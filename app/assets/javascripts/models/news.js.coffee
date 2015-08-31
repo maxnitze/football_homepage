@@ -2,14 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-  $('.toggle_lang').attr 'href', '#'
-  return
-
 $ ->
+  $('.toggle_lang').attr 'href', '#'
   $('.toggle_lang').click (event) ->
     event.preventDefault()
-
     langs = $(this).data("langs").split(',')
     lang = $(this).data("lang")
 
@@ -20,3 +16,5 @@ $ ->
    	$('#newsform_' + lang).show();
 
    	return
+
+  return

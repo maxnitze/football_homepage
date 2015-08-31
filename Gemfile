@@ -45,7 +45,7 @@ gem 'omniauth-google-oauth2' #, github: 'zquestz/omniauth-google-oauth2'
 
 # What-You-See-Is-What-You-Get Editor
 gem 'simple_form' #, github: 'plataformatec/simple_form'
-gem 'bootsy' #, github: 'volmer/bootsy'
+gem 'bootsy', github: 'volmer/bootsy'
 
 # Pagination
 gem 'kaminari' #, github: 'amatsuda/kaminari'
@@ -53,6 +53,9 @@ gem 'bootstrap-kaminari-views' #, github: 'matenia/bootstrap-kaminari-views'
 
 # File-Uploads and attachments
 gem "paperclip" #, github: 'thoughtbot/paperclip'
+
+# HTML, XML, SAX, and Reader parser
+gem "nokogiri" #, github: 'sparklemotion/nokogiri'
 
 group :development, :test do
   # Puma Web Server

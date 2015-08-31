@@ -6,19 +6,14 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
-  helper_method :current_lang
+  helper_method :current_lang, :default_locale, :flash_message, :flash_now_message
+
   def current_lang
     I18n.locale.to_s
   end
 
-  helper_method :default_locale
   def default_locale
     current_user ? current_user.locale : I18n.default_locale
-  end
-
-  helper_method :lang_from_url?
-  def lang_from_url?
-    true
   end
 
   def ensure_signup_complete
@@ -47,7 +42,6 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) << [:surname, :givenname]
     end
 
-    helper_method :flash_message
     def flash_message type, text
       if !flash[type]
         flash[type] = []
@@ -58,7 +52,6 @@ class ApplicationController < ActionController::Base
       flash[type] << text
     end
 
-    helper_method :flash_now_message
     def flash_now_message type, text
       if !flash.now[type]
         flash.now[type] = []
@@ -71,7 +64,7 @@ class ApplicationController < ActionController::Base
 
   private
     def set_locale
-      I18n.locale = params[:locale] || current_user.locale || extract_locale_from_accept_language_header || I18n.default_locale
+      I18n.locale = params[:locale] || (current_user ? current_user.locale : nil) || extract_locale_from_accept_language_header || I18n.default_locale
     end
 
     def extract_locale_from_accept_language_header

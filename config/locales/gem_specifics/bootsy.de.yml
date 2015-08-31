@@ -1,7 +1,6 @@
 de:
   bootsy:
     action:
-      refresh: 'Aktualisieren'
       destroy: 'Löschen'
       close: 'Schließen'
       load: 'Laden'
@@ -25,6 +24,5 @@ de:
         left: 'Links'
         right: 'Rechts'
         inline: 'Inline'
-    no_images_uploaded: 'Es gibt aktuell keine hochgeladenen Bilder.'
     js:
       alert_unsaved: 'Sie haben ungespeicherte Änderungen.'

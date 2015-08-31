@@ -13,8 +13,8 @@
       = t '.create_info_html', author: (news_author @news.author), datetime: l(@news.created_at, format: :long)
   %hr
   -if !@newstext.abstract.blank?
-    %p.abstract= (add_lang_to_links @newstext.abstract).html_safe
-  %p.text= (add_lang_to_links @newstext.text).html_safe
+    %p.abstract= (handle_local_links @newstext.abstract).html_safe
+  %p.text= (handle_local_links @newstext.text).html_safe
 
   %hr
   %p.news-bottom
