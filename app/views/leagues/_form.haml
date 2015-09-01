@@ -1,16 +1,34 @@
 = simple_form_for @league do |f|
+  .field.form-group
+    = f.input :name, label: t('.name'), input_html: { class: 'form-control' }
   .field
-    = f.input :name
-  .field.datetimerange
-    = f.input :start, as: :date_picker, wrapper: :ranged_datetime
-    = f.input :end, as: :date_picker, wrapper: :ranged_datetime
-  .field
-    = f.input :class_id, collection: localized_football_classes_select.reverse, selected: (@league[:class_id] || STD_FOOTBALL_CLASS)
-  .field
-    = f.input :iscup
-  .field
-    = f.input :isfemale
-  .field
-    = f.input :noreferee
-  .actions
-    = f.button :submit
+    = f.label :start, t('.timeperiod')
+    .row.datetimerange
+      = f.input :start, label: false, as: :date_picker, wrapper: :ranged_datetime
+      = f.input :end, label: false, as: :date_picker, wrapper: :ranged_datetime
+  .field.form-group
+    = f.input :class_id, label: t('.class'), collection: localized_football_classes_select.reverse, selected: (@league[:class_id] || STD_FOOTBALL_CLASS), input_html: { class: 'form-control' }
+  .field.form-group
+    = f.check_box :iscup, input_html: { class: 'form-control' }
+    = f.label :iscup, t('.iscup')
+    %span.horisep20px
+    = f.check_box :isfemale, input_html: { class: 'form-control' }
+    = f.label :isfemale, t('.isfemale')
+    %span.horisep20px
+    = f.check_box :noreferee, input_html: { class: 'form-control' }
+    = f.label :noreferee, t('.noreferee')
+  %hr
+
+  %h3= t '.league_teams'  
+
+  .table-responsive
+    %table.table.table-hover.table-condensed
+      %tr
+        %th= t('teams.name')
+      - @league.teams.each do |team|
+        %tr
+          %td= team.name
+
+  %br
+
+  = render 'nav', action: :edit, f: f

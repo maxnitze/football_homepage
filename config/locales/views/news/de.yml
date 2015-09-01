@@ -2,6 +2,7 @@ de:
   news:
     edit:
       edit: 'Bearbeiten'
+      news: 'Nachrichten'
     edit_info_html: '%{count} mal editiert. Zuletzt am %{datetime} von %{author}'
     form:
       abstract: 'Zusammenfassung'
@@ -13,10 +14,10 @@ de:
       news: 'Nachrichten'
       new_news: 'Neue Nachricht'
     nav:
-      create_news: 'Nachricht Erstellen'
+      create_news: 'Nachricht erstellen'
       news_index: 'Zurück zur Übersicht'
-      show_news: 'Nachricht Anzeigen'
-      save_news: 'Nachricht Speichern'
+      save_news: 'Nachricht speichern'
+      show_news: 'Nachricht anzeigen'
     new:
       new_news: 'Neue Nachricht'
     show:

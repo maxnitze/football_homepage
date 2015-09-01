@@ -1,2 +1,18 @@
 de:
   leagues:
+    edit:
+      edit: 'Bearbeiten'
+      leagues: 'Ligen'
+    form:
+      class: 'Spielklasse'
+      iscup: 'Ist ein Pokal?'
+      isfemale: 'Ist eine Frauenliga?'
+      league_teams: 'Mannschaften der Liga'
+      name: 'Name'
+      noreferee: 'Ist kein Schiedsrichter gefordert?'
+      timeperiod: 'Zeitraum'
+    nav:
+      create_league: 'Liga erstellen'
+      league_index: 'Zurück zur Übersicht'
+      save_league: 'Liga speichern'
+      show_league: 'Liga anzeigen'

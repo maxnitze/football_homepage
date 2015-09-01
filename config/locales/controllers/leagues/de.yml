@@ -1,2 +1,12 @@
 de:
   leagues:
+    flash:
+      create:
+        permission_failure: 'Sie sind nicht berechtigt neue Ligen zu erstellen.'
+        success: 'Neue Liga erfolgreich erstellt.'
+      destroy:
+        permission_failure: 'Sie sind nicht berechtigt diese Nachricht zu löschen.'
+        success: 'Nachricht erfolgreich gelöscht.'
+      update:
+        permission_failure: 'Sie sind nicht berechtigt diese Liga zu bearbeiten.'
+        success: 'Liga erfolgreich bearbeitet.'

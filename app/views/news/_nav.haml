@@ -4,7 +4,7 @@
     = link_to t('.news_index'), news_index_path, class: 'btn btn-default', role: 'button'
     -if action.eql? :edit
       = link_to t('.show_news'), @news, class: 'btn btn-default', role: 'button'
-      = link_to t('.save_news'), '#', class: 'btn btn-default', role: 'button',onclick: "event.preventDefault(); $(edit_news_#{@news.id}).submit();"
+      = f.submit t('.save_news'), class: 'btn btn-default'
     -else
       = link_to t('.create_news'), '#', class: 'btn btn-default', role: 'button',onclick: "event.preventDefault(); $(new_news).submit();"
   -if action.eql? :edit and @news.edit_count > 0

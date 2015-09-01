@@ -2,6 +2,7 @@ en:
   news:
     edit:
       edit: 'Edit'
+      news: 'News'
     edit_info_html: 'Edited %{count} times. Last on %{datetime} by %{author}'
     form:
       abstract: 'Abstract'
@@ -13,10 +14,10 @@ en:
       news: 'News'
       new_news: 'New News'
     nav:
-      create_news: 'Create News'
-      news_index: 'Back To Index'
-      show_news: 'Show News'
-      save_news: 'Save News'
+      create_news: 'Create news'
+      news_index: 'Back To index'
+      save_news: 'Save news'
+      show_news: 'Show news'
     new:
       new_news: 'New News'
     show:

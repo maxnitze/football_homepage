@@ -1,0 +1,9 @@
+%hr
+%p.league-bottom
+  %span.nav.btn-group.btn-group-xs
+    = link_to t('.league_index'), leagues_path, class: 'btn btn-default', role: 'button'
+    -if action.eql? :edit
+      = link_to t('.show_league'), @league, class: 'btn btn-default', role: 'button'
+      = f.submit t('.save_league'), class: 'btn btn-default'
+    -else
+      = link_to t('.create_league'), '#', class: 'btn btn-default', role: 'button', onclick: "event.preventDefault(); $(new_league).submit();"

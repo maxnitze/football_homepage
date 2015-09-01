@@ -35,7 +35,7 @@ class NewsController < ApplicationController
         I18n.available_locales.each do |lang|
           newstext = Newstext.new((newstext_params lang).merge(news: @news, lang: lang))
           if !newstext.save
-            flash_message :alert, t('newstext.flash.create.failed', lang: t("lang.#{lang}"))
+            flash_message :alert, t('newstext.flash.create.failed')
           end
         end
 
@@ -51,7 +51,6 @@ class NewsController < ApplicationController
   # PATCH/PUT /news/1
   # PATCH/PUT /news/1.json
   def update
-    puts "asdasd123 #{@news.tag_list}"
     respond_to do |format|
       if @news.update(news_params.merge(editor: current_user, edit_count: (@news.edit_count + 1)))
         I18n.available_locales.each do |lang|

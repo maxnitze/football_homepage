@@ -1,3 +1,5 @@
+TITLE_TRUNC = 25
+
 OMNIAUTH_PROVIDERS = { twitter: 'Twitter', google_oauth2: 'Google', facebook: 'Facebook' }
 
 FOOTBALL_CLASSES = [

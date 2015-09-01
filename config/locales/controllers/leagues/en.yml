@@ -1,2 +1,12 @@
 en:
   leagues:
+    flash:
+      create:
+        permission_failure: 'You are not allowed to create new leagues.'
+        success: 'League was successfully created.'
+      destroy:
+        permission_failure: 'You are not allowed to destroy this league.'
+        success: 'League was successfully destroyed.'
+      update:
+        permission_failure: 'You are not allowed to update this league.'
+        success: 'League was successfully updated.'

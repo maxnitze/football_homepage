@@ -31,7 +31,7 @@ class LeaguesController < ApplicationController
 
     respond_to do |format|
       if @league.save
-        format.html { redirect_to @league, notice: 'League was successfully created.' }
+        format.html { redirect_to @league, notice: t('leagues.flash.create.success') }
         format.json { render :show, status: :created, location: @league }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class LeaguesController < ApplicationController
   def update
     respond_to do |format|
       if @league.update(league_params)
-        format.html { redirect_to @league, notice: 'League was successfully updated.' }
+        format.html { redirect_to @league, notice: t('leagues.flash.update.success') }
         format.json { render :show, status: :ok, location: @league }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class LeaguesController < ApplicationController
   def destroy
     @league.destroy
     respond_to do |format|
-      format.html { redirect_to leagues_url, notice: 'League was successfully destroyed.' }
+      format.html { redirect_to leagues_url, notice: t('leagues.flash.destroy.success') }
       format.json { head :no_content }
     end
   end

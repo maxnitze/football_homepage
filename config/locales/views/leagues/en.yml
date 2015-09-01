@@ -1,2 +1,18 @@
 en:
   leagues:
+    edit:
+      edit: 'Edit'
+      leagues: 'Leagues'
+    form:
+      class: 'Leagueclass'
+      iscup: 'Is Cup?'
+      isfemale: 'Is female league?'
+      league_teams: 'Teams of the league'
+      name: 'Name'
+      noreferee: 'No Referee demanded?'
+      timeperiod: 'Period of time'
+    nav:
+      create_league: 'Create league'
+      league_index: 'Back to index'
+      save_league: 'Save league'
+      show_league: 'Show league'
