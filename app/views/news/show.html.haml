@@ -1,27 +1,30 @@
--provide(:title, @newstext.title.truncate(15))
+-provide(:title, "#{@newstext.title.truncate(25)} | #{t('.news')}")
 -flash_now_message :notice, t('news.flash.show.language') unless @news.is_available_in_current_lang
 
 .news
-  %p.news-top
-    -if @newstext.subtitle?
-      %span.title= "#{@newstext.title}:"
-      %span.subtitle= @newstext.subtitle
-    -else
-      %span.title= @newstext.title
-    %br
-    %span.author
-      = t '.create_info_html', author: (news_author @news.author), datetime: l(@news.created_at, format: :long)
-  %hr
-  -if !@newstext.abstract.blank?
-    %p.abstract= (handle_local_links @newstext.abstract).html_safe
-  %p.text= (handle_local_links @newstext.text).html_safe
+  .news-show
+    %p.news-top
+      -if @newstext.subtitle?
+        %span.title= "#{@newstext.title}:"
+        %span.subtitle= @newstext.subtitle
+      -else
+        %span.title= @newstext.title
+      %br
+      %span.author
+        = t '.create_info_html', author: (news_author @news.author), datetime: l(@news.created_at, format: :long)
+    %hr
+    -if !@newstext.abstract.blank?
+      %p.abstract= (handle_local_links @newstext.abstract).html_safe
+    %p.text= (handle_local_links @newstext.text).html_safe
 
-  %hr
-  %p.news-bottom
-    %span.nav.btn-group.btn-group-xs
-      = link_to t('.back'), news_index_path, class: 'btn btn-default', role: 'button'
-      -if permitted_to_edit? @news
-        = link_to t('.edit'), edit_news_path(@news), class: 'btn btn-default', role: 'button'
-    -if @news.edit_count > 0
-      %span.edit-info
-        = t 'news.edit_info_html', count: @news.edit_count, author: (news_author @news.editor), datetime: l(@news.updated_at, format: :long)
+    %p= render 'tags/tags', tags: @news.tag_list
+
+    %hr
+    %p.news-bottom
+      %span.nav.btn-group.btn-group-xs
+        = link_to t('.back'), news_index_path, class: 'btn btn-default', role: 'button'
+        -if permitted_to_edit? @news
+          = link_to t('.edit'), edit_news_path(@news), class: 'btn btn-default', role: 'button'
+      -if @news.edit_count > 0
+        %span.edit-info
+          = t 'news.edit_info_html', count: @news.edit_count, author: (news_author @news.editor), datetime: l(@news.updated_at, format: :long)

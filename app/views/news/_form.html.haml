@@ -14,3 +14,5 @@
       %br
       .field
         = f.input :text, as: :bootsy, label: t('.news'), input_html: { id: "text_#{l}", name: "newstext[text_#{l}]", value: newstext.text, style: 'width: 100%; height: 400px;' }
+  .field
+    = f.input :tag_list, label: t('.tag_list'), input_html: { value: @news.tag_list.join(', '), style: 'width: 100%;' }

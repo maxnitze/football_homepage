@@ -1,0 +1,9 @@
+%span.tags= "#{t '.tags'}:"
+%span.tags
+  - if tags.length == 0
+    = '-'
+  - else
+    - tags.each_with_index do |tag, i|
+      - if i != 0
+        = ' '
+      %span= link_to tag, controller: 'tags', action: 'show', tag: tag

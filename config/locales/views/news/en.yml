@@ -8,6 +8,7 @@ en:
       news: 'News'
       subtitle: 'Subtitle'
       title: 'Title'
+      tag_list: 'Comma-separated list of tags'
     index:
       news: 'News'
       new_news: 'New News'
@@ -22,3 +23,7 @@ en:
       back: 'Back'
       create_info_html: 'by %{author} on %{datetime}'
       edit: 'Edit'
+      news: 'News'
+    tags:
+      no_news:
+        no_news: 'No news available'

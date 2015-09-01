@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tags/show'
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
   devise_for :users,
@@ -38,12 +40,13 @@ Rails.application.routes.draw do
     resources :user_roles
     resources :user_role_permissions
 
+    resources :news
+    match '/tags/:tag', to: 'tags#show', via: [:get]
+
     resources :clubs
     resources :coaches
     resources :leagues
     resources :matches
-    resources :news
-    match '/news/:id/edit/:lang', to: 'news#edit', via: [:get, :patch], as: :edit
     resources :players
     resources :referees
     resources :teams

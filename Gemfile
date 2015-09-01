@@ -57,6 +57,9 @@ gem "paperclip" #, github: 'thoughtbot/paperclip'
 # HTML, XML, SAX, and Reader parser
 gem "nokogiri" #, github: 'sparklemotion/nokogiri'
 
+# Tagging arbitrary objects
+gem 'acts-as-taggable-on'
+
 group :development, :test do
   # Puma Web Server
   gem 'puma' #, github: 'puma'

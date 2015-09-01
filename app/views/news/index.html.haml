@@ -1,20 +1,20 @@
--provide(:title, t('.news'))
+- provide(:title, t('.news'))
 
-.news-index
-  -if permitted_to_create_news?
-    %span.nav.btn-group.btn-group-xs
-      = link_to t('.new_news'), new_news_path, class: 'btn btn-default', role: 'button'
-    %hr
-
-  - @news.each_with_index do |news, i|
-    -if i != 0
+.news
+  .news-index
+    - if permitted_to_create_news?
+      %span.nav.btn-group.btn-group-xs
+        = link_to t('.new_news'), new_news_path, class: 'btn btn-default', role: 'button'
       %hr
-    -newstext=news.current_newstext
-    %p.title= link_to newstext.full_title, news
-    -if !newstext.abstract.blank?
-      %p.abstract= newstext.abstract.html_safe
-    -else
-      %p.abstract= newstext.text.truncate(250).html_safe
+
+    - if @news.empty?
+      = render 'no_news'
+    - else
+      - @news.each_with_index do |news, i|
+        - if i != 0
+          %hr
+        = render 'news_index', news: news
+        = render 'tags/tags', tags: news.tag_list
 
 %br
 

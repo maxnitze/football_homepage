@@ -1,0 +1,17 @@
+- provide(:title, "#{@tag} | #{t('.title')}")
+
+.news
+  .news-index
+    %h3= t '.news', tag: @tag
+    - if @news.empty?
+      = render 'news/no_news'
+    - else
+      - @news.each_with_index do |news, i|
+        - if i != 0
+          %hr
+        = render 'news/news_index', news: news
+        = render 'tags', tags: news.tag_list
+
+%br
+
+= paginate @news, left: 3, right: 3, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm custom-pagination'

@@ -19,6 +19,8 @@ class News < ActiveRecord::Base
 
   default_scope { order(created_at: :desc) }
 
+  acts_as_taggable
+
   def is_available_in_current_lang
     newstexts.select{|nt| nt.language == I18n.locale.to_s}.any?
   end

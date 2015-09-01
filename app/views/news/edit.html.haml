@@ -1,10 +1,11 @@
 -provide(:title, "#{t('.edit')} - #{@news.current_newstext.title.truncate(15)}")
 
-.news-form
-  = render 'lang'
+.news
+  .news-form
+    = render 'lang'
 
-  = render 'form'
+    = render 'form'
 
-  %br
+    %br
 
-  = render 'nav', action: :edit
+    = render 'nav', action: :edit

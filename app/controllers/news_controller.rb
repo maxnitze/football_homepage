@@ -51,8 +51,9 @@ class NewsController < ApplicationController
   # PATCH/PUT /news/1
   # PATCH/PUT /news/1.json
   def update
+    puts "asdasd123 #{@news.tag_list}"
     respond_to do |format|
-      if @news.update(editor: current_user, edit_count: (@news.edit_count + 1))
+      if @news.update(news_params.merge(editor: current_user, edit_count: (@news.edit_count + 1)))
         I18n.available_locales.each do |lang|
           newstext = Newstext.find_or_create_by(news: @news, language: lang)
           newstext.assign_attributes(remove_lang_suffix (newstext_params lang), lang)
@@ -92,7 +93,7 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:bootsy_image_gallery_id)
+      params.require(:news).permit(:bootsy_image_gallery_id, :tag_list)
     end
 
     def newstext_params lang

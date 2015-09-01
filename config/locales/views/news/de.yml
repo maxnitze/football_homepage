@@ -8,6 +8,7 @@ de:
       news: 'Nachricht'
       subtitle: 'Untertitel'
       title: 'Titel'
+      tag_list: 'Kommata-separierte Liste von Tags'
     index:
       news: 'Nachrichten'
       new_news: 'Neue Nachricht'
@@ -22,3 +23,7 @@ de:
       back: 'Zurück'
       create_info_html: 'von %{author} am %{datetime}'
       edit: 'Bearbeiten'
+      news: 'Nachrichten'
+    tags:
+      no_news:
+        no_news: 'Keine Nachrichten vorhanden'

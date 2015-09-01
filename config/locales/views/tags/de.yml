@@ -1,0 +1,7 @@
+de:
+  tags:
+    show:
+      news: 'Nachrichten mit Tag "%{tag}"'
+      title: 'Tags'
+    tags:
+      tags: 'Tags'

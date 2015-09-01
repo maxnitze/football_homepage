@@ -1,0 +1,6 @@
+- newstext = news.current_newstext
+%p.title= link_to newstext.full_title, news
+- if !newstext.abstract.blank?
+  %p.abstract= newstext.abstract.html_safe
+- else
+  %p.abstract= newstext.text.truncate(250).html_safe
