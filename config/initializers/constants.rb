@@ -19,3 +19,5 @@ FOOTBALL_CLASSES = [
   [15, 'misc.football_classes.veterans40'],
   [16, 'misc.football_classes.veterans50'],
 ]
+
+STD_FOOTBALL_CLASS = 13

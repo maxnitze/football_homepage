@@ -15,6 +15,10 @@
 #= require bootsy
 #= require_directory ./bootsy/locales
 #= require bootstrap-sprockets
+#= require moment
+#= require bootstrap-datetimepicker
+#= require pickers
+#= require moment/de
 #= require turbolinks
 #= require_self
 #= require_directory ./misc

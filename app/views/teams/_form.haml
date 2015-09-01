@@ -15,6 +15,6 @@
   .field
     = f.input :isfemale
   .field
-    = f.input :class_id, collection: localized_football_classes.reverse, selected: @team[:class_id]
+    = f.input :class_id, collection: localized_football_classes_select.reverse, selected: @team[:class_id]
   .actions
     = f.button :submit

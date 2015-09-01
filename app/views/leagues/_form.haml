@@ -1,31 +1,16 @@
-= form_for @league do |f|
-  - if @league.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@league.errors.count, "error")} prohibited this league from being saved:"
-      %ul
-        - @league.errors.full_messages.each do |msg|
-          %li= msg
-
+= simple_form_for @league do |f|
   .field
-    = f.label :name
-    = f.text_field :name
+    = f.input :name
+  .field.datetimerange
+    = f.input :start, as: :date_picker, wrapper: :ranged_datetime
+    = f.input :end, as: :date_picker, wrapper: :ranged_datetime
   .field
-    = f.label :start
-    = f.datetime_select :start
+    = f.input :class_id, collection: localized_football_classes_select.reverse, selected: (@league[:class_id] || STD_FOOTBALL_CLASS)
   .field
-    = f.label :end
-    = f.datetime_select :end
+    = f.input :iscup
   .field
-    = f.label :class_id
-    = f.number_field :class_id
+    = f.input :isfemale
   .field
-    = f.label :iscup
-    = f.check_box :iscup
-  .field
-    = f.label :isfemale
-    = f.check_box :isfemale
-  .field
-    = f.label :noreferee
-    = f.check_box :noreferee
+    = f.input :noreferee
   .actions
-    = f.submit 'Save'
+    = f.button :submit

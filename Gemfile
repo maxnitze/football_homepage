@@ -60,6 +60,10 @@ gem "nokogiri" #, github: 'sparklemotion/nokogiri'
 # Tagging arbitrary objects
 gem 'acts-as-taggable-on' #, github: 'mbleigh/acts-as-taggable-on'
 
+# datetimepicker for bootstrap3
+gem 'momentjs-rails' #,github: 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+
 group :development, :test do
   # Puma Web Server
   gem 'puma' #, github: 'puma'

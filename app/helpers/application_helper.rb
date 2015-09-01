@@ -29,6 +29,10 @@ module ApplicationHelper
   end
 
   def localized_football_classes
+    FOOTBALL_CLASSES.map { |_,c| t c }
+  end
+
+  def localized_football_classes_select
     FOOTBALL_CLASSES.map { |i,c| [t(c), i] }
   end
 
