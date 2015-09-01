@@ -58,7 +58,7 @@ gem "paperclip" #, github: 'thoughtbot/paperclip'
 gem "nokogiri" #, github: 'sparklemotion/nokogiri'
 
 # Tagging arbitrary objects
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on' #, github: 'mbleigh/acts-as-taggable-on'
 
 group :development, :test do
   # Puma Web Server
