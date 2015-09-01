@@ -1,4 +1,4 @@
-= form_for @team do |f|
+= simple_form_for @team do |f|
   - if @team.errors.any?
     #error_explanation
       %h2= "#{pluralize(@team.errors.count, "error")} prohibited this team from being saved:"
@@ -7,19 +7,14 @@
           %li= msg
 
   .field
-    = f.label :name
-    = f.text_field :name
+    = f.input :name
   .field
-    = f.label :ishometeam
-    = f.check_box :ishometeam
+    = f.input :ishometeam
   .field
-    = f.label :hometeamname
-    = f.text_field :hometeamname
+    = f.input :hometeamname
   .field
-    = f.label :isfemale
-    = f.check_box :isfemale
+    = f.input :isfemale
   .field
-    = f.label :class_id
-    = f.number_field :class_id
+    = f.input :class_id, collection: localized_football_classes.reverse, selected: @team[:class_id]
   .actions
-    = f.submit 'Save'
+    = f.button :submit

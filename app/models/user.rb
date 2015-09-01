@@ -105,7 +105,7 @@ class User < ActiveRecord::Base
 
   def has_user_role_permission? user_role_permission
     user_roles.any? do |role|
-      role.symbol.eql? :admin or role.user_role_permissions.any? do |role_permission|
+      role.symbol.eql? :admin.to_s or role.user_role_permissions.any? do |role_permission|
         role_permission.symbol.eql? user_role_permission.to_s
       end
     end

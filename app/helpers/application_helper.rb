@@ -28,6 +28,10 @@ module ApplicationHelper
     text
   end
 
+  def localized_football_classes
+    FOOTBALL_CLASSES.map { |i,c| [t(c), i] }
+  end
+
   private
     def is_local_link url
       url && (url.index(request.host_with_port) || url.start_with?("/"))

@@ -1,0 +1,20 @@
+en:
+  misc:
+    football_classes:
+      youth_g: 'Youth G'
+      youth_f08: 'Youth F under 8'
+      youth_f09: 'Youth F under 9'
+      youth_e10: 'Youth E under 10'
+      youth_e11: 'Youth E under 11'
+      youth_d12: 'Youth D under 12'
+      youth_d13: 'Youth D under 13'
+      youth_c14: 'Youth C under 14'
+      youth_c15: 'Youth C under 15'
+      youth_b16: 'Youth B under 16'
+      youth_b17: 'Youth B under 17'
+      youth_a18: 'Youth A under 18'
+      youth_a19: 'Youth A under 19'
+      seniors: 'Seniors'
+      veterans32: 'Veterans over 32'
+      veterans40: 'Veterans over 40'
+      veterans50: 'Veterans over 50'

@@ -1,0 +1,20 @@
+de:
+  misc:
+    football_classes:
+      youth_g: 'G-Junioren'
+      youth_f08: 'F-Junioren U8'
+      youth_f09: 'F-Junioren U9'
+      youth_e10: 'E-Junioren U10'
+      youth_e11: 'E-Junioren U11'
+      youth_d12: 'D-Junioren U12'
+      youth_d13: 'D-Junioren U13'
+      youth_c14: 'C-Junioren U14'
+      youth_c15: 'C-Junioren U15'
+      youth_b16: 'B-Junioren U16'
+      youth_b17: 'B-Junioren U17'
+      youth_a18: 'A-Junioren U18'
+      youth_a19: 'A-Junioren U19'
+      seniors: 'Senioren'
+      veterans32: 'Altsenioren Ü32'
+      veterans40: 'Altsenioren Ü40'
+      veterans50: 'Altsenioren Ü50'

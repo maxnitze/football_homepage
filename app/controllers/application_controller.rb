@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
-  helper_method :current_lang, :default_locale, :flash_message, :flash_now_message
+  helper_method :current_lang, :default_locale, :flash_message, :flash_now_message, :current_user_has_permission?
 
   def current_lang
     I18n.locale.to_s
@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
 
   def default_locale
     current_user ? current_user.locale : I18n.default_locale
+  end
+
+  def current_user_has_permission? permission
+    current_user and current_user.has_user_role_permission? permission
   end
 
   def ensure_signup_complete

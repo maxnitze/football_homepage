@@ -1,5 +1,8 @@
 class LeaguesController < ApplicationController
   before_action :set_league, only: [:show, :edit, :update, :destroy]
+  before_action :check_create_permission, only: [:new, :create]
+  before_action :check_update_permission, only: [:edit, :update]
+  before_action :check_destroy_permission, only: [:destroy]
 
   # GET /leagues
   # GET /leagues.json
@@ -70,5 +73,23 @@ class LeaguesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def league_params
       params.require(:league).permit(:name, :start, :end, :class_id, :iscup, :isfemale, :noreferee)
+    end
+
+    def check_create_permission
+      if !(current_user_has_permission? :can_create_league)
+        redirect_to league_index_path, flash: { danger: t('leagues.flash.create.permission_failure') }
+      end
+    end
+
+    def check_update_permission
+      if !(current_user_has_permission? :can_update_league)
+        redirect_to @league, flash: { danger: t('leagues.flash.update.permission_failure') }
+      end
+    end
+
+    def check_destroy_permission
+      if !(current_user_has_permission? :can_destroy_league)
+        redirect_to @league, flash: { danger: t('leagues.flash.destroy.permission_failure') }
+      end
     end
 end
