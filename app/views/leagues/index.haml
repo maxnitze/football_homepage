@@ -1,31 +1,29 @@
-%h1 Listing leagues
+- provide(:title, "#{t('leagues.title.leagues')}")
 
-%table
-  %tr
-    %th Name
-    %th Start
-    %th End
-    %th Class
-    %th Iscup
-    %th Isfemale
-    %th Noreferee
-    %th
-    %th
-    %th
+.leagues
+  .leagues-form
+    .table-responsive
+      %table.table.table-hover
+        - cur_years = nil
+        - @leagues.each do |league|
+          - if cur_years.nil? || !cur_years.eql?(year(league))
+            - cur_years = year(league)
+            %tr
+              %th{colspan: 5}
+                = cur_years
+          %tr
+            %td.row-league-name= link_to title(league), league
+            %td.row-league-class= localized_football_classes[league.class_id]
+            %td.row-league-show
+              = link_to league do
+                %span.glyphicon.glyphicon-expand
+            %td.row-league-edit
+              = link_to edit_league_path(league) do
+                %span.glyphicon.glyphicon-edit
+            %td.row-league-remove
+              = link_to league, :method => :delete, :data => { confirm: t('.confirm') } do
+                %span.glyphicon.glyphicon-remove
 
-  - @leagues.each do |league|
-    %tr
-      %td= league.name
-      %td= league.start
-      %td= league.end
-      %td= league.class_id
-      %td= league.iscup
-      %td= league.isfemale
-      %td= league.noreferee
-      %td= link_to 'Show', league
-      %td= link_to 'Edit', edit_league_path(league)
-      %td= link_to 'Destroy', league, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %br
 
-%br
-
-= link_to 'New League', new_league_path
+    = render 'nav', action: :index

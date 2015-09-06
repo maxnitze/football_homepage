@@ -8,5 +8,5 @@ en:
         permission_failure: 'You are not allowed to destroy this league.'
         success: 'League was successfully destroyed.'
       update:
-        permission_failure: 'You are not allowed to update this league.'
+        permission_failure: 'You are not allowed to edit this league.'
         success: 'League was successfully updated.'

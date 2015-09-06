@@ -53,7 +53,7 @@
                           = link_to image_tag("login/#{symbol}.png", size: '25x25'), localized_omniauth_path(symbol)
     .header-image
       %img{src: '/assets/field_aerial.jpg', alt: t('.field_aerial'), width: '100%'}
-      = render 'layouts/flash'
+      .alert-block= render 'layouts/flash'
     .navbar-header
       %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-2", "data-toggle" => "collapse", type: "button"}
         %span.sr-only Toggle navigation

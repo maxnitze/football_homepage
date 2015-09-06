@@ -24,3 +24,8 @@
 #= require_directory ./misc
 #= require_directory ./static_pages
 #= require_directory ./models
+
+@submit_form = (event, form) ->
+  event.preventDefault()
+  $('#' + form).submit()
+  return

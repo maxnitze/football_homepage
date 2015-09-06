@@ -39,7 +39,7 @@ class NewsController < ApplicationController
           end
         end
 
-        format.html { redirect_to @news, notice: t('news.flash.create.success') }
+        format.html { redirect_to @news, notice: [t('news.flash.create.success')] }
         format.json { render :show, status: :created, location: @news }
       else
         format.html { render :new }
@@ -61,7 +61,7 @@ class NewsController < ApplicationController
           end
         end
 
-        format.html { redirect_to @news, notice: t('news.flash.update.success') }
+        format.html { redirect_to @news, notice: [t('news.flash.update.success')] }
         format.json { render :show, status: :ok, location: @news }
       else
         format.html { render :edit }
@@ -75,7 +75,7 @@ class NewsController < ApplicationController
   def destroy
     @news.destroy
     respond_to do |format|
-      format.html { redirect_to news_index_url, notice: t('news.flash.destroy.success') }
+      format.html { redirect_to news_index_url, notice: [t('news.flash.destroy.success')] }
       format.json { head :no_content }
     end
   end
@@ -107,7 +107,7 @@ class NewsController < ApplicationController
 
     def check_create_permission
       if !(current_user and current_user.has_user_role_permission? :can_create_news)
-        redirect_to news_index_path, flash: { danger: t('news.flash.create.permission_failure') }
+        redirect_to news_index_path, flash: { danger: [t('news.flash.create.permission_failure')] }
       end
     end
 
@@ -115,13 +115,13 @@ class NewsController < ApplicationController
       if !(current_user and (
           current_user.eql? @news.author or
           current_user.has_user_role_permission? :can_update_news))
-        redirect_to @news, flash: { danger: t('news.flash.update.permission_failure') }
+        redirect_to @news, flash: { danger: [t('news.flash.update.permission_failure')] }
       end
     end
 
     def check_destroy_permission
       if !(current_user and current_user.has_user_role_permission? :can_destroy_news)
-        redirect_to @news, flash: { danger: t('news.flash.destroy.permission_failure') }
+        redirect_to @news, flash: { danger: [t('news.flash.destroy.permission_failure')] }
       end
     end
 end

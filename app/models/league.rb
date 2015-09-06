@@ -15,8 +15,10 @@
 #
 
 class League < ActiveRecord::Base
-  has_many :league_teams
+  has_many :league_teams, dependent: :destroy
   has_many :teams, through: :league_teams
-  has_many :league_team_players
+  has_many :league_team_players, dependent: :destroy
   has_many :players, through: :league_team_players
+
+  default_scope { order(start: :desc, end: :desc, class_id: :desc, name: :asc) }
 end

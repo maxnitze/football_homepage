@@ -1,17 +1,21 @@
 -flash.each do |type, texts|
-  -if !texts.kind_of?(Array)
-    -texts = [texts]
-  -if type.eql?(:danger) || type.eql?('danger')
-    .alert.alert-danger.alert-dismissable
-  -elsif type.eql?(:warning) || type.eql?('warning')
-    .alert.alert-warning.alert-dismissable
-  -elsif type.eql?(:info) || type.eql?('warning')
-    .alert.alert-info.alert-dismissable
-  -elsif type.eql?(:success) || type.eql?('success') || type.eql?(:notice) || type.eql?('notice')
-    .alert.alert-success.alert-dismissable
+  - if !texts.kind_of?(Array)
+    - texts = [texts]
 
-      -texts.each_with_index do |t, i|
-        -if i != 0
-          %br
-        =t.html_safe
-      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} &times;
+  - if type.eql?(:error) || type.eql?('error') || type.eql?(:danger) || type.eql?('danger')
+    - type_class = 'alert-danger'
+  - elsif type.eql?(:warning) || type.eql?('warning')
+    - type_class = 'alert-warning'
+  - elsif type.eql?(:info) || type.eql?('info')
+    - type_class = 'alert-info'
+  - elsif type.eql?(:success) || type.eql?('success') || type.eql?(:notice) || type.eql?('notice')
+    - type_class = 'alert-success'
+  - else
+    - type_class = ''
+
+  .alert.alert-dismissable{class: type_class, role: 'alert'}
+    - texts.each_with_index do |t, i|
+      - if i != 0
+        %br
+      = t.html_safe
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} &times;

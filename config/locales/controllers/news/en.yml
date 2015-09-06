@@ -2,19 +2,19 @@ en:
   news:
     flash:
       create:
-        permission_failure: 'You are not allowed to create new news.' 
+        permission_failure: 'You are not allowed to create new news.'
         success: 'Successfully created new news.'
       destroy:
         permission_failure: 'You are not allowed to destroy this news.'
         success: 'Successfully destroyed news.'
       show:
-        language: 'This message does not exist in your language.'
+        language: 'This news does not exist in your language.'
       update:
-        permission_failure: 'You are not allowed to update this news.'
+        permission_failure: 'You are not allowed to edit this news.'
         success: 'Successfully updated news.'
   newstext:
     flash:
       create:
-        failed: 'Could not create the message for language "%{lang}".'
+        failed: 'Could not create the news for language "%{lang}".'
       update:
-        failed: 'Could not update the message for language "%{lang}".'
+        failed: 'Could not update the news for language "%{lang}".'

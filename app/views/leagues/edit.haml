@@ -1,5 +1,5 @@
-- provide(:title, "#{t('.edit')} | #{@league.name.truncate(TITLE_TRUNC)} | #{t('.leagues')}")
+- provide(:title, "#{t('leagues.title.edit')} | #{full_title(@league)} | #{t('leagues.title.leagues')}")
 
 .leagues
   .leagues-form
-    = render 'form'
+    = render 'form', action: :edit

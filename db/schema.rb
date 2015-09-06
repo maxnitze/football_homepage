@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901110614) do
+ActiveRecord::Schema.define(version: 20150904004756) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
@@ -80,9 +80,8 @@ ActiveRecord::Schema.define(version: 20150901110614) do
   create_table "league_teams", force: :cascade do |t|
     t.integer  "league_id"
     t.integer  "team_id"
-    t.string   "picture"
     t.string   "picturecaption"
-    t.integer  "squadleague_id"
+    t.integer  "squadleagueteam_id"
     t.boolean  "unsubscribed"
     t.integer  "wincount"
     t.integer  "losecount"
@@ -91,6 +90,10 @@ ActiveRecord::Schema.define(version: 20150901110614) do
     t.integer  "goalsgot"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "leagues", force: :cascade do |t|
@@ -173,7 +176,6 @@ ActiveRecord::Schema.define(version: 20150901110614) do
     t.string   "surname"
     t.string   "givenname"
     t.datetime "birthday"
-    t.string   "picture"
     t.integer  "position"
     t.integer  "leg"
     t.datetime "created_at"
@@ -220,10 +222,6 @@ ActiveRecord::Schema.define(version: 20150901110614) do
     t.integer  "class_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
   end
 
   create_table "user_role_permissions", force: :cascade do |t|

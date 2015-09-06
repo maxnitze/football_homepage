@@ -1,18 +1,26 @@
 de:
   leagues:
-    edit:
-      edit: 'Bearbeiten'
-      leagues: 'Ligen'
     form:
+      add_league_team: 'Mannschaft hinzufügen'
+      add_league_team_btn: 'Hinzufügen'
       class: 'Spielklasse'
       iscup: 'Ist ein Pokal?'
       isfemale: 'Ist eine Frauenliga?'
       league_teams: 'Mannschaften der Liga'
       name: 'Name'
+      no_team: 'Keine Mannschaft'
       noreferee: 'Ist kein Schiedsrichter gefordert?'
+      save_league: 'Liga speichern'
       timeperiod: 'Zeitraum'
+    index:
+      confirm: 'Sind Sie sicher?'
     nav:
       create_league: 'Liga erstellen'
       league_index: 'Zurück zur Übersicht'
+      new_league: 'Neue Liga'
       save_league: 'Liga speichern'
       show_league: 'Liga anzeigen'
+    title:
+      edit: 'Bearbeiten'
+      leagues: 'Ligen'
+      new: 'Neue Liga'

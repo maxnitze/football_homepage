@@ -9,6 +9,8 @@ $ ->
     langs = $(this).data("langs").split(',')
     lang = $(this).data("lang")
 
+    $(this).addClass 'active'
+
    	for l in langs
    	  if l != lang
    	    $('#newsform_' + l).hide();

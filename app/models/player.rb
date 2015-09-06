@@ -6,7 +6,6 @@
 #  surname               :string
 #  givenname             :string
 #  birthday              :datetime
-#  picture               :string
 #  position              :integer
 #  leg                   :integer
 #  created_at            :datetime

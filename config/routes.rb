@@ -46,9 +46,11 @@ Rails.application.routes.draw do
     resources :clubs
     resources :coaches
     resources :leagues
+    resources :league_teams
     resources :matches
     resources :players
     resources :referees
     resources :teams
+    match '/teams/:id/league/:lid', to: 'teams#show', via: [:get, :patch]
   end
 end

@@ -31,7 +31,7 @@ class LeaguesController < ApplicationController
 
     respond_to do |format|
       if @league.save
-        format.html { redirect_to @league, notice: t('leagues.flash.create.success') }
+        format.html { redirect_to @league, success: t('leagues.flash.create.success') }
         format.json { render :show, status: :created, location: @league }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class LeaguesController < ApplicationController
   def update
     respond_to do |format|
       if @league.update(league_params)
-        format.html { redirect_to @league, notice: t('leagues.flash.update.success') }
+        format.html { redirect_to @league, success: t('leagues.flash.update.success') }
         format.json { render :show, status: :ok, location: @league }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class LeaguesController < ApplicationController
   def destroy
     @league.destroy
     respond_to do |format|
-      format.html { redirect_to leagues_url, notice: t('leagues.flash.destroy.success') }
+      format.html { redirect_to leagues_path, success: t('leagues.flash.destroy.success') }
       format.json { head :no_content }
     end
   end
@@ -77,19 +77,19 @@ class LeaguesController < ApplicationController
 
     def check_create_permission
       if !(current_user_has_permission? :can_create_league)
-        redirect_to league_index_path, flash: { danger: t('leagues.flash.create.permission_failure') }
+        redirect_to leagues_path, error: t('leagues.flash.create.permission_failure')
       end
     end
 
     def check_update_permission
       if !(current_user_has_permission? :can_update_league)
-        redirect_to @league, flash: { danger: t('leagues.flash.update.permission_failure') }
+        redirect_to @league, error: t('leagues.flash.update.permission_failure')
       end
     end
 
     def check_destroy_permission
       if !(current_user_has_permission? :can_destroy_league)
-        redirect_to @league, flash: { danger: t('leagues.flash.destroy.permission_failure') }
+        redirect_to @league, error: t('leagues.flash.destroy.permission_failure')
       end
     end
 end

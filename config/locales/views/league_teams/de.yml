@@ -1,0 +1,11 @@
+de:
+  league_teams:
+    row:
+      edit: 'Bearbeiten'
+      confirm: 'Sind Sie sicher?'
+      inheritance: 'Vererbung'
+      name: 'Name'
+      no_inheritance: 'Keine Vererbung'
+      remove: 'Entfernen'
+      submit: 'Absenden'
+      unsubscribed: 'Abgemeldet'

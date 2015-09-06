@@ -1,18 +1,26 @@
 en:
   leagues:
-    edit:
-      edit: 'Edit'
-      leagues: 'Leagues'
     form:
-      class: 'Leagueclass'
-      iscup: 'Is Cup?'
+      add_league_team: 'Add team'
+      add_league_team_btn: 'Add'
+      class: 'Class of league'
+      iscup: 'Is cup?'
       isfemale: 'Is female league?'
       league_teams: 'Teams of the league'
       name: 'Name'
-      noreferee: 'No Referee demanded?'
+      no_team: 'No team'
+      noreferee: 'No referee demanded?'
+      save_league: 'Save league'
       timeperiod: 'Period of time'
+    index:
+      confirm: 'Are you sure?'
     nav:
       create_league: 'Create league'
       league_index: 'Back to index'
+      new_league: 'New league'
       save_league: 'Save league'
       show_league: 'Show league'
+    title:
+      edit: 'Edit'
+      leagues: 'Leagues'
+      new: 'New league'

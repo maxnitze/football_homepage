@@ -1,0 +1,12 @@
+de:
+  league_teams:
+    flash:
+      create:
+        failure: 'Mannschaft konnte nicht in Liga eingetragen werden:% {errors}.'
+        success: 'Mannschaft wurde erfolgreich der Liga hinzugefügt.'
+      destroy:
+        failure: 'Mannschaft konnte nicht aus Liga entfernt werden: %{errors}.'
+        success: 'Mannschaft wurde erfolgreich aus der Liga entfernt.'
+      update:
+        failure: 'Mannschaft in Liga konnte nicht bearbeitet werden: %{errors}.'
+        success: 'Mannschaft der Liga wurde erfolgreich bearbeitet.'

@@ -17,18 +17,21 @@
     %span.horisep20px
     = f.check_box :noreferee, input_html: { class: 'form-control' }
     = f.label :noreferee, t('.noreferee')
+
+- if action.eql? :edit
   %hr
+  %h3= t '.league_teams'
+  - @league.league_teams.includes(:team).order('teams.name').each do |lt|
+    = render 'league_teams/row', league_team: lt
 
-  %h3= t '.league_teams'  
+  %h4= t '.add_league_team'
+  = simple_form_for LeagueTeam.new do |f|
+    .form-group.input-group
+      = f.hidden_field :league_id, value: @league.id, class: 'form-control'
+      = f.select :team_id, options_for_select([[t('.no_team'), 0]].concat(get_teams_for_class(@league.class_id).where.not(id: @league.teams.map { |t| [t.id] }).map { |team| [team.name, team.id] }), selected: 0), {}, { class: 'form-control' }
+      %span.input-group-btn
+        = f.submit t('.add_league_team_btn'), class: 'btn btn-default'
 
-  .table-responsive
-    %table.table.table-hover.table-condensed
-      %tr
-        %th= t('teams.name')
-      - @league.teams.each do |team|
-        %tr
-          %td= team.name
+%hr
 
-  %br
-
-  = render 'nav', action: :edit, f: f
+= render 'nav', action: action

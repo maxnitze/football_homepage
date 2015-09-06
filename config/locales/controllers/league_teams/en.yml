@@ -1,0 +1,12 @@
+en:
+  league_teams:
+    flash:
+      create:
+        failure: 'Team could not be added to the league: %{errors}.'
+        success: 'Team was successfully added to the league.'
+      destroy:
+        failure: 'Team could not be removed from the league: %{errors}.'
+        success: 'Team was sucessfully removed from league.'
+      update:
+        failure: 'Team in league could not get updated: %{errors}.'
+        success: 'Team in league was sucessfully updated.'

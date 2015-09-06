@@ -4,8 +4,8 @@ en:
     en: 'English'
   language: 'English'
   time:
-    formats: 
-      default: '%m.%d.%Y %I:%M:%S'
-      long: '%a, %B %d, %Y %I:%M'
+    formats:
+      default: '%m.%d.%Y %I:%M:%S %p'
+      long: '%a, %B %d, %Y %I:%M %p'
       date: '%m.%d.%Y'
       time: '%I:%M:%S'

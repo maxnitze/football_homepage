@@ -1,0 +1,11 @@
+en:
+  league_teams:
+    row:
+      edit: 'Edit'
+      confirm: 'Are you sure?'
+      inheritance: 'Inheritance'
+      name: 'Name'
+      no_inheritance: 'No Inheritance'
+      remove: 'Remove'
+      submit: 'Submit'
+      unsubscribed: 'Unsubscribed'
