@@ -6,7 +6,6 @@
 #  name                   :string
 #  surname                :string
 #  givenname              :string
-#  roles_mask             :integer
 #  created_at             :datetime
 #  updated_at             :datetime
 #  email                  :string           default(""), not null
