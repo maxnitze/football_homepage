@@ -14,7 +14,15 @@
     %main{role: 'main'}
       .content-box
         = yield
-      .info-box
-        Info-Box
+      .right-box
+        .info-box
+          .head= t 'info.name'
+          .content
+            information here
+        %hr
+        .partner-box
+          .head= t 'partner.name'
+        .content
+          partner here
 
     = render 'layouts/footer'

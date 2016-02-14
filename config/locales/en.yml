@@ -1,8 +1,12 @@
 en:
+  info:
+    name: 'Info-Box'
   lang:
     de: 'German'
     en: 'English'
   language: 'English'
+  partner:
+    name: 'Partner-Box'
   time:
     formats:
       default: '%m.%d.%Y %I:%M:%S %p'
