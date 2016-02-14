@@ -22,10 +22,10 @@ class News < ActiveRecord::Base
   acts_as_taggable
 
   def is_available_in_current_lang
-    newstexts.select{|nt| nt.language == I18n.locale.to_s}.any?
+    newstexts.select { |nt| nt.language == I18n.locale.to_s }.any?
   end
 
   def current_newstext
-    newstexts.detect{|nt| nt.language == I18n.locale.to_s} || newstexts.first
+    newstexts.detect { |nt| nt.language == I18n.locale.to_s } || newstexts.first
   end
 end
