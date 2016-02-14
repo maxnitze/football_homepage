@@ -1,3 +1,7 @@
 en:
   teams:
-    name: 'Name'
+    index:
+      female: 'Women'
+      male: 'Men'
+      new_team: 'New Team'
+      teams: 'Team'

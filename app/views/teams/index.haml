@@ -1,26 +1,20 @@
-%h1 Listing teams
+- provide(:title, t('.teams'))
 
-%table
-  %tr
-    %th Name
-    %th Ishometeam
-    %th Hometeamname
-    %th Isfemale
-    %th Class Id
-    %th
-    %th
-    %th
-
-  - @teams.each do |team|
-    %tr
-      %td= team.name
-      %td= team.ishometeam
-      %td= team.hometeamname
-      %td= team.isfemale
-      %td= team.class_id
-      %td= link_to 'Show', team
-      %td= link_to 'Edit', edit_team_path(team)
-      %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.teams
+  .teams-form
+    .table-responsive
+      %table.table.table-hover.table-condensed
+        %tr
+          %th.row-team-name Name
+          %th.row-team-class Class
+          %th.row-team-edit
+        - @hometeams.each do |team|
+          %tr
+            %td.row-team-name= link_to team.hometeamname, team
+            %td.row-team-class= "#{t(team.isfemale ? '.female' : '.male')} #{localized_football_classes[team.class_id]}"
+            %td.row-league-edit
+              = link_to edit_team_path(team) do
+                %span.glyphicon.glyphicon-edit
 
 %br
 

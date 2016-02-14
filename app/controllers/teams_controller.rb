@@ -5,6 +5,7 @@ class TeamsController < ApplicationController
   # GET /teams.json
   def index
     @teams = Team.all
+    @hometeams = Team.where(ishometeam: true).order(class_id: :desc)
   end
 
   # GET /teams/1

@@ -8,10 +8,7 @@ module ApplicationHelper
   end
 
   def get_current_hometeams
-  	hometeams = Team.where(ishometeam: true).order :class_id
-    hometeams.each_with_object([]) do |hometeam, current_hometeams|
-      current_hometeams << hometeam
-    end
+  	Team.where(ishometeam: true).order(class_id: :desc).to_a
   end
 
   def handle_local_links text

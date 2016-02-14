@@ -3,7 +3,7 @@
 .leagues
   .leagues-form
     .table-responsive
-      %table.table.table-hover
+      %table.table.table-hover.table-condensed
         - cur_years = nil
         - @leagues.each do |league|
           - if cur_years.nil? || !cur_years.eql?(year(league))
