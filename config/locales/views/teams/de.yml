@@ -2,8 +2,8 @@ de:
   teams:
     index:
       confirm: 'Sind Sie sicher?'
-      female: 'Frauen'
-      male: 'Männer'
+      female: 'Damen'
+      male: 'Herren'
       new_team: 'Neue Mannschaft'
       teams: 'Mannschaften'
     nav:

@@ -18,13 +18,13 @@
             %td.row-team-league= link_to league.name, league
             %td.row-team-class= "#{t(team.isfemale ? '.female' : '.male')}, #{localized_football_classes[team.class_id]}"
             %td.row-team-show
-              = link_to lt do
+              = link_to team do
                 %span.glyphicon.glyphicon-expand
             %td.row-team-edit
-              = link_to edit_league_team_path(lt) do
+              = link_to edit_team_path(team) do
                 %span.glyphicon.glyphicon-edit
             %td.row-team-remove
-              = link_to lt, method: :delete, data: { confirm: t('.confirm') } do
+              = link_to team, method: :delete, data: { confirm: t('.confirm') } do
                 %span.glyphicon.glyphicon-remove
 
     %br
