@@ -4,18 +4,29 @@
   .teams-form
     .table-responsive
       %table.table.table-hover.table-condensed
-        %tr
-          %th.row-team-name Name
-          %th.row-team-class Class
-          %th.row-team-edit
-        - @hometeams.each do |team|
+        - cur_years = nil
+        - @league_teams.each do |lt|
+          - team = lt.team
+          - league = lt.league
+          - if cur_years.nil? || !cur_years.eql?(year(league))
+            - cur_years = year(league)
+            %tr
+              %th{colspan: 6}
+                = cur_years
           %tr
             %td.row-team-name= link_to team.hometeamname, team
-            %td.row-team-class= "#{t(team.isfemale ? '.female' : '.male')} #{localized_football_classes[team.class_id]}"
-            %td.row-league-edit
-              = link_to edit_team_path(team) do
+            %td.row-team-league= link_to league.name, league
+            %td.row-team-class= "#{t(team.isfemale ? '.female' : '.male')}, #{localized_football_classes[team.class_id]}"
+            %td.row-team-show
+              = link_to lt do
+                %span.glyphicon.glyphicon-expand
+            %td.row-team-edit
+              = link_to edit_league_team_path(lt) do
                 %span.glyphicon.glyphicon-edit
+            %td.row-team-remove
+              = link_to lt, method: :delete, data: { confirm: t('.confirm') } do
+                %span.glyphicon.glyphicon-remove
 
-%br
+    %br
 
-= link_to 'New Team', new_team_path
+    = render 'nav', action: :index

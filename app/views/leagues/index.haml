@@ -21,7 +21,7 @@
               = link_to edit_league_path(league) do
                 %span.glyphicon.glyphicon-edit
             %td.row-league-remove
-              = link_to league, :method => :delete, :data => { confirm: t('.confirm') } do
+              = link_to league, method: :delete, data: { confirm: t('.confirm') } do
                 %span.glyphicon.glyphicon-remove
 
     %br

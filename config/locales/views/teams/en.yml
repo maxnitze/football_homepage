@@ -1,7 +1,14 @@
 en:
   teams:
     index:
+      confirm: 'Are you sure?'
       female: 'Women'
       male: 'Men'
       new_team: 'New Team'
-      teams: 'Team'
+      teams: 'Teams'
+    nav:
+      create_team: 'Create team'
+      team_index: 'Back to index'
+      new_team: 'New team'
+      save_team: 'Save team'
+      show_team: 'Show team'

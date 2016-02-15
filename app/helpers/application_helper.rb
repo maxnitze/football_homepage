@@ -33,6 +33,10 @@ module ApplicationHelper
     FOOTBALL_CLASSES.map { |i,c| [t(c), i] }
   end
 
+  def year league
+    "#{league.start.year.eql?(league.end.year) ? league.start.year : "#{league.start.year}/#{league.end.year}"}"
+  end
+
   private
     def is_local_link url
       url && (url.index(request.host_with_port) || url.start_with?("/"))
