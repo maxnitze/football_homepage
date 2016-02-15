@@ -4,7 +4,9 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @league_teams = LeagueTeam.joins(:team).where(teams: { ishometeam: true })
+    @league_teams = LeagueTeam.joins(:team, :league)
+      .where(teams: { ishometeam: true })
+      .order('leagues.start DESC', 'leagues.end DESC', 'leagues.class_id ASC', 'leagues.name ASC')
   end
 
   # GET /teams/1
