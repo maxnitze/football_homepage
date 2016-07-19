@@ -2,13 +2,19 @@ en:
   user_role_permissions:
     can_create_news:
       description: 'can create news'
+    can_create_team:
+      description: 'can create team'
     can_destroy_news:
       description: 'can destroy news'
+    can_destroy_team:
+      description: 'can destroy team'
     can_destroy_users:
       description: 'can destroy users'
     can_update_bettinggame:
       description: 'can update bettinggame'
     can_update_news:
       description: 'can update news'
+    can_update_team:
+      description: 'can update team'
     can_update_users:
       description: 'can update users'

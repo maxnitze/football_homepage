@@ -1,6 +1,11 @@
 can_create_news = UserRolePermission.find_by_symbol :can_create_news
 can_update_news = UserRolePermission.find_by_symbol :can_update_news
 can_destroy_news = UserRolePermission.find_by_symbol :can_destroy_news
+
+can_create_team = UserRolePermission.find_by_symbol :can_create_team
+can_update_team = UserRolePermission.find_by_symbol :can_update_team
+can_destroy_team = UserRolePermission.find_by_symbol :can_destroy_team
+
 can_update_bettinggame = UserRolePermission.find_by_symbol :can_update_bettinggame
 
 # roles for users
@@ -21,6 +26,12 @@ UserRole.create(
   description: 'user_roles.editor.description',
   symbol: :editor,
   user_role_permissions: [ can_create_news ])
+
+UserRole.create(
+  name: 'user_roles.team_admin.name',
+  description: 'user_roles.team_admin.description',
+  symbol: :team_admin,
+  user_role_permissions: [ can_create_team, can_update_team, can_destroy_team ])
 
 UserRole.create(
   name: 'user_roles.bettinggame_manager.name',

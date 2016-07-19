@@ -12,3 +12,6 @@ en:
     super_editor:
       name: 'Super-Editor'
       description: 'is allowed to create, edit and destroy news and comments.'
+    team_admin:
+      name: 'Team-Admin'
+      description: 'is allowed to create, edit and destroy teams.'

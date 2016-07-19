@@ -12,3 +12,6 @@ de:
     super_editor:
       name: 'Super-Editor'
       description: 'darf Nachrichten und Kommentare verfassen, bearbeiten und entfernen.'
+    team_admin:
+      name: 'Mannschafts-Admin'
+      description: 'darf Mannschaften erstellen, bearbeiten und löschen.'

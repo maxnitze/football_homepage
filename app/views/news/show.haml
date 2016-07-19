@@ -23,7 +23,7 @@
     %p.news-bottom
       %span.nav.btn-group.btn-group-xs
         = link_to t('.back'), news_index_path, class: 'btn btn-default', role: 'button'
-        -if permitted_to_edit? @news
+        -if permitted_to_edit_news? @news
           = link_to t('.edit'), edit_news_path(@news), class: 'btn btn-default', role: 'button'
       -if @news.edit_count > 0
         %span.edit-info

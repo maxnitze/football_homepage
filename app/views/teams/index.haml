@@ -8,8 +8,8 @@
         - @league_teams.each do |lt|
           - team = lt.team
           - league = lt.league
-          - if cur_years.nil? || !cur_years.eql?(year(league))
-            - cur_years = year(league)
+          - if cur_years.nil? || !cur_years.eql?(year league)
+            - cur_years = year league
             %tr
               %th{colspan: 6}
                 = cur_years
@@ -19,13 +19,13 @@
             %td.row-team-class= "#{t(team.isfemale ? '.female' : '.male')}, #{localized_football_classes[team.class_id]}"
             %td.row-team-show
               = link_to team do
-                %span.glyphicon.glyphicon-expand
+                = fa_icon 'caret-square-o-right'
             %td.row-team-edit
               = link_to edit_team_path(team) do
-                %span.glyphicon.glyphicon-edit
+                = fa_icon 'edit'
             %td.row-team-remove
               = link_to team, method: :delete, data: { confirm: t('.confirm') } do
-                %span.glyphicon.glyphicon-remove
+                = fa_icon 'remove'
 
     %br
 

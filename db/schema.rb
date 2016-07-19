@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214202518) do
+ActiveRecord::Schema.define(version: 20160719131534) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
@@ -55,16 +55,6 @@ ActiveRecord::Schema.define(version: 20160214202518) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "identities", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
   create_table "league_team_players", force: :cascade do |t|
     t.integer  "team_id"
@@ -281,6 +271,8 @@ ActiveRecord::Schema.define(version: 20160214202518) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "locale"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

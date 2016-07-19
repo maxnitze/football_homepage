@@ -1,3 +1,12 @@
 en:
   teams:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'You are not allowed to create new teams.'
+        success: 'Successfully created new team.'
+      destroy:
+        permission_failure: 'You are not allowed to destroy this team.'
+        success: 'Successfully destroyed team.'
+      update:
+        permission_failure: 'You are not allowed to edit this team.'
+        success: 'Successfully updated team.'

@@ -106,21 +106,21 @@ class NewsController < ApplicationController
     end
 
     def check_create_permission
-      if !(current_user and current_user.has_user_role_permission? :can_create_news)
+      if !(current_user && current_user.has_user_role_permission?(:can_create_news))
         redirect_to news_index_path, flash: { danger: [t('news.flash.create.permission_failure')] }
       end
     end
 
     def check_update_permission
-      if !(current_user and (
-          current_user.eql? @news.author or
-          current_user.has_user_role_permission? :can_update_news))
+      if !(current_user && (
+          current_user.eql? @news.author ||
+          current_user.has_user_role_permission?(:can_update_news)))
         redirect_to @news, flash: { danger: [t('news.flash.update.permission_failure')] }
       end
     end
 
     def check_destroy_permission
-      if !(current_user and current_user.has_user_role_permission? :can_destroy_news)
+      if !(current_user && current_user.has_user_role_permission?(:can_destroy_news))
         redirect_to @news, flash: { danger: [t('news.flash.destroy.permission_failure')] }
       end
     end

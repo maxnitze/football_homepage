@@ -1,6 +1,7 @@
 admin = UserRole.find_by_symbol :admin
 super_editor = UserRole.find_by_symbol :super_editor
 editor = UserRole.find_by_symbol :editor
+team_admin = UserRole.find_by_symbol :team_admin
 bettinggame_manager = UserRole.find_by_symbol :bettinggame_manager
 
 max = User.create(
@@ -11,17 +12,14 @@ max = User.create(
   password: 'test1234',
   user_roles: [ admin, super_editor, bettinggame_manager ],
   locale: :en,
+  provider: 'google_oauth2',
+  uid: '112843738969681941517',
   confirmed_at: Time.now,
   confirmation_sent_at: Time.now,
   current_sign_in_at: Time.now,
   last_sign_in_at: Time.now,
   current_sign_in_ip: '127.0.0.1',
   last_sign_in_ip: '127.0.0.1')
-
-Identity.create(
-  user: max,
-  provider: 'google_oauth2',
-  uid: '112843738969681941517')
 
 User.create(
   name: 'Philipp Kömpel',

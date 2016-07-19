@@ -2,7 +2,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def self.provides_callback_for(symbol, name)
     class_eval %Q{
       def #{symbol}
-        @user = User.find_for_oauth(env["omniauth.auth"], current_user)
+        @user = User.from_omniauth(request.env["omniauth.auth"])
 
         if @user.persisted?
           I18n.locale = session[:omniauth_login_locale] || I18n.default_locale
@@ -20,7 +20,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     provides_callback_for symbol, name
   end
 
-  def after_sign_in_path_for(resource)
+  def failure
+    redirect_to root_path
+  end
+
+  def after_sign_in_path_for resource
     if resource.email_verified?
       super resource
     else

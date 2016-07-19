@@ -1,6 +1,10 @@
 TITLE_TRUNC = 25
 
-OMNIAUTH_PROVIDERS = { twitter: 'Twitter', google_oauth2: 'Google', facebook: 'Facebook' }
+OMNIAUTH_PROVIDERS = {
+  facebook: 'Facebook',
+  google_oauth2: 'Google',
+  twitter: 'Twitter'
+}
 
 FOOTBALL_CLASSES = [
   [ 0, 'misc.football_classes.youth_g'],

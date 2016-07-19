@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.2.2'
 #ruby-gemset=vfb_oxstedt
 
 # ruby web application framework
-gem 'rails' #, github: 'rails'
+gem 'rails', '~> 4.2.0 ' #, github: 'rails'
 
 # internationalization
 gem 'rails-i18n' #, github: 'svenfuchs/rails-i18n'
@@ -19,10 +19,13 @@ gem 'coffee-rails' #, github: 'rails/coffee-rails'
 gem 'jquery-rails' #, github: 'rails/jquery-rails'
 # JSon DSL
 gem 'jbuilder' #, github: 'rails/jbuilder'
+# font-awesome web font (and icons)
+gem 'font-awesome-rails' #, github: 'bokmann/font-awesome-rails'
 
 # Haml templating engine
 gem 'haml' #, github: 'haml'
 gem 'haml-rails' #, github: 'indirect/haml-rails'
+gem 'html2haml' #, github: 'haml/html2haml'
 
 # Twitter Bootstrap with Sass-Stylesheets
 gem 'bootstrap-sass'
@@ -34,6 +37,9 @@ gem 'turbolinks' #, github: 'rails/turbolinks'
 
 # SQL AST manager for ruby
 gem 'arel' #, github: 'rails/arel'
+
+# load variables from '.env' files to 'ENV'
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Authentication
 gem 'devise' #, github: 'plataformatec/devise'
@@ -62,7 +68,8 @@ gem 'acts-as-taggable-on' #, github: 'mbleigh/acts-as-taggable-on'
 
 # datetimepicker for bootstrap3
 gem 'momentjs-rails' #,github: 'derekprior/momentjs-rails'
-gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+#gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'bootstrap3-datetimepicker-rails' #, github: 'TrevorS/bootstrap3-datetimepicker-rails'
 
 group :development, :test do
   # Puma Web Server

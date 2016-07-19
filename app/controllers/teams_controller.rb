@@ -1,12 +1,16 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
+  before_action :check_create_permission, only: [:new, :create]
+  before_action :check_update_permission, only: [:edit, :update]
+  before_action :check_destroy_permission, only: [:destroy]
+
   # GET /teams
   # GET /teams.json
   def index
     @league_teams = LeagueTeam.joins(:team, :league)
       .where(teams: { ishometeam: true })
-      .order('leagues.start DESC', 'leagues.end DESC', 'leagues.class_id ASC', 'leagues.name ASC')
+      .order('leagues.start DESC', 'leagues.end DESC', 'leagues.class_id DESC', 'leagues.name ASC')
   end
 
   # GET /teams/1
@@ -30,7 +34,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.html { redirect_to @team, notice: [t('teams.flash.create.success')] }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }
@@ -44,7 +48,7 @@ class TeamsController < ApplicationController
   def update
     respond_to do |format|
       if @team.update(team_params)
-        format.html { redirect_to @team, notice: 'Team was successfully updated.' }
+        format.html { redirect_to @team, notice: [t('teams.flash.update.success')] }
         format.json { render :show, status: :ok, location: @team }
       else
         format.html { render :edit }
@@ -58,7 +62,7 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
+      format.html { redirect_to teams_url, notice: [t('teams.flash.destroy.success')] }
       format.json { head :no_content }
     end
   end
@@ -72,5 +76,23 @@ class TeamsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
       params.require(:team).permit(:name, :ishometeam, :hometeamname, :isfemale, :class_id)
+    end
+
+    def check_create_permission
+      if !(current_user && current_user.has_user_role_permission?(:can_create_team))
+        redirect_to teams_index_path, flash: { danger: [t('teams.flash.create.permission_failure')] }
+      end
+    end
+
+    def check_update_permission
+      if !(current_user && current_user.has_user_role_permission?(:can_update_team))
+        redirect_to @team, flash: { danger: [t('teams.flash.update.permission_failure')] }
+      end
+    end
+
+    def check_destroy_permission
+      if !(current_user && current_user.has_user_role_permission?(:can_destroy_team))
+        redirect_to @team, flash: { danger: [t('teams.flash.destroy.permission_failure')] }
+      end
     end
 end

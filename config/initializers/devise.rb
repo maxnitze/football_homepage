@@ -258,13 +258,7 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   # OAuth
-  config.omniauth :facebook,
-    '1476621159253376',
-    '1410252356a30693f470001352854b05'
-  config.omniauth :google_oauth2,
-    '627668755090-ldlpr9ndcf2desj6ssssvicjp7buqgku.apps.googleusercontent.com',
-    'kk8PHORdoGK4SF2dqppNj-E9'
-  config.omniauth :twitter,
-    '9tz9KnbcTyvS5q3Pza7Z1BX5N',
-    'S7Gi2gwgLhVxjL2Su5ShLNApdYrTCjqV5l6RFMJ2oUylVtRfRv'
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
+  config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH2_APP_ID'], ENV['GOOGLE_OAUTH2_APP_SECRET']
+  config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET']
 end
