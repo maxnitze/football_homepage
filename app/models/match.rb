@@ -36,6 +36,4 @@ class Match < ActiveRecord::Base
   has_one :assistant2, class_name: 'Referee', foreign_key: :assistant2_id
 
   has_many :match_players
-
-  searchkick autocomplete: ['home', 'guest']
 end

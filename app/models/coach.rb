@@ -12,5 +12,4 @@
 #
 
 class Coach < ActiveRecord::Base
-  searchkick autocomplete: ['surname', 'givenname']
 end
