@@ -1,11 +1,14 @@
+# length to truncate titles (e.g. in page titles)
 TITLE_TRUNC = 25
 
+# devise omniauth providers
 OMNIAUTH_PROVIDERS = {
   facebook: 'Facebook',
   google_oauth2: 'Google',
   twitter: 'Twitter'
 }
 
+# football classes
 FOOTBALL_CLASSES = [
   [ 0, 'misc.football_classes.youth_g'],
   [ 1, 'misc.football_classes.youth_f08'],
@@ -26,4 +29,20 @@ FOOTBALL_CLASSES = [
   [16, 'misc.football_classes.veterans50'],
 ]
 
+# default football class
 STD_FOOTBALL_CLASS = 13
+
+# field positions
+FIELD_POSITIONS = [
+  :goal,
+  :defense,
+  :midfield,
+  :offense
+]
+
+# player legs
+PLAYER_LEGS = [
+  :right,
+  :left,
+  :both
+]

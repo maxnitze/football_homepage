@@ -24,8 +24,8 @@ class Player < ActiveRecord::Base
   has_attached_file :portrait, styles: { medium: '160x200>', thumb: '80x100>' }, default_url: "/system/players/portraits/no_portrait.png"
   validates_attachment_content_type :portrait, content_type: /\Aimage\/.*\Z/
 
-  enum position: [ :goal, :defense, :midfield, :offense ]
-  enum leg: [ :right, :left, :both ]
+  enum position: FIELD_POSITIONS
+  enum leg: PLAYER_LEGS
 
   def full_name
   	"#{givenname} #{surname}"

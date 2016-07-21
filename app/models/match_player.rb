@@ -14,8 +14,8 @@
 class MatchPlayer < ActiveRecord::Base
   validates_uniqueness_of :match_id, scope: [ :player_id ]
 
-  enum position: [ :goal, :defense, :midfield, :offense ]
-
   belongs_to :match
   belongs_to :player
+
+  enum position: FIELD_POSITIONS
 end
