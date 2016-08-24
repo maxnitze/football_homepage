@@ -1,18 +1,20 @@
 .clear
 
 %footer
-  .left
-    VfB Oxstedt v.1950 e.V.
-    &nbsp;&nbsp;&nbsp;
-  .left
-    -I18n.available_locales.each_with_index do |l, i|
-      -if i>0
+  %nav.navbar-inverse.navbar-fixed-bottom
+    .inner-footer
+      .left
+        VfB Oxstedt v.1950 e.V.
+        &nbsp;&nbsp;&nbsp;
+      .left
+        -I18n.available_locales.each_with_index do |l, i|
+          -if i>0
+            \|
+          %span= link_to t(:language, locale: l), url_for(locale: l, params: request.query_parameters)
+      .right
+        %span= link_to t('.help'), help_path
         \|
-      %span= link_to t(:language, locale: l), url_for(locale: l, params: request.query_parameters)
-  .right
-    %span= link_to t('.help'), help_path
-    \|
-    %span= link_to t('.contact'), contact_path
-    \|
-    %span= link_to t('.notice'), notice_path
-  .clear
+        %span= link_to t('.contact'), contact_path
+        \|
+        %span= link_to t('.notice'), notice_path
+      .clear

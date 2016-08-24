@@ -9,9 +9,12 @@ en:
     editor:
       name: 'Editor'
       description: 'is allowed to create new and edit its own news.'
+    leagues_admin:
+      name: 'Leagues-Admin'
+      description: 'is allowed to create, edit and destroy leagues.'
     super_editor:
       name: 'Super-Editor'
       description: 'is allowed to create, edit and destroy news and comments.'
-    team_admin:
-      name: 'Team-Admin'
+    teams_admin:
+      name: 'Teams-Admin'
       description: 'is allowed to create, edit and destroy teams.'

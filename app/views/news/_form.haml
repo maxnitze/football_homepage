@@ -1,4 +1,10 @@
 = simple_form_for @news do |f|
+  .head
+    .span
+      = title_text
+      .right
+        = render 'nav', action: action
+  = render 'lang', action: action
   -lang = params[:lang] || current_lang
   -I18n.available_locales.each do |l|
     -newstext = @news.newstexts.detect{|nt| nt.language == l.to_s} || Newstext.new
@@ -19,5 +25,3 @@
     = f.input :tag_list, label: t('.tag_list'), input_html: { value: @news.tag_list.join(', '), style: 'width: 100%;' }
 
   %br
-
-  = render 'nav', action: :edit, f: f

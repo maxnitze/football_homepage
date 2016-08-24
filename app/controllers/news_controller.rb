@@ -31,17 +31,29 @@ class NewsController < ApplicationController
     @news = News.new(author: current_user)
 
     respond_to do |format|
+      successfully_created = false
+      errors = []
+
       if @news.save
-        I18n.available_locales.each do |lang|
-          newstext = Newstext.new((newstext_params lang).merge(news: @news, lang: lang))
+        I18n.available_locales.map { |lang|
+          Newstext.new((newstext_params lang).merge(news: @news, language: lang))
+        }.each do |newstext|
           if !newstext.save
-            flash_message :alert, t('newstext.flash.create.failed')
+            flash_message :danger, "#{t('newstext.flash.create.failure', lang: t("lang.#{newstext.language}"))} #{newstext.errors.full_messages.join ' '}"
+          else
+            successfully_created = true
           end
         end
+      end
 
+      if successfully_created
         format.html { redirect_to @news, notice: [t('news.flash.create.success')] }
         format.json { render :show, status: :created, location: @news }
       else
+        @news.destroy
+
+        flash_message :danger, t('news.flash.create.failure')
+
         format.html { render :new }
         format.json { render json: @news.errors, status: :unprocessable_entity }
       end
@@ -52,13 +64,15 @@ class NewsController < ApplicationController
   # PATCH/PUT /news/1.json
   def update
     respond_to do |format|
+      newstexts = I18n.available_locales.map { |lang|
+        newstext = Newstext.find_or_create_by(news: @news, language: lang)
+        newstext.assign_attributes(newstext_params lang)
+        newstext
+      }
+
       if @news.update(news_params.merge(editor: current_user, edit_count: (@news.edit_count + 1)))
-        I18n.available_locales.each do |lang|
-          newstext = Newstext.find_or_create_by(news: @news, language: lang)
-          newstext.assign_attributes(remove_lang_suffix (newstext_params lang), lang)
-          if !newstext.save
-            flash_message :alert, t('newstext.flash.update.failed', lang: t("lang.#{lang}"))
-          end
+        newstexts.each do |newstext|
+            flash_message :danger, t('newstext.flash.update.failed', lang: t("lang.#{newstext.language}")) if !newstext.save
         end
 
         format.html { redirect_to @news, notice: [t('news.flash.update.success')] }
@@ -96,13 +110,13 @@ class NewsController < ApplicationController
     end
 
     def newstext_params lang
-      params.require(:newstext).permit("title_#{lang}", "subtitle_#{lang}", "abstract_#{lang}", "text_#{lang}")
+      remove_lang_suffix params.require(:newstext).permit("title_#{lang}", "subtitle_#{lang}", "abstract_#{lang}", "text_#{lang}"), lang
     end
 
     def remove_lang_suffix hash, lang
-      hash.keys.each_with_object({}) do |k, p|
+      hash.keys.each_with_object({}) { |k, p|
         p[k.chomp "_#{lang.to_s}"] = hash[k]
-      end
+      }
     end
 
     def check_create_permission

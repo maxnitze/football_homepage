@@ -18,6 +18,8 @@
 #
 
 class Club < ActiveRecord::Base
+  validates_presence_of :name, :text, message: I18n.t('models.club.name.mandatory')
+
   has_and_belongs_to_many :teams
   has_many :referees
 end

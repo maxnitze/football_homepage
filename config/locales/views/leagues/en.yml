@@ -1,5 +1,8 @@
 en:
   leagues:
+    edit:
+      edit: 'Edit'
+      leagues: 'Leagues'
     form:
       add_league_team: 'Add team'
       add_league_team_btn: 'Add'
@@ -14,13 +17,13 @@ en:
       timeperiod: 'Period of time'
     index:
       confirm: 'Are you sure?'
+      leagues: 'Leagues'
+      new_league: 'New league'
     nav:
       create_league: 'Create league'
       league_index: 'Back to index'
       new_league: 'New league'
       save_league: 'Save league'
       show_league: 'Show league'
-    title:
-      edit: 'Edit'
-      leagues: 'Leagues'
-      new: 'New league'
+    new:
+      new_league: 'New league'

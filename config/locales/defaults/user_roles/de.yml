@@ -9,9 +9,12 @@ de:
     editor:
       name: 'Editor'
       description: 'darf neue Nachrichten verfassen und seine eigenen Nachrichten bearbeiten.'
+    leagues_admin:
+      name: 'Ligen-Admin'
+      description: 'darf Ligen erstellen, bearbeiten und löschen.'
     super_editor:
       name: 'Super-Editor'
       description: 'darf Nachrichten und Kommentare verfassen, bearbeiten und entfernen.'
-    team_admin:
+    teams_admin:
       name: 'Mannschafts-Admin'
       description: 'darf Mannschaften erstellen, bearbeiten und löschen.'

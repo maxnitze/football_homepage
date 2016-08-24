@@ -1,105 +1,95 @@
 %header
-  %nav.navbar.navbar-inverse{role: "navigation"}
-    .navbar-header
-      %a.navbar-brand{href: root_path}
-        %span
-          %img{src: '/assets/crest.png', alt: 'Wappen VfB Oxstedt', height: '25'}
-          VfB Oxstedt
-      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav.navbar-right
-        -if user_signed_in?
-          %ul.nav.navbar-nav
-            -if is_admin?
+  %nav.navbar.navbar-inverse.navbar-fixed-top{role: 'navigation'}
+    %a.navbar-brand{href: root_path}
+      %span
+        %img{src: '/assets/crest.png', alt: 'Wappen VfB Oxstedt', height: '25'}
+        VfB Oxstedt v.1950 e.V.
+    .inner-header
+      .navbar-header
+        %button.navbar-toggle{'data-target' => '#bs-example-navbar-collapse-1', 'data-toggle' => 'collapse', type: 'button'}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li
+            = link_to t('.home'), root_path
+          %li
+            = link_to t('.news'), news_index_path
+          %li.dropdown
+            %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
+              = t '.club'
+              %b.caret
+            %ul.dropdown-menu
               %li
-                = link_to t('.admin'), admin_path
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                = current_user.email
-                %b.caret
-              %ul.dropdown-menu
-                %li
-                  = link_to t('.edit_profile'), edit_user_registration_path
-                %li
-                  = link_to t('.logout'), destroy_user_session_path, method: :delete
-        -else
-          %ul.nav.navbar-nav
-            %li
-              = link_to t('.sign_up'), new_user_registration_path
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                = t '.login'
-                %b.caret
-              %ul.dropdown-menu
-                %li
-                  %div{style: 'padding: 5px'}
-                    = form_for :user, url: session_path(:user) do |f|
-                      %div
-                        = f.label :email
-                        %br/
-                        = f.email_field :email, autofocus: true
-                      %div
-                        = f.label :password
-                        %br/
-                        = f.password_field :password, autocomplete: "off"
-                      %br/
-                      %div
-                        = f.submit t '.login'
-                        - OMNIAUTH_PROVIDERS.each do |symbol,_|
-                          = link_to image_tag("login/#{symbol}.png", size: '25x25'), localized_omniauth_path(symbol)
-    .header-image
-      %img{src: '/assets/field_aerial.jpg', alt: t('.field_aerial'), width: '100%'}
-      .alert-block= render 'layouts/flash'
-    .navbar-header
-      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-2", "data-toggle" => "collapse", type: "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-    #bs-example-navbar-collapse-2.collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        %li
-          = link_to t('.home'), root_path
-        %li
-          = link_to t('.news'), news_index_path
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            = t '.club'
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              = link_to t('.history'), history_path
-            %li
-              = link_to t('.management'), management_path
-            %li
-              = link_to t('.sports_facilities'), field_path
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            = t '.football'
-            %b.caret
-          %ul.dropdown-menu
-            - get_current_hometeams.each do |team|
+                = link_to t('.history'), history_path
               %li
-                = link_to team.hometeamname, team
-            %li.divider
-            %li
-              = link_to t('.all_teams'), teams_path
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            = t '.media'
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              = link_to t('.gallery'), gallery_path
-            %li
-              = link_to t('.downloads'), downloads_path
-            %li
-              = link_to t('.bettinggame'), bettinggame_path
-      %ul.nav.navbar-nav.navbar-right
-        %form.navbar-form.navbar-left{role: "search"}
-          .form-group
-            %input.form-control{placeholder: t('.search'), type: "text"}/
+                = link_to t('.management'), management_path
+              %li
+                = link_to t('.sports_facilities'), field_path
+          %li.dropdown
+            %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
+              = t '.football'
+              %b.caret
+            %ul.dropdown-menu
+              - get_current_hometeams.each do |team|
+                %li
+                  = link_to team.hometeamname, team
+              %li.divider
+              %li
+                = link_to t('.all_teams'), teams_path
+          %li.dropdown
+            %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
+              = t '.media'
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to t('.gallery'), gallery_path
+              %li
+                = link_to t('.downloads'), downloads_path
+              %li
+                = link_to t('.bettinggame'), bettinggame_path
+        %ul.nav.navbar-nav.navbar-right
+          %form.navbar-form.navbar-left{role: 'search'}
+            .form-group
+              %input.form-control{placeholder: t('.search'), type: 'text'}/
+          -if user_signed_in?
+            %ul.nav.navbar-nav
+              %li.dropdown
+                %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
+                  = current_user.email
+                  %b.caret
+                %ul.dropdown-menu
+                  -if is_admin?
+                    %li
+                      = link_to t('.admin'), admin_path
+                  %li
+                    = link_to t('.edit_profile'), edit_user_registration_path
+                  %li
+                    = link_to t('.logout'), destroy_user_session_path, method: :delete
+          -else
+            %ul.nav.navbar-nav
+              %li
+                = link_to t('.sign_up'), new_user_registration_path
+              %li.dropdown
+                %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
+                  = t '.login'
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %div{style: 'padding: 5px'}
+                      = form_for :user, url: session_path(:user) do |f|
+                        %div
+                          = f.label :email
+                          %br/
+                          = f.email_field :email, autofocus: true
+                        %div
+                          = f.label :password
+                          %br/
+                          = f.password_field :password, autocomplete: 'off'
+                        %br/
+                        %div
+                          = f.submit t '.login'
+                          - OMNIAUTH_PROVIDERS.each do |symbol,_|
+                            = link_to image_tag("login/#{symbol}.png", size: '25x25'), localized_omniauth_path(symbol)

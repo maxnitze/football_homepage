@@ -2,6 +2,7 @@ de:
   news:
     flash:
       create:
+        failure: 'Erstellen der Nachricht fehlgeschlagen.'
         permission_failure: 'Sie sind nicht berechtigt neue Nachrichten zu erstellen.'
         success: 'Neue Nachricht erfolgreich erstellt.'
       destroy:
@@ -15,6 +16,6 @@ de:
   newstext:
     flash:
       create:
-        failed: 'Konnte die Nachricht für "%{lang}" nicht erstellen.'
+        failure: 'Erstellen des Nachrichten-Textes für "%{lang}" fehlgeschlagen.'
       update:
-        failed: 'Konnte die Nachricht für "%{lang}" nicht bearbeiten.'
+        failure: 'Bearbeiten des Nachrichten-Textes für "%{lang}" fehlgeschlagen.'

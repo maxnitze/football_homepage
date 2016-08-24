@@ -1,4 +1,9 @@
 = simple_form_for @league do |f|
+  .head
+    .span
+      = title_text
+      .right
+        = render 'nav', action: action
   .field.form-group
     = f.input :name, label: t('.name'), input_html: { class: 'form-control' }
   .field
@@ -31,7 +36,3 @@
       = f.select :team_id, options_for_select([[t('.no_team'), 0]].concat(get_teams_for_class(@league.class_id).where.not(id: @league.teams.map { |t| [t.id] }).map { |team| [team.name, team.id] }), selected: 0), {}, { class: 'form-control' }
       %span.input-group-btn
         = f.submit t('.add_league_team_btn'), class: 'btn btn-default'
-
-%hr
-
-= render 'nav', action: action

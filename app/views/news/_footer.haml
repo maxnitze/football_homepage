@@ -1,0 +1,5 @@
+%hr
+%p.news-bottom
+  -if @news.edit_count > 0
+    %span.edit-info
+      = t 'news.edit_info_html', count: @news.edit_count, author: (news_author @news.editor), datetime: l(@news.updated_at, format: :long)

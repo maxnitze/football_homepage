@@ -1,4 +1,4 @@
 en:
   models:
     news:
-      mandatory: 'is mandatory!'
+      dummy: 'DUMMY'

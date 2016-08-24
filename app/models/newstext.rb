@@ -16,8 +16,8 @@
 class Newstext < ActiveRecord::Base
   belongs_to :news
 
+  validates_presence_of :title, message: I18n.t('models.newstext.mandatory')
   validates :language, uniqueness: { scope: :news, message: I18n.t('models.newstext.unique_per_lang') }
-  validates_presence_of :title, :text, message: I18n.t('models.news.mandatory')
 
   def full_title
     subtitle? ? "#{title}: #{subtitle}" : title

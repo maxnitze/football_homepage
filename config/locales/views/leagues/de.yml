@@ -1,5 +1,8 @@
 de:
   leagues:
+    edit:
+      edit: 'Bearbeiten'
+      leagues: 'Ligen'
     form:
       add_league_team: 'Mannschaft hinzufügen'
       add_league_team_btn: 'Hinzufügen'
@@ -14,13 +17,13 @@ de:
       timeperiod: 'Zeitraum'
     index:
       confirm: 'Sind Sie sicher?'
+      leagues: 'Ligen'
+      new_league: 'Neue Liga'
     nav:
       create_league: 'Liga erstellen'
       league_index: 'Zurück zur Übersicht'
       new_league: 'Neue Liga'
       save_league: 'Liga speichern'
       show_league: 'Liga anzeigen'
-    title:
-      edit: 'Bearbeiten'
-      leagues: 'Ligen'
-      new: 'Neue Liga'
+    new:
+      new_league: 'Neue Liga'

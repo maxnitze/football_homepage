@@ -15,6 +15,7 @@ de:
       new_news: 'Neue Nachricht'
     nav:
       create_news: 'Nachricht erstellen'
+      edit_news: 'Nachricht bearbeiten'
       news_index: 'Zurück zur Übersicht'
       save_news: 'Nachricht speichern'
       show_news: 'Nachricht anzeigen'

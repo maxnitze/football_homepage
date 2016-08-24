@@ -2,6 +2,6 @@
 
 .news
   .news-form
-    = render 'lang'
+    = render 'form', action: :edit, title_text: "#{t '.edit'}: #{@news.current_newstext.title.truncate(TITLE_TRUNC)}"
 
-    = render 'form'
+    = render 'footer'

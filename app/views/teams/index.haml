@@ -1,6 +1,10 @@
 - provide(:title, t('.teams'))
 
 .teams
+  .head
+    = t '.teams'
+    .right
+      = render 'nav', action: :index
   .teams-form
     .table-responsive
       %table.table.table-hover.table-condensed

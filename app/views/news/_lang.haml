@@ -1,6 +1,7 @@
-%nav.navbar
-  #bs-example-navbar-collapse-3.collapse.navbar-collapse
-    %ul.nav.nav-tabs.nav-justified
-      -I18n.available_locales.each do |lang|
-        %li{role: 'presentation'}
-          = link_to t(:language, locale: lang), edit_news_path(@news, lang: lang), class: "toggle_lang", "data-langs" => "#{I18n.available_locales.join(',')}", "data-lang" => lang
+- if action.eql?(:edit)
+  %nav.navbar
+    #bs-example-navbar-collapse-3.collapse.navbar-collapse
+      %ul.nav.nav-tabs.nav-justified
+        -I18n.available_locales.each do |lang|
+          %li{role: 'presentation'}
+            = link_to t(:language, locale: lang), edit_news_path(@news, lang: lang), class: 'toggle_lang', 'data-langs' => "#{I18n.available_locales.join(',')}", 'data-lang' => lang

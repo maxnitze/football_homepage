@@ -1,12 +1,14 @@
-%hr
-%p.news-bottom
-  %span.nav.btn-group.btn-group-xs
+%span.nav.btn-group.btn-group-xs
+  - if action.eql? :index
+    - if permitted_to_create_news?
+      = link_to t('.new_news'), new_news_path, class: 'btn btn-default', role: 'button'
+  - else
     = link_to t('.news_index'), news_index_path, class: 'btn btn-default', role: 'button'
-    -if action.eql? :edit
+    - if action.eql? :edit
       = link_to t('.show_news'), @news, class: 'btn btn-default', role: 'button'
-      = f.submit t('.save_news'), class: 'btn btn-default'
-    -else
-      = link_to t('.create_news'), '#', class: 'btn btn-default', role: 'button',onclick: "event.preventDefault(); $(new_news).submit();"
-  -if action.eql? :edit and @news.edit_count > 0
-    %span.edit-info
-      = t 'news.edit_info_html', count: @news.edit_count, author: (news_author @news.editor), datetime: l(@news.updated_at, format: :long)
+      = link_to t('.save_news'), '#', class: 'btn btn-default', role: 'button',onclick: "submit_form(event, 'edit_news_#{@news.id}')"
+    - elsif action.eql? :new
+      = link_to t('.create_news'), '#', class: 'btn btn-default', role: 'button', onclick: "submit_form(event, 'new_news')"
+    - elsif action.eql? :show
+      - if permitted_to_edit_news? @news
+        = link_to t('.edit_news'), edit_news_path(@news), class: 'btn btn-default', role: 'button'

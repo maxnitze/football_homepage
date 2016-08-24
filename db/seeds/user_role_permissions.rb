@@ -2,12 +2,12 @@
 
 # users
 UserRolePermission.create(
-  symbol: :can_update_users,
-  description: 'user_role_permissions.can_update_users.description')
+  symbol: :can_update_user,
+  description: 'user_role_permissions.can_update_user.description')
 
 UserRolePermission.create(
-  symbol: :can_destroy_users,
-  description: 'user_role_permissions.can_destroy_users.description')
+  symbol: :can_destroy_user,
+  description: 'user_role_permissions.can_destroy_user.description')
 
 # news
 UserRolePermission.create(
@@ -22,18 +22,31 @@ UserRolePermission.create(
   symbol: :can_destroy_news,
   description: 'user_role_permissions.can_destroy_news.description')
 
-# news
+# teams
 UserRolePermission.create(
-  symbol: :can_create_team,
-  description: 'user_role_permissions.can_create_team.description')
+  symbol: :can_create_teams,
+  description: 'user_role_permissions.can_create_teams.description')
 
 UserRolePermission.create(
-  symbol: :can_update_team,
-  description: 'user_role_permissions.can_update_team.description')
+  symbol: :can_update_teams,
+  description: 'user_role_permissions.can_update_teams.description')
 
 UserRolePermission.create(
-  symbol: :can_destroy_team,
-  description: 'user_role_permissions.can_destroy_team.description')
+  symbol: :can_destroy_teams,
+  description: 'user_role_permissions.can_destroy_teams.description')
+
+# leagues
+UserRolePermission.create(
+  symbol: :can_create_leagues,
+  description: 'user_role_permissions.can_create_leagues.description')
+
+UserRolePermission.create(
+  symbol: :can_update_leagues,
+  description: 'user_role_permissions.can_update_leagues.description')
+
+UserRolePermission.create(
+  symbol: :can_destroy_leagues,
+  description: 'user_role_permissions.can_destroy_leagues.description')
 
 # betting game
 UserRolePermission.create(

@@ -1,20 +1,26 @@
 de:
   user_role_permissions:
+    can_create_league:
+      description: 'darf Ligen erstellen'
     can_create_news:
       description: 'darf Nachrichten ertellen'
     can_create_team:
       description: 'darf Mannschaften ertellen'
+    can_destroy_league:
+      description: 'darf Ligen löschen'
     can_destroy_news:
       description: 'darf Nachrichten löschen'
     can_destroy_team:
       description: 'darf Mannschaften löschen'
-    can_destroy_users:
+    can_destroy_user:
       description: 'darf Benutzer löschen'
     can_update_bettinggame:
       description: 'darf Tippspiel bearbeiten'
-    can_update_users:
+    can_update_league:
+      description: 'darf Ligen bearbeiten'
+    can_update_news:
       description: 'darf Nachrichten bearbeiten'
     can_update_team:
       description: 'darf Mannschaften bearbeiten'
-    can_update_users:
+    can_update_user:
       description: 'darf Benutzer bearbeiten'

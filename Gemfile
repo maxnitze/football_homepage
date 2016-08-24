@@ -106,6 +106,10 @@ group :test do
   gem 'database_cleaner' #, github: 'bmabey/database_cleaner'
   # open brower on failing tests
   gem 'launchy' #, github: 'copiousfreetime/launchy'
+  # fixtures replacement
+  gem 'factory_girl_rails' #, github: 'thoughtbot/factory_girl_rails'
+  # fake data generator
+  gem 'faker' #, github: 'stympy/faker'
 end
 
 group :doc do

@@ -14,8 +14,8 @@
     - type_class = ''
 
   .alert.alert-dismissable{class: type_class, role: 'alert'}
-    - texts.each_with_index do |t, i|
+    - texts.each_with_index do |text, i|
       - if i != 0
         %br
-      = t.html_safe
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} &times;
+      = text.html_safe
+    %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;

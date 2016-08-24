@@ -1,4 +1,5 @@
 de:
   models:
     newstext:
+      mandatory: 'muss ausgefüllt sein!'
       unique_per_lang: 'darf nur einmal für jede Sprache einer Nachricht erzeugt werden!'

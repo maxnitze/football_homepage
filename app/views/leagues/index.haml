@@ -1,6 +1,10 @@
-- provide(:title, "#{t('leagues.title.leagues')}")
+- provide(:title, t('.leagues'))
 
 .leagues
+  .head
+    = t '.leagues'
+    .right
+      = render 'nav', action: :index
   .leagues-form
     .table-responsive
       %table.table.table-hover.table-condensed
@@ -23,7 +27,3 @@
             %td.row-league-remove
               = link_to league, method: :delete, data: { confirm: t('.confirm') } do
                 %span.glyphicon.glyphicon-remove
-
-    %br
-
-    = render 'nav', action: :index

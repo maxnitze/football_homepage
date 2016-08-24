@@ -11,6 +11,8 @@
   %body{class: 'main'}
     = render 'layouts/header'
 
+    .alert-block= render 'layouts/flash'
+
     %main{role: 'main'}
       .content-box
         = yield

@@ -1,4 +1,4 @@
 de:
   models:
     news:
-      mandatory: 'muss ausgefüllt sein!'
+      dummy: 'DUMMY'

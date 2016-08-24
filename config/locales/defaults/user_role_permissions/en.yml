@@ -1,20 +1,26 @@
 en:
   user_role_permissions:
+    can_create_leagues:
+      description: 'can create leagues'
     can_create_news:
       description: 'can create news'
-    can_create_team:
-      description: 'can create team'
+    can_create_teams:
+      description: 'can create teams'
+    can_destroy_leagues:
+      description: 'can destroy leagues'
     can_destroy_news:
       description: 'can destroy news'
-    can_destroy_team:
-      description: 'can destroy team'
+    can_destroy_teams:
+      description: 'can destroy teams'
     can_destroy_users:
       description: 'can destroy users'
     can_update_bettinggame:
       description: 'can update bettinggame'
+    can_update_leagues:
+      description: 'can update leagues'
     can_update_news:
       description: 'can update news'
-    can_update_team:
-      description: 'can update team'
+    can_update_teams:
+      description: 'can update teams'
     can_update_users:
       description: 'can update users'

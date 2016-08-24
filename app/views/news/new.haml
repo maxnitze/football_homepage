@@ -1,8 +1,7 @@
 -provide(:title, t('.new_news'))
 
 .news-form
-
-  = render 'form'
+  = render 'form', action: :new, title_text: t('.new_news')
 
   %br
 

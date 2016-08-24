@@ -15,7 +15,8 @@ en:
       new_news: 'New News'
     nav:
       create_news: 'Create news'
-      news_index: 'Back To index'
+      edit_news: 'Edit news'
+      news_index: 'Back to index'
       save_news: 'Save news'
       show_news: 'Show news'
     new:

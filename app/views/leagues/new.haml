@@ -1,5 +1,5 @@
-- provide(:title, "#{t('leagues.title.new')}")
+- provide(:title, t('.new_league'))
 
 .leagues
   .leagues-form
-    = render 'form', action: :new
+    = render 'form', action: :new, title_text: t('.new_league')
