@@ -1,20 +1,16 @@
 %header
   %nav.navbar.navbar-inverse.navbar-fixed-top{role: 'navigation'}
-    %a.navbar-brand{href: root_path}
-      %span
-        %img{src: '/assets/crest.png', alt: 'Wappen VfB Oxstedt', height: '25'}
-        VfB Oxstedt v.1950 e.V.
     .inner-header
       .navbar-header
-        %button.navbar-toggle{'data-target' => '#bs-example-navbar-collapse-1', 'data-toggle' => 'collapse', type: 'button'}
+        .header-crest
+          = link_to image_tag('/assets/crest.png', alt: 'Wappen VfB Oxstedt', height: 40), root_path, { class: 'navbar-brand' }
+        %button.navbar-toggle{'data-target' => '#site-navigation', 'data-toggle' => 'collapse', type: 'button'}
           %span.sr-only Toggle navigation
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      #site-navigation.collapse.navbar-collapse
         %ul.nav.navbar-nav
-          %li
-            = link_to t('.home'), root_path
           %li
             = link_to t('.news'), news_index_path
           %li.dropdown
@@ -58,8 +54,9 @@
             %ul.nav.navbar-nav
               %li.dropdown
                 %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
-                  = current_user.email
-                  %b.caret
+                  .header-avatar
+                    = image_tag(current_user.get_avatar_file_name, alt: current_user.email, height: 46)
+                    %b.caret
                 %ul.dropdown-menu
                   -if is_admin?
                     %li

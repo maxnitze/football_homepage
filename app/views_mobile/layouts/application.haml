@@ -1,0 +1,20 @@
+!!!
+%html{class: 'main', lang: current_lang}
+  %head
+    %meta{name: "viewport", content: "width=device-width, initial-scale=0.8"}
+    %title= content_for?(:title) ? "#{yield :title} | VfB Oxstedt v.1950 e.V." : 'VfB Oxstedt v.1950 e.V.'
+    %meta{name: "description", content: "#{content_for?(:description) ? yield(:description) : 'Homepage des VfB Oxstedt v.1950 e.V.'}"}
+    = favicon_link_tag 'crest.png'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body{class: 'main'}
+    = render 'layouts/header'
+
+    .alert-block= render 'layouts/flash'
+
+    %main{role: 'main'}
+      .content-box-mobile
+        = yield
+
+    = render 'layouts/footer'
