@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.1'
 #ruby-gemset=vfb_oxstedt
 
 # ruby web application framework
@@ -65,6 +65,9 @@ gem "nokogiri" #, github: 'sparklemotion/nokogiri'
 
 # Tagging arbitrary objects
 gem 'acts-as-taggable-on' #, github: 'mbleigh/acts-as-taggable-on'
+
+# coveralls gemfile
+gem 'coveralls', require: false
 
 # datetimepicker for bootstrap3
 gem 'momentjs-rails' #,github: 'derekprior/momentjs-rails'
