@@ -12,3 +12,5 @@ de:
       new_team: 'Neue Mannschaft'
       save_team: 'Mannschaft speichern'
       show_team: 'Mannschaft anzeigen'
+    show_hometeam:
+      teams: 'Mannschaften'

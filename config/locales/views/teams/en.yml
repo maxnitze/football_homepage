@@ -12,3 +12,5 @@ en:
       new_team: 'New team'
       save_team: 'Save team'
       show_team: 'Show team'
+    show_hometeam:
+      teams: 'Teams'

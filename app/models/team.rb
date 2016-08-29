@@ -18,4 +18,8 @@ class Team < ActiveRecord::Base
   has_many :leagues, through: :league_teams
   has_many :league_team_players
   has_many :players, through: :league_team_players
+
+  def get_name
+    self.ishometeam ? self.hometeamname : self.name
+  end
 end

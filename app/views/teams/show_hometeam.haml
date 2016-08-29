@@ -1,5 +1,11 @@
-%p#notice= notice
+- provide(:title, "#{@team.get_name} | #{t('.teams')}")
 
+.teams
+  .head
+    = link_to t('.teams'), teams_path
+    = " » #{@team.get_name}"
+    .right
+      = render 'nav', action: :show
 %p
   %b Name:
   = @team.name

@@ -2,10 +2,8 @@
   - if action.eql? :index
     - if permitted_to_create_teams?
       = link_to t('.new_team'), new_team_path, class: 'btn btn-default', role: 'button'
-  - else
-    = link_to t('.team_index'), teams_index_path, class: 'btn btn-default', role: 'button'
-    - if action.eql? :edit
-      = link_to t('.show_team'), @league, class: 'btn btn-default', role: 'button'
-      = link_to t('.save_team'), '#', class: 'btn btn-default', role: 'button',onclick: "submit_form(event, 'edit_team_#{@team.id}')"
-    - elsif action.eql? :new
-      = link_to t('.create_team'), '#', class: 'btn btn-default', role: 'button', onclick: "submit_form(event, 'new_team')"
+  - elsif action.eql? :edit
+    = link_to t('.show_team'), @league, class: 'btn btn-default', role: 'button'
+    = link_to t('.save_team'), '#', class: 'btn btn-default', role: 'button',onclick: "submit_form(event, 'edit_team_#{@team.id}')"
+  - elsif action.eql? :new
+    = link_to t('.create_team'), '#', class: 'btn btn-default', role: 'button', onclick: "submit_form(event, 'new_team')"
