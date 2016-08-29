@@ -66,9 +66,6 @@ gem "nokogiri" #, github: 'sparklemotion/nokogiri'
 # Tagging arbitrary objects
 gem 'acts-as-taggable-on' #, github: 'mbleigh/acts-as-taggable-on'
 
-# coveralls gemfile
-gem 'coveralls', require: false
-
 # datetimepicker for bootstrap3
 gem 'momentjs-rails' #,github: 'derekprior/momentjs-rails'
 #gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
@@ -108,6 +105,8 @@ group :test do
   gem 'factory_girl_rails' #, github: 'thoughtbot/factory_girl_rails'
   # fake data generator
   gem 'faker' #, github: 'stympy/faker'
+  # coveralls gemfile
+  gem 'coveralls', require: false #, github: 'lemurheavy/coveralls-ruby'
 end
 
 group :production do
