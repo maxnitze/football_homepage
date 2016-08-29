@@ -80,6 +80,6 @@ class User < ActiveRecord::Base
   end
 
   def get_avatar_file_name
-    self.avatar_file_name || '/assets/default_avatar.jpg'
+    self.avatar_file_name || 'default_avatar.jpg'
   end
 end
