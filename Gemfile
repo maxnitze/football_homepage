@@ -71,16 +71,7 @@ gem 'momentjs-rails' #,github: 'derekprior/momentjs-rails'
 #gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'bootstrap3-datetimepicker-rails' #, github: 'TrevorS/bootstrap3-datetimepicker-rails'
 
-group :development, :test do
-  # Puma Web Server
-  gem 'puma' #, github: 'puma'
-  # SQLite3 Database
-  gem 'sqlite3' #, github: 'qoobaa/sqlite3'
-  # Test-Framework RSpec
-  gem 'rspec-rails' #, github: 'rspec/rspec-rails'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring' #, github: 'rails/spring'
-
+group :development do
   # nicer scaffolding templates
   gem 'nifty-generators' #, github: 'ryanb/nifty-generators'
 
@@ -98,6 +89,8 @@ group :development, :test do
 end
 
 group :test do
+  # Test-Framework RSpec
+  gem 'rspec-rails' #, github: 'rspec/rspec-rails'
   # ruby bindings for WebDriver
   gem 'selenium-webdriver'
   # real user inteaction for tests
@@ -112,14 +105,26 @@ group :test do
   gem 'faker' #, github: 'stympy/faker'
 end
 
-group :doc do
-  # generate searchable HTML documentation for ruby code
-  gem 'sdoc', require: false #, github: 'voloko/sdoc'
-end
-
 group :production do
   # postgresql
   gem 'pg' #, github: 'ged/ruby-pg'
   # enabling features such as static asset serving and logging on Heroku
   gem 'rails_12factor' #, github: 'heroku/rails_12factor'
+end
+
+group :doc do
+  # generate searchable HTML documentation for ruby code
+  gem 'sdoc', require: false #, github: 'voloko/sdoc'
+end
+
+group :development, :test do
+  # SQLite3 Database
+  gem 'sqlite3' #, github: 'qoobaa/sqlite3'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring' #, github: 'rails/spring'
+end
+
+group :development, :test, :production do
+  # Puma Web Server
+  gem 'puma' #, github: 'puma'
 end
