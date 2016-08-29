@@ -401,6 +401,7 @@ DEPENDENCIES
   rails (~> 4.2.0)
   rails-i18n
   rails_12factor
+  rake
   rspec-rails
   sass-rails
   sdoc

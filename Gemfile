@@ -92,6 +92,8 @@ group :development do
 end
 
 group :test do
+  # ruby make
+  gem 'rake' #, github: 'ruby/rake'
   # Test-Framework RSpec
   gem 'rspec-rails' #, github: 'rspec/rspec-rails'
   # ruby bindings for WebDriver
