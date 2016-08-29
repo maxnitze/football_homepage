@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.3.0'
 #ruby-gemset=vfb_oxstedt
 
 # ruby web application framework
@@ -118,4 +118,6 @@ group :doc do
 end
 
 group :production do
+  # enabling features such as static asset serving and logging on Heroku
+  gem 'rails_12factor'
 end
