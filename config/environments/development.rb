@@ -35,7 +35,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-    # General Settings
+  # General Settings
   config.app_domain = 'localhost:3000'
 
   # Email
@@ -43,7 +43,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: config.app_domain }
   config.action_mailer.smtp_settings = {
-    address: 'localhost', 
+    address: 'localhost',
     port: '1025'
   }
 

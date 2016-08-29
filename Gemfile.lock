@@ -219,6 +219,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    pg (0.18.4)
     pkg-config (1.1.7)
     puma (3.6.0)
     quiet_assets (1.1.0)
@@ -378,6 +379,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter
   paperclip
+  pg
   puma
   quiet_assets
   rails (~> 4.2.0)

@@ -118,7 +118,8 @@ group :doc do
 end
 
 group :production do
+  # postgresql
+  gem 'pg' #, github: 'ged/ruby-pg'
+  # enabling features such as static asset serving and logging on Heroku
+  gem 'rails_12factor' #, github: 'heroku/rails_12factor'
 end
-
-# enabling features such as static asset serving and logging on Heroku
-gem 'rails_12factor'
