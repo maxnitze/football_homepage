@@ -16,5 +16,5 @@ end
 %w{
   users teams clubs players leagues news
 }.each do |part|
-  load File.expand_path(__dir__))+"/test_data/#{part}.rb"
+  load File.expand_path(__dir__)+"/test_data/#{part}.rb"
 end
