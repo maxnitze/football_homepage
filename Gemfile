@@ -86,11 +86,11 @@ group :development, :test do
 
   # more powerfull error page
   gem 'better_errors' #, github: 'charliesome/better_errors'
-  # shows a interactive terminal at error page
+  # shows a interactive terminal at error pages
   gem 'binding_of_caller' #, github: 'banister/binding_of_caller'
   # no asset logs to server-terminal
   gem 'quiet_assets' #, github: 'evrone/quiet_assets'
-  # annotate data classes with its attribute names and types
+  # annotate data classes with their attribute names and types
   gem 'annotate' #, github: 'ctran/annotate_models'
 
   # catch mails send by the app at http://localhost:1080/
@@ -118,6 +118,7 @@ group :doc do
 end
 
 group :production do
-  # enabling features such as static asset serving and logging on Heroku
-  gem 'rails_12factor'
 end
+
+# enabling features such as static asset serving and logging on Heroku
+gem 'rails_12factor'
