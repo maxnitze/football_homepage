@@ -21,7 +21,6 @@
 #= require moment/de
 #= require turbolinks
 #= require_self
-#= require_directory ./misc
 #= require_directory ./static_pages
 #= require_directory ./models
 
