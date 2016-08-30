@@ -21,6 +21,8 @@ class Player < ActiveRecord::Base
   has_many :teams, through: :league_team_players
   has_many :leagues, through: :league_team_players
 
+  validates_presence_of :surname, :givenname, :birthday, :position, :leg
+
   has_attached_file :portrait, styles: { medium: '160x200>', thumb: '80x100>' }, default_url: "/system/players/portraits/no_portrait.png"
   validates_attachment_content_type :portrait, content_type: /\Aimage\/.*\Z/
 
