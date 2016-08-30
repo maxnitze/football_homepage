@@ -11,6 +11,7 @@
 #  updated_at :datetime
 #
 
+# spec/models/coach_spec.rb
 require 'rails_helper'
 
 RSpec.describe Coach, type: :model do

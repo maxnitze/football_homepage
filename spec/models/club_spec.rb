@@ -17,6 +17,7 @@
 #  updated_at        :datetime
 #
 
+# spec/models/club_spec.rb
 require 'rails_helper'
 
 RSpec.describe Club, type: :model do
