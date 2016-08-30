@@ -21,11 +21,11 @@ require 'rails_helper'
 
 RSpec.describe Player, type: :model do
   it 'has a valid factory' do
-    expect(create :player).to be_valid
-    expect(create :player, :further_information).to be_valid
+    expect(build :player).to be_valid
+    expect(build :player, :further_information).to be_valid
   end
 
-  it 'is valid without anything but a name' do
+  it 'is valid without an avatar' do
     expect(build :player).to be_valid
   end
 

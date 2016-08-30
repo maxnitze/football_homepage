@@ -22,8 +22,8 @@ require 'rails_helper'
 
 RSpec.describe Club, type: :model do
   it 'has a valid factory' do
-    expect(create :club).to be_valid
-    expect(create :club, :further_information).to be_valid
+    expect(build :club).to be_valid
+    expect(build :club, :further_information).to be_valid
   end
 
   it 'is valid without anything but a name' do

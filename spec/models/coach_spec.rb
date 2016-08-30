@@ -16,8 +16,8 @@ require 'rails_helper'
 
 RSpec.describe Coach, type: :model do
   it 'has a valid factory' do
-    expect(create :coach).to be_valid
-    expect(create :coach, :further_information).to be_valid
+    expect(build :coach).to be_valid
+    expect(build :coach, :further_information).to be_valid
   end
 
   it 'is valid without anything but a name' do

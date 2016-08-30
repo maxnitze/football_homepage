@@ -19,8 +19,8 @@ require 'rails_helper'
 
 RSpec.describe League, type: :model do
   it 'has a valid factory' do
-    expect(create :league).to be_valid
-    expect(create :league, :further_information).to be_valid
+    expect(build :league).to be_valid
+    expect(build :league, :further_information).to be_valid
   end
 
   it 'is not valid without a name' do
