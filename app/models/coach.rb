@@ -12,4 +12,5 @@
 #
 
 class Coach < ActiveRecord::Base
+  validates_presence_of :surname, :givenname
 end

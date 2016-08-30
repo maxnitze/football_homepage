@@ -1,3 +1,6 @@
 de:
-  coaches:
-    dummy: 'DUMMY'
+  activerecord:
+    attributes:
+      coach:
+        givenname: 'Vorname'
+        surname: 'Nachname'

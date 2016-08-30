@@ -30,6 +30,8 @@
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
 #  locale                 :string
+#  provider               :string
+#  uid                    :string
 #
 
 class User < ActiveRecord::Base

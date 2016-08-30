@@ -1,3 +1,5 @@
 de:
-  clubs:
-    dummy: 'DUMMY'
+  activerecord:
+    attributes:
+      club:
+        name: 'Name'

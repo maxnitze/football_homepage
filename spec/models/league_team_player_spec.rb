@@ -8,7 +8,7 @@
 #  player_id  :integer
 #  position   :integer
 #  ex         :boolean
-#  picture    :string(255)
+#  picture    :string
 #  created_at :datetime
 #  updated_at :datetime
 #

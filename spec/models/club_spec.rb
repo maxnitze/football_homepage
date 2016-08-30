@@ -25,7 +25,7 @@ RSpec.describe Club, type: :model do
     expect(create :club, :further_information).to be_valid
   end
 
-  it 'is valid without anything else but a name' do
+  it 'is valid without anything but a name' do
     expect(build :club).to be_valid
   end
 
