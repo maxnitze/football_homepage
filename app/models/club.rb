@@ -18,7 +18,7 @@
 #
 
 class Club < ActiveRecord::Base
-  validates_presence_of :name, message: I18n.t('models.club.name.mandatory')
+  validates_presence_of :name, message: I18n.t('validations.mandatory')
 
   has_and_belongs_to_many :teams
   has_many :referees
