@@ -19,6 +19,10 @@ class Team < ActiveRecord::Base
   has_many :league_team_players
   has_many :players, through: :league_team_players
 
+  validates_presence_of :name, :class_id
+  validates_inclusion_of :ishometeam, :isfemale, in: [ true, false ]
+  validates_presence_of :hometeamname, if: :ishometeam
+
   def get_name
     self.ishometeam ? self.hometeamname : self.name
   end
