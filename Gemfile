@@ -92,10 +92,13 @@ group :test do
   # ruby make
   gem 'rake' #, github: 'ruby/rake'
   # Test-Framework RSpec
-  gem 'rspec-rails' #, github: 'rspec/rspec-rails'
+  gem 'rspec-rails', require: false #, github: 'rspec/rspec-rails'
+  # cucumber for rails 3.x, 4.x, and 5.x
+  gem 'cucumber-rails', require: false #, github: 'cucumber/cucumber-rails'
+
   # ruby bindings for WebDriver
   gem 'selenium-webdriver'
-  # real user inteaction for tests
+  # real user interaction for tests
   gem 'capybara' #, github: 'jnicklas/capybara'
   # cleaning-strategies for databases in ruby
   gem 'database_cleaner' #, github: 'bmabey/database_cleaner'
@@ -105,6 +108,7 @@ group :test do
   gem 'factory_girl_rails' #, github: 'thoughtbot/factory_girl_rails'
   # fake data generator
   gem 'faker' #, github: 'stympy/faker'
+
   # coveralls gemfile
   gem 'coveralls', require: false #, github: 'lemurheavy/coveralls-ruby'
 end
