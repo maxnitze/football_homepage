@@ -37,12 +37,17 @@
 # spec/factories/clubs.rb
 FactoryGirl.define do
   factory :user do |f|
-    f.name							{ Faker::Internet.user_name }
-    f.surname						{ Faker::Name.last_name }
-    f.givenname					{ Faker::Name.first_name }
-    f.email   					{ Faker::Internet.email }
-    f.password          { Faker::Internet.password(8, 20, true, true) }
-    f.locale            { I18n.available_locales.sample }
+    f.name                  { Faker::Internet.user_name }
+    f.surname               { Faker::Name.last_name }
+    f.givenname					    { Faker::Name.first_name }
+    f.email                 { Faker::Internet.email }
+    f.password              { Faker::Internet.password(8, 20, true, true) }
+    f.locale                { I18n.available_locales.sample }
+
+		f.avatar_file_name      { Faker::Avatar.image }
+    f.avatar_content_type   { "image/#{Faker::Lorem.word}" }
+    f.avatar_file_size      { Faker::Number.between(1, 1000) }
+    f.avatar_updated_at     { Faker::Time.between(1.year.ago, Time.now) }
 
     trait :admin do
       after(:create) do |user|

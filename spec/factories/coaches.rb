@@ -17,9 +17,7 @@ FactoryGirl.define do
     f.surname							{ Faker::Name.last_name }
     f.givenname						{ Faker::Name.first_name }
 
-    trait :further_information do
-  		f.birthday    			{ Faker::Date.between(100.year.ago, Date.today) }
-  		f.picture         	{ Faker::Avatar.image }
-    end
+		f.birthday            { Faker::Date.between(100.year.ago, Date.today) }
+		f.picture             { Faker::Avatar.image }
   end
 end

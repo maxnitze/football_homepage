@@ -25,11 +25,9 @@ FactoryGirl.define do
     f.position                { FIELD_POSITIONS.sample }
     f.leg                     { PLAYER_LEGS.sample }
 
-    trait :further_information do
-  		f.portrait_file_name    { Faker::Avatar.image }
-      f.portrait_content_type { "image/#{Faker::Lorem.word}" }
-      f.portrait_file_size    { Faker::Number.between(1, 1000) }
-      f.portrait_updated_at   { Faker::Time.between(1.year.ago, Time.now) }
-    end
+		f.portrait_file_name      { Faker::Avatar.image }
+    f.portrait_content_type   { "image/#{Faker::Lorem.word}" }
+    f.portrait_file_size      { Faker::Number.between(1, 1000) }
+    f.portrait_updated_at     { Faker::Time.between(1.year.ago, Time.now) }
   end
 end

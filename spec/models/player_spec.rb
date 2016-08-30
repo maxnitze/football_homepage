@@ -22,34 +22,27 @@ require 'rails_helper'
 RSpec.describe Player, type: :model do
   it 'has a valid factory' do
     expect(build :player).to be_valid
-    expect(build :player, :further_information).to be_valid
   end
 
-  it 'is valid without an avatar' do
-    expect(build :player).to be_valid
+  it 'is valid without a portrait' do
+    expect(build :player, portrait_file_name: nil, portrait_content_type: nil, portrait_file_size: nil, portrait_updated_at: nil).to be_valid
   end
 
   it 'is not valid without a name' do
     expect(build :player, surname: nil, givenname: nil).to_not be_valid
     expect(build :player, surname: nil).to_not be_valid
     expect(build :player, givenname: nil).to_not be_valid
-    expect(build :player, :further_information, surname: nil, givenname: nil).to_not be_valid
-    expect(build :player, :further_information, surname: nil).to_not be_valid
-    expect(build :player, :further_information, givenname: nil).to_not be_valid
   end
 
   it 'is not valid without a birthday' do
     expect(build :player, birthday: nil).to_not be_valid
-    expect(build :player, :further_information, birthday: nil).to_not be_valid
   end
 
   it 'is not valid without a position value' do
     expect(build :player, position: nil).to_not be_valid
-    expect(build :player, :further_information, position: nil).to_not be_valid
   end
 
   it 'is not valid without a leg value' do
     expect(build :player, leg: nil).to_not be_valid
-    expect(build :player, :further_information, leg: nil).to_not be_valid
   end
 end
