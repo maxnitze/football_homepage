@@ -23,10 +23,6 @@ RSpec.describe League, type: :model do
     expect(create :league, :further_information).to be_valid
   end
 
-  it 'is valid with only ' do
-    expect(build :league).to be_valid
-  end
-
   it 'is not valid without a name' do
     expect(build :league, name: nil).to_not be_valid
     expect(build :league, :further_information, name: nil).to_not be_valid

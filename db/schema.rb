@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719131534) do
+ActiveRecord::Schema.define(version: 20160830213633) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
@@ -179,9 +179,10 @@ ActiveRecord::Schema.define(version: 20160719131534) do
   create_table "referees", force: :cascade do |t|
     t.string   "surname"
     t.string   "givenname"
-    t.integer  "clubid"
+    t.integer  "club_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "birthday"
   end
 
   create_table "taggings", force: :cascade do |t|
