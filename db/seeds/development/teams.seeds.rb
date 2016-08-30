@@ -1,3 +1,4 @@
+# db/seeds/development/teams.seeds.rb
 Team.create(
   name: 'VfB Oxstedt',
   ishometeam: true,

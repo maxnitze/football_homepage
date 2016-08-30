@@ -9,6 +9,9 @@ gem 'rails', '~> 4.2.0 ' #, github: 'rails'
 # internationalization
 gem 'rails-i18n' #, github: 'svenfuchs/rails-i18n'
 
+# puma web server
+gem 'puma' #, github: 'puma'
+
 # Sass stylesheet integration
 gem 'sass-rails' #, github: 'rails/sass-rails'
 # JavaScript compressor
@@ -38,9 +41,6 @@ gem 'turbolinks' #, github: 'rails/turbolinks'
 # SQL AST manager for ruby
 gem 'arel' #, github: 'rails/arel'
 
-# load variables from '.env' files to 'ENV'
-gem 'dotenv-rails', groups: [:development, :test]
-
 # Authentication
 gem 'devise' #, github: 'plataformatec/devise'
 gem 'devise-i18n' #, github: 'tigrish/devise-i18n'
@@ -65,6 +65,9 @@ gem "nokogiri" #, github: 'sparklemotion/nokogiri'
 
 # Tagging arbitrary objects
 gem 'acts-as-taggable-on' #, github: 'mbleigh/acts-as-taggable-on'
+
+# structure rails seed data
+gem 'seedbank' #, github: 'james2m/seedbank'
 
 # datetimepicker for bootstrap3
 gem 'momentjs-rails' #,github: 'derekprior/momentjs-rails'
@@ -130,9 +133,6 @@ group :development, :test do
   gem 'sqlite3' #, github: 'qoobaa/sqlite3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring' #, github: 'rails/spring'
-end
-
-group :development, :test, :production do
-  # Puma Web Server
-  gem 'puma' #, github: 'puma'
+  # load variables from '.env' files to 'ENV'
+  gem 'dotenv-rails' #, github: 'bkeepers/dotenv'
 end

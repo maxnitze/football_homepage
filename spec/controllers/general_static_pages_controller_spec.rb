@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe GeneralStaticPagesController, :type => :controller do
 
-  describe "GET home" do
+  describe "GET contact" do
     it "returns http success" do
-      get :home
+      get :contact
       expect(response).to be_success
     end
   end
@@ -16,9 +16,9 @@ RSpec.describe GeneralStaticPagesController, :type => :controller do
     end
   end
 
-  describe "GET about" do
+  describe "GET home" do
     it "returns http success" do
-      get :about
+      get :home
       expect(response).to be_success
     end
   end
@@ -29,12 +29,4 @@ RSpec.describe GeneralStaticPagesController, :type => :controller do
       expect(response).to be_success
     end
   end
-
-  describe "GET faq" do
-    it "returns http success" do
-      get :faq
-      expect(response).to be_success
-    end
-  end
-
 end

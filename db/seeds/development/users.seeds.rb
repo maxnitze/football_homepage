@@ -1,7 +1,9 @@
+# db/seeds/development/users.seeds.rb
 admin = UserRole.find_by_symbol :admin
 super_editor = UserRole.find_by_symbol :super_editor
 editor = UserRole.find_by_symbol :editor
-team_admin = UserRole.find_by_symbol :team_admin
+teams_admin = UserRole.find_by_symbol :teams_admin
+leagues_admin = UserRole.find_by_symbol :leagues_admin
 bettinggame_manager = UserRole.find_by_symbol :bettinggame_manager
 
 max = User.create(

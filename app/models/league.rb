@@ -21,4 +21,7 @@ class League < ActiveRecord::Base
   has_many :players, through: :league_team_players
 
   default_scope { order(start: :desc, end: :desc, class_id: :desc, name: :asc) }
+
+  validates_presence_of :name, :start, :end, :class_id
+  validates_inclusion_of :iscup, :isfemale, :noreferee, in: [ true, false ]
 end

@@ -6,6 +6,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'support/controller_macros'
 require 'support/factory_girl'
 
 require 'coveralls'
@@ -58,4 +59,15 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # include devise test controller_helpers module
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.extend ControllerMacros, type: :controller
+
+  # load seed data for testing
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+    HomepageNew::Application.load_tasks
+    Rake::Task['db:seed'].invoke
+  end
 end

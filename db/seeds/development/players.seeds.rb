@@ -1,3 +1,4 @@
+# db/seeds/development/players.seeds.rb
 Player.create(
   surname: 'Nitze',
   givenname: 'Max',

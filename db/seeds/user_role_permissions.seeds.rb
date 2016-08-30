@@ -1,4 +1,4 @@
-# permissions for user roles
+# db/seeds/user_role_permissions.seeds.rb
 
 # users
 UserRolePermission.create(

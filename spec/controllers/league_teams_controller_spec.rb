@@ -52,13 +52,6 @@ RSpec.describe LeagueTeamsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new league_team as @league_team" do
-      get :new, {}, valid_session
-      expect(assigns(:league_team)).to be_a_new(LeagueTeam)
-    end
-  end
-
   describe "GET #edit" do
     it "assigns the requested league_team as @league_team" do
       league_team = LeagueTeam.create! valid_attributes
