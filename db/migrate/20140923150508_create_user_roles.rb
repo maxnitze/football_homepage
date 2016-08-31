@@ -5,7 +5,7 @@ class CreateUserRoles < ActiveRecord::Migration
       t.string :description
       t.string :symbol
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

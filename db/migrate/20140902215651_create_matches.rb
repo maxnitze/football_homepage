@@ -1,12 +1,12 @@
 class CreateMatches < ActiveRecord::Migration
   def change
     create_table :matches do |t|
-      t.integer :league_id
+      t.integer :league_id        null: false
       t.integer :matchday
-      t.integer :home_id
-      t.integer :guest_id
-      t.datetime :start
-      t.datetime :end
+      t.integer :home_id          null: false
+      t.integer :guest_id         null: false
+      t.datetime :start           null: false
+      t.datetime :end             null: false
       t.integer :goals_home
       t.integer :goals_guest
       t.integer :goals_home_ht
@@ -16,13 +16,13 @@ class CreateMatches < ActiveRecord::Migration
       t.integer :assistant2_id
       t.boolean :overtime
       t.boolean :penalty
-      t.boolean :hncompete
-      t.boolean :gncompete
-      t.boolean :noreferee
-      t.boolean :canceled
-      t.boolean :enabled
+      t.boolean :hncompete        null: false
+      t.boolean :gncompete        null: false
+      t.boolean :noreferee        null: false
+      t.boolean :canceled         null: false
+      t.boolean :enabled          null: false
 
-      t.timestamps
+      t.timestamps                null: false
     end
   end
 end

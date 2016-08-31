@@ -3,7 +3,7 @@ class CreateBootsyImages < ActiveRecord::Migration
     create_table :bootsy_images do |t|
       t.string :image_file
       t.references :image_gallery
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

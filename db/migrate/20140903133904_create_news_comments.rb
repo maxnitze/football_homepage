@@ -8,7 +8,7 @@ class CreateNewsComments < ActiveRecord::Migration
       t.datetime :created
       t.string :text
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

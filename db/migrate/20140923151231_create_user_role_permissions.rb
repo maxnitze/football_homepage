@@ -4,7 +4,7 @@ class CreateUserRolePermissions < ActiveRecord::Migration
       t.string :symbol
       t.string :description
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

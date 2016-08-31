@@ -1,14 +1,14 @@
 class CreateLeagueTeamPlayers < ActiveRecord::Migration
   def change
     create_table :league_team_players do |t|
-      t.integer :team_id
-      t.integer :league_id
-      t.integer :player_id
-      t.integer :position
-      t.boolean :ex
+      t.integer :team_id    null: false
+      t.integer :league_id  null: false
+      t.integer :player_id  null: false
+      t.integer :position   null: false
+      t.boolean :ex         null: false
       t.string :picture
 
-      t.timestamps
+      t.timestamps          null: false
     end
   end
 end

@@ -8,7 +8,7 @@ class CreateNewstexts < ActiveRecord::Migration
       t.string :abstract,   default: '', null: false
       t.string :text,       default: '', null: false
 
-      t.timestamps null: false
+      t.timestamps          null: false
     end
   end
 end

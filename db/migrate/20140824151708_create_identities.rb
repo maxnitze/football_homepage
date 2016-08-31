@@ -5,7 +5,7 @@ class CreateIdentities < ActiveRecord::Migration
       t.string :provider
       t.string :uid
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
