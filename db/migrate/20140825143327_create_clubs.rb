@@ -1,7 +1,7 @@
 class CreateClubs < ActiveRecord::Migration
   def change
     create_table :clubs do |t|
-      t.string :name                null: false
+      t.string :name,                null: false
       t.string :officestreet
       t.string :officepostalcode
       t.string :officetown
@@ -12,7 +12,7 @@ class CreateClubs < ActiveRecord::Migration
       t.string :crest
       t.string :description
 
-      t.timestamps                  null: false
+      t.timestamps                   null: false
     end
   end
 end

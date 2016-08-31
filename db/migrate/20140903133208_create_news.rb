@@ -5,7 +5,7 @@ class CreateNews < ActiveRecord::Migration
       t.string :subtitle,     default: '', null: false
       t.string :abstract,     default: '', null: false
       t.string :text,         default: '', null: false
-      t.integer :author_id    null: false
+      t.integer :author_id,   null: false
       t.integer :editor_id
       t.integer :edit_count,  default: 0, null: false
 
