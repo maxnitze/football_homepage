@@ -17,6 +17,9 @@ class News < ActiveRecord::Base
   belongs_to :editor, class_name: 'User', foreign_key: :editor_id
   has_many :newstexts
 
+  validates_presence_of :author
+  validates_presence_of :editor, if: :is_edited?
+
   default_scope { order(created_at: :desc) }
 
   acts_as_taggable
@@ -28,4 +31,9 @@ class News < ActiveRecord::Base
   def current_newstext
     newstexts.detect { |nt| nt.language == I18n.locale.to_s } || newstexts.first
   end
+
+  private
+    def is_edited?
+      self.edit_count > 0
+    end
 end

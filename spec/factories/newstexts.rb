@@ -13,13 +13,15 @@
 #  updated_at :datetime         not null
 #
 
-class Newstext < ActiveRecord::Base
-  belongs_to :news
+# spec/factories/newstexts.rb
+FactoryGirl.define do
+  factory :newstext do
+    news
+    language            { I18n.available_locales.sample }
 
-  validates_presence_of :news, :title, :text
-  validates :language, uniqueness: { scope: :news }
-
-  def full_title
-    subtitle? ? "#{title}: #{subtitle}" : title
+    title               { Faker::Lorem.sentence }
+    subtitle            { Faker::Lorem.sentence }
+    abstract            { Faker::Lorem.paragraph }
+    text                { Faker::Lorem.paragraph(6, true, 8) }
   end
 end
