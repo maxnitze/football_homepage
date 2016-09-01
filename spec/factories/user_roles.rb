@@ -19,7 +19,7 @@ FactoryGirl.define do
 
     factory :user_role_with_permissions do
       after(:build) do |user_role|
-        user_role.user_role_permissions = create_list(Faker::Number.between(1, 10), :user_role_permission)
+        user_role.user_role_permissions = create_list(:user_role_permission, Faker::Number.between(1, 10))
       end
     end
   end
