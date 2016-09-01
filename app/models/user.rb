@@ -42,6 +42,9 @@ class User < ActiveRecord::Base
   has_many :authored_news, class_name: 'News', foreign_key: :author_id
   has_many :edited_news, class_name: 'News', foreign_key: :editor_id
 
+  validates_presence_of :name, :surname, :givenname, :email, :encrypted_password, :locale
+  validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
+
   has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100>' }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
@@ -50,8 +53,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable, :recoverable,
          :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:facebook, :google_oauth2, :twitter]
-
-  validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
