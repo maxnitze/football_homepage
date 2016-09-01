@@ -9,8 +9,19 @@
 #  updated_at  :datetime
 #
 
+# spec/models/user_role_permission_spec.rb
 require 'rails_helper'
 
-RSpec.describe UserRolePermission, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe UserRolePermission, type: :model do
+  it 'has a valid factory' do
+    expect(build :user_role_permission).to be_valid
+  end
+
+  it 'is not valid without a symbol' do
+    expect(build :user_role_permission, symbol: nil).to_not be_valid
+  end
+
+  it 'is not valid without a description' do
+    expect(build :user_role_permission, description: nil).to_not be_valid
+  end
 end

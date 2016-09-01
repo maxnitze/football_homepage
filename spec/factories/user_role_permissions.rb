@@ -9,9 +9,10 @@
 #  updated_at  :datetime
 #
 
-class UserRolePermission < ActiveRecord::Base
-  has_and_belongs_to_many :user_roles
-
-  validates_presence_of :symbol, :description
-  validates :symbol, uniqueness: true
+# spec/factories/user_role_permissions.rb
+FactoryGirl.define do
+  factory :user_role_permission do |f|
+    f.symbol                { Faker::Hipster.word }
+    f.description           { Faker::Hipster.sentence }
+  end
 end
