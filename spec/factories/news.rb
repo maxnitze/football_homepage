@@ -19,7 +19,7 @@ FactoryGirl.define do
     editor              { edit_count > 0 ? FactoryGirl.build(:user) : nil }
 
     factory :news_with_newstexts do
-      after(:create) do |news|
+      after(:build) do |news|
         news.newstexts = I18n.available_locales.map do |l|
           FactoryGirl.build(:newstext, language: l, news: news)
         end
