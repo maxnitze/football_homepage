@@ -19,7 +19,8 @@ FactoryGirl.define do
 
     factory :user_role_with_permissions do
       after(:build) do |user_role|
-        user_role.user_role_permissions = create_list(:user_role_permission, Faker::Number.between(1, 10))
+        all_user_role_permissions = UserRolePermission.all
+        user_role.user_role_permissions = all_user_role_permissions.sample(Faker::Number.between(0, all_user_role_permissions.size))
       end
     end
   end
