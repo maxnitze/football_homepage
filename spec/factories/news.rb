@@ -12,17 +12,17 @@
 
 # spec/factories/news.rb
 FactoryGirl.define do
-  factory :news do
-    author              { FactoryGirl.build(:user) }
+  factory :news do |n|
+    n.author              { FactoryGirl.build :user }
 
-    edit_count          { Faker::Number.between(0, 300) }
-    editor              { edit_count > 0 ? FactoryGirl.build(:user) : nil }
+    n.edit_count          { Faker::Number.between(0, 300) }
+    n.editor              { edit_count > 0 ? FactoryGirl.build(:user) : nil }
 
     factory :news_with_newstexts do
       after(:build) do |news|
-        news.newstexts = I18n.available_locales.map do |l|
+        news.newstexts = I18n.available_locales.map { |l|
           FactoryGirl.build(:newstext, language: l, news: news)
-        end
+        }
       end
     end
   end

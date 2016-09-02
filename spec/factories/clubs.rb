@@ -19,17 +19,17 @@
 
 # spec/factories/clubs.rb
 FactoryGirl.define do
-  factory :club do |f|
-    f.name							{ Faker::Company.name }
+  factory :club do |c|
+    c.name							{ Faker::Company.name }
 
-		f.officestreet			{ Faker::Address.street_address }
-		f.officepostalcode	{ Faker::Address.postcode }
-		f.officetown				{ Faker::Address.city }
-		f.stadiumstreet			{ Faker::Address.street_address }
-		f.stadiumpostalcode	{ Faker::Address.postcode }
-		f.stadiumtown				{ Faker::Address.city }
-		f.homepage					{ Faker::Internet.url }
-		f.crest							{ Faker::Avatar.image }
-		f.description				{ Faker::Lorem.paragraph }
+		c.officestreet			{ Faker::Address.street_address }
+		c.officepostalcode	{ Faker::Address.postcode }
+		c.officetown				{ Faker::Address.city }
+		c.stadiumstreet			{ Faker::Address.street_address }
+		c.stadiumpostalcode	{ Faker::Address.postcode }
+		c.stadiumtown				{ Faker::Address.city }
+		c.homepage					{ Faker::Internet.url }
+		c.crest							{ Faker::Avatar.image }
+		c.description				{ Faker::Lorem.paragraph }
   end
 end

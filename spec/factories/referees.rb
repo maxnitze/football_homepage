@@ -13,11 +13,11 @@
 
 # spec/factories/referees.rb
 FactoryGirl.define do
-  factory :referee do |f|
-    f.surname							{ Faker::Name.last_name }
-    f.givenname						{ Faker::Name.first_name }
-    f.club
+  factory :referee do |r|
+    r.surname							{ Faker::Name.last_name }
+    r.givenname						{ Faker::Name.first_name }
+    r.club
 
-    f.birthday            { Faker::Date.between(100.year.ago, Date.today) }
+    r.birthday            { Faker::Date.between(100.year.ago, Date.today) }
   end
 end

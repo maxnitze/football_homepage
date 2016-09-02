@@ -12,10 +12,10 @@
 
 # spec/factories/user_roles.rb
 FactoryGirl.define do
-  factory :user_role do |f|
-    f.name                  { Faker::Hipster.words(2, false, true).join ' ' }
-    f.description           { Faker::Hipster.sentence }
-    f.symbol                { Faker::Hipster.word }
+  factory :user_role do |r|
+    r.name                  { Faker::Hipster.words(2, false, true).join ' ' }
+    r.description           { Faker::Hipster.sentence }
+    r.symbol                { Faker::Hipster.word }
 
     factory :user_role_with_permissions do
       after(:build) do |user_role|

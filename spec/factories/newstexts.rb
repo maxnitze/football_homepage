@@ -15,13 +15,13 @@
 
 # spec/factories/newstexts.rb
 FactoryGirl.define do
-  factory :newstext do
-    news
-    language            { I18n.available_locales.sample }
+  factory :newstext do |nt|
+    nt.news
+    nt.language            { I18n.available_locales.sample }
 
-    title               { Faker::Lorem.sentence }
-    subtitle            { Faker::Lorem.sentence }
-    abstract            { Faker::Lorem.paragraph }
-    text                { Faker::Lorem.paragraph(6, true, 8) }
+    nt.title               { Faker::Lorem.sentence }
+    nt.subtitle            { Faker::Lorem.sentence }
+    nt.abstract            { Faker::Lorem.paragraph }
+    nt.text                { Faker::Lorem.paragraph(6, true, 8) }
   end
 end

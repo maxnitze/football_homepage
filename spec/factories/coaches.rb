@@ -13,11 +13,11 @@
 
 # spec/factories/coaches.rb
 FactoryGirl.define do
-  factory :coach do |f|
-    f.surname							{ Faker::Name.last_name }
-    f.givenname						{ Faker::Name.first_name }
+  factory :coach do |c|
+    c.surname							{ Faker::Name.last_name }
+    c.givenname						{ Faker::Name.first_name }
 
-		f.birthday            { Faker::Date.between(100.year.ago, Date.today) }
-		f.picture             { Faker::Avatar.image }
+		c.birthday            { Faker::Date.between(100.year.ago, Date.today) }
+		c.picture             { Faker::Avatar.image }
   end
 end

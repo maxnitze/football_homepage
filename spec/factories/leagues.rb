@@ -16,13 +16,13 @@
 
 # spec/factories/leagues.rb
 FactoryGirl.define do
-  factory :league do |f|
-    f.name	   						{ Faker::Company.name }
-    f.start	    					{ Faker::Time.between(50.years.ago, Date.today) }
-    f.end 	    					{ Faker::Time.between(start ? start : 50.years.ago, 1.year.from_now) }
-    f.class_id   					{ FOOTBALL_CLASSES.map { |c| c.first }.sample }
-    f.iscup               { Faker::Boolean.boolean }
-    f.isfemale            { Faker::Boolean.boolean }
-    f.noreferee           { Faker::Boolean.boolean }
+  factory :league do |l|
+    l.name	   						{ Faker::Company.name }
+    l.start	    					{ Faker::Time.between(50.years.ago, Date.today) }
+    l.end 	    					{ Faker::Time.between(start ? start : 50.years.ago, 1.year.from_now) }
+    l.class_id   					{ FOOTBALL_CLASSES.sample.first }
+    l.iscup               { Faker::Boolean.boolean }
+    l.isfemale            { Faker::Boolean.boolean }
+    l.noreferee           { Faker::Boolean.boolean }
   end
 end

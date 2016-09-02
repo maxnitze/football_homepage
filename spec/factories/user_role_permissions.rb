@@ -11,8 +11,8 @@
 
 # spec/factories/user_role_permissions.rb
 FactoryGirl.define do
-  factory :user_role_permission do |f|
-    f.symbol                { Faker::Hipster.word }
-    f.description           { Faker::Hipster.sentence }
+  factory :user_role_permission do |p|
+    p.symbol                { Faker::Hipster.word }
+    p.description           { Faker::Hipster.sentence }
   end
 end

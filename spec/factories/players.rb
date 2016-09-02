@@ -18,16 +18,16 @@
 
 # spec/factories/coaches.rb
 FactoryGirl.define do
-  factory :player do |f|
-    f.surname                 { Faker::Name.last_name }
-    f.givenname					      { Faker::Name.first_name }
-		f.birthday                { Faker::Date.between(100.year.ago, Date.today) }
-    f.position                { FIELD_POSITIONS.sample }
-    f.leg                     { PLAYER_LEGS.sample }
+  factory :player do |p|
+    p.surname                 { Faker::Name.last_name }
+    p.givenname					      { Faker::Name.first_name }
+		p.birthday                { Faker::Date.between(100.year.ago, Date.today) }
+    p.position                { FIELD_POSITIONS.sample }
+    p.leg                     { PLAYER_LEGS.sample }
 
-		f.portrait_file_name      { Faker::Avatar.image }
-    f.portrait_content_type   { "image/#{Faker::Lorem.word}" }
-    f.portrait_file_size      { Faker::Number.between(1, 1000) }
-    f.portrait_updated_at     { Faker::Time.between(1.year.ago, Time.now) }
+		p.portrait_file_name      { Faker::Avatar.image }
+    p.portrait_content_type   { "image/#{Faker::Lorem.word}" }
+    p.portrait_file_size      { Faker::Number.between(1, 1000) }
+    p.portrait_updated_at     { Faker::Time.between(1.year.ago, Time.now) }
   end
 end
