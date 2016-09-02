@@ -52,10 +52,6 @@ RSpec.describe User, type: :model do
     }
   end
 
-  it 'is valid without an avatar' do
-    expect(build :user, avatar_file_name: nil, avatar_content_type: nil, avatar_file_size: nil, avatar_updated_at: nil).to be_valid
-  end
-
   it 'is not valid without a name' do
     expect(build :user, name: nil).to_not be_valid
     expect(build :user, surname: nil).to_not be_valid
@@ -68,6 +64,14 @@ RSpec.describe User, type: :model do
 
   it 'is not valid without a password' do
     expect(build :user, encrypted_password: nil).to_not be_valid
+  end
+
+  it 'is valid without an avatar' do
+    expect(build :user, avatar_file_name: nil, avatar_content_type: nil, avatar_file_size: nil, avatar_updated_at: nil).to be_valid
+  end
+
+  it 'is not valid with a non-image avatar content type' do
+    expect(build :user, avatar_content_type: 'text/plaintext').to_not be_valid
   end
 
   it 'is not valid without a locale' do
