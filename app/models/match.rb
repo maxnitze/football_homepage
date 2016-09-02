@@ -43,4 +43,13 @@ class Match < ActiveRecord::Base
   validates_presence_of :referee, :assistant1, if: :assistant2
   validates_inclusion_of :overtime, :penalty, :hncompete, :gncompete,
     :noreferee, :canceled, :enabled, in: [ true, false ]
+  validates_numericality_of :goals_home, :goals_guest,
+    :goals_home_ht, :goals_guest_ht,
+    greater_than_or_equal_to: 0
+  validates_numericality_of :goals_home_ht,
+    less_than_or_equal_to: :goals_home,
+    unless: Proc.new { |m| m.goals_home.nil? }
+  validates_numericality_of :goals_guest_ht,
+    less_than_or_equal_to: :goals_guest,
+    unless: Proc.new { |m| m.goals_guest.nil? }
 end

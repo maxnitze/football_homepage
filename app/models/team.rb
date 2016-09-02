@@ -17,6 +17,7 @@ class Team < ActiveRecord::Base
   has_many :league_teams
   has_many :leagues, through: :league_teams
   has_many :league_team_players
+  has_many :matches
   has_many :players, through: :league_team_players
 
   validates_presence_of :name, :class_id
