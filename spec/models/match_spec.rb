@@ -61,6 +61,30 @@ RSpec.describe Match, type: :model do
     expect(build :match, end: nil).to_not be_valid
   end
 
+  it 'is not valid without goals given' do
+    expect(build :match, goals_home: nil, goals_guest: nil).to_not be_valid
+    expect(build :match, goals_home: nil).to_not be_valid
+    expect(build :match, goals_guest: nil).to_not be_valid
+  end
+
+  it 'is not valid without halftime goals given' do
+    expect(build :match, goals_home_ht: nil, goals_guest_ht: nil).to_not be_valid
+    expect(build :match, goals_home_ht: nil).to_not be_valid
+    expect(build :match, goals_guest_ht: nil).to_not be_valid
+  end
+
+  it 'is not valid with halftime goals higher than fulltime goals' do
+    expect(build :match, goals_home: 0, goals_home_ht: 1).to_not be_valid
+    expect(build :match, goals_guest: 0, goals_guest_ht: 1).to_not be_valid
+  end
+
+  it 'is not valid with negative goals' do
+    expect(build :match, goals_home: -1).to_not be_valid
+    expect(build :match, goals_guest: -1).to_not be_valid
+    expect(build :match, goals_home_ht: -1).to_not be_valid
+    expect(build :match, goals_guest_ht: -1).to_not be_valid
+  end
+
   it 'is not valid without a matchday' do
     expect(build :match, matchday: nil).to_not be_valid
   end

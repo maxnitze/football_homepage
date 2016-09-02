@@ -38,8 +38,8 @@ FactoryGirl.define do
     m.end             { Faker::Time.between(100.year.ago, 100.years.from_now) }
     m.goals_home      { Faker::Number.between(0, 100) }
     m.goals_guest     { Faker::Number.between(0, 100) }
-    m.goals_home_ht   { Faker::Number.between(0, goals_home) }
-    m.goals_guest_ht  { Faker::Number.between(0, goals_guest) }
+    m.goals_home_ht   { Faker::Number.between(0, goals_home ? goals_home : 100) }
+    m.goals_guest_ht  { Faker::Number.between(0, goals_guest ? goals_guest : 100) }
     m.referee
     m.assistant1      { FactoryGirl.create(:referee) }
     m.assistant2      { FactoryGirl.create(:referee) }
