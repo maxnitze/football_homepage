@@ -12,10 +12,12 @@
 #
 
 class MatchPlayer < ActiveRecord::Base
-  validates_uniqueness_of :match_id, scope: [ :player_id ]
-
   belongs_to :match
   belongs_to :player
+
+  validates_uniqueness_of :match_id, scope: [ :player_id ]
+  validates_presence_of :match, :player, :position, :backnumber
+  validates_numericality_of :backnumber, greater_than: 0
 
   enum position: FIELD_POSITIONS
 end
