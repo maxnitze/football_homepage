@@ -22,28 +22,41 @@
 #
 
 class LeagueTeam < ActiveRecord::Base
-  validates_uniqueness_of :league_id, scope: [ :team_id ]
-  validates_numericality_of :league_id, greater_than: 0
-  validates_numericality_of :team_id, greater_than: 0
-  validate :squadleagueteam_without_recursion, on: [ :create, :update ]
-
   belongs_to :league
   belongs_to :team
   belongs_to :squadleagueteam, class_name: 'LeagueTeam', foreign_key: :squadleagueteam_id
 
+  validates_uniqueness_of :league_id, scope: [ :team_id ]
+  validate :squadleagueteam_without_recursion, on: [ :create, :update ]
+
+  validates_presence_of :league, :team, :wincount, :losecount, :remiscount,
+    :goalsshot, :goalsgot
+  validates_inclusion_of :unsubscribed, in: [ true, false]
+  validates_numericality_of :wincount, :losecount, :remiscount, :goalsshot, :goalsgot,
+    greater_than_or_equal_to: 0
+
   has_attached_file :picture, styles: { medium: '640x360>', thumb: '80x45>' }, default_url: "/system/teams/pictures/no_teamphoto.png"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
-  def has_squadleagueteam
-    !self.squadleagueteam_id.nil? && self.squadleagueteam_id > 0
-  end
-
   def get_squadleagueteam
-    self.has_squadleagueteam ? self.squadleagueteam.get_squadleagueteam : self
+    self.squadleagueteam ? self.squadleagueteam.get_squadleagueteam : self
   end
 
   private
     def squadleagueteam_without_recursion
-      errors.add(:base, I18n.t('leagues.errors.inheritance_recursion')) unless !self.has_squadleagueteam || get_squadleagueteam != self
+      errors.add(:squadleagueteam, I18n.t('activerecord.errors.models.attributes.looped_recursion')) unless squadleagueteam_has_no_recursion
+    end
+
+    def squadleagueteam_has_no_recursion
+      t_squadleagueteam = self
+      visited_league_teams = [ self ]
+      while t_squadleagueteam.squadleagueteam
+        t_squadleagueteam = t_squadleagueteam.squadleagueteam
+        if visited_league_teams.include? t_squadleagueteam
+          return false
+        end
+        visited_league_teams += [ t_squadleagueteam ]
+      end
+      return true
     end
 end

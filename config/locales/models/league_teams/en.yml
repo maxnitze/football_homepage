@@ -1,0 +1,5 @@
+en:
+  activerecord:
+    attributes:
+      league_team:
+        squadleagueteam: 'Inherited Squad'

@@ -1,5 +1,3 @@
 de:
   leagues:
     cup: 'Pokal'
-    errors:
-      inheritance_recursion: 'Rekursion in der Vererbung'

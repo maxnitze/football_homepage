@@ -1,0 +1,5 @@
+de:
+  activerecord:
+    attributes:
+      league_team:
+        squadleagueteam: 'Abgeleiteter Kader'

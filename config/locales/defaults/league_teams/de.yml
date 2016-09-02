@@ -1,0 +1,6 @@
+de:
+  activerecord:
+    errors:
+      models:
+        attributes:
+          looped_recursion: 'bildet eine rekursive Schleife.'

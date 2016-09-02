@@ -1,5 +1,3 @@
 en:
   leagues:
     cup: 'Cup'
-    errors:
-      inheritance_recursion: 'Inheritance has recursion'
