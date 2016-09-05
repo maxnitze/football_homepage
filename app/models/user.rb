@@ -74,12 +74,12 @@ class User < ActiveRecord::Base
     user_roles.any? { |role| role.symbol.eql? user_role.to_s }
   end
 
-  def has_user_role_permission? user_role_permission
-    user_roles.any? do |role|
-      role.symbol.eql? :admin.to_s || role.user_role_permissions.any? do |role_permission|
-        role_permission.symbol.eql? user_role_permission.to_s
-      end
-    end
+  def has_user_role_permission? permission
+    self.user_roles.any? { |user_role|
+      user_role.symbol.eql?('admin') || user_role.user_role_permissions.any? { |user_role_permission|
+        user_role_permission.symbol.eql? permission.to_s
+      }
+    }
   end
 
   def get_avatar_file_name

@@ -13,5 +13,5 @@ class UserRolePermission < ActiveRecord::Base
   has_and_belongs_to_many :user_roles
 
   validates_presence_of :symbol, :description
-  validates :symbol, uniqueness: true
+  validates_uniqueness_of :symbol
 end

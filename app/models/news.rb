@@ -19,17 +19,23 @@ class News < ActiveRecord::Base
 
   validates_presence_of :author
   validates_presence_of :editor, if: :is_edited?
+  validates_numericality_of :edit_count, greater_than_or_equal_to: 0
+  validates_numericality_of :edit_count, greater_than_or_equal_to: 1, if: :editor
 
   default_scope { order(created_at: :desc) }
 
   acts_as_taggable
 
   def is_available_in_current_lang
-    newstexts.any? { |nt| nt.language == I18n.locale.to_s }
+    self.newstexts.any? { |nt| nt.language.eql? I18n.locale.to_s }
   end
 
   def current_newstext
-    newstexts.detect { |nt| nt.language == I18n.locale.to_s } || newstexts.first
+    self.newstexts.detect { |nt| nt.language.eql? I18n.locale.to_s } || self.newstexts.first
+  end
+
+  def newstext_for_locale locale
+    self.newstexts.detect { |nt| nt.language.eql? locale.to_s }
   end
 
   private

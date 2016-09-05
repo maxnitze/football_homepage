@@ -20,9 +20,13 @@ FactoryGirl.define do
 
     factory :news_with_newstexts do
       after(:build) do |news|
-        news.newstexts = I18n.available_locales.map { |l|
-          FactoryGirl.build(:newstext, language: l, news: news)
+        news.newstexts = I18n.available_locales.map { |locale|
+          FactoryGirl.build :newstext, language: locale, news: news
         }
+      end
+
+      after(:create) do |news|
+        news.newstexts.map &:save
       end
     end
   end

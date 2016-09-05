@@ -49,37 +49,37 @@ FactoryGirl.define do
     u.avatar_file_size      { Faker::Number.between(1, 1000) }
     u.avatar_updated_at     { Faker::Time.between(1.year.ago, Time.now) }
 
-    trait :admin do
+    trait :as_admin do
       after(:build) do |user|
 		    user.user_roles << UserRole.find_by_symbol(:admin)
       end
     end
 
-    trait :super_editor do
+    trait :as_super_editor do
       after(:build) do |user|
 		    user.user_roles << UserRole.find_by_symbol(:super_editor)
       end
     end
 
-    trait :editor do
+    trait :as_editor do
       after(:build) do |user|
 		    user.user_roles << UserRole.find_by_symbol(:editor)
       end
     end
 
-    trait :teams_admin do
+    trait :as_teams_admin do
       after(:build) do |user|
 		    user.user_roles << UserRole.find_by_symbol(:teams_admin)
       end
     end
 
-    trait :leagues_admin do
+    trait :as_leagues_admin do
       after(:build) do |user|
 		    user.user_roles << UserRole.find_by_symbol(:leagues_admin)
       end
     end
 
-    trait :bettinggame_manager do
+    trait :as_bettinggame_manager do
       after(:build) do |user|
 		    user.user_roles << UserRole.find_by_symbol(:bettinggame_manager)
       end

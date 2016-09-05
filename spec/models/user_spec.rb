@@ -44,8 +44,8 @@ RSpec.describe User, type: :model do
 
   UserRole.all.each do |user_role|
     eval %{
-      it 'has a valid factory \\'#{user_role.symbol}\\' trait' do
-        #{user_role.symbol} = build :user, :#{user_role.symbol}
+      it "has a valid factory '#{user_role.symbol}' trait" do
+        #{user_role.symbol} = build :user, :as_#{user_role.symbol}
         expect(#{user_role.symbol}).to be_valid
         expect(#{user_role.symbol}.user_roles.find { |role| role.symbol.eql?('#{user_role.symbol}') }).to_not be_nil
       end

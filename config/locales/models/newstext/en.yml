@@ -1,5 +1,9 @@
-en:
-  models:
-    newstext:
-      mandatory: 'is mandatory!'
-      unique_per_lang: 'must be unique per language and news!'
+de:
+  activerecord:
+    errors:
+      messages:
+        models:
+          news:
+            attributes:
+              newstexts:
+                all_invalid: 'are all invalid.'

@@ -17,7 +17,7 @@ class Newstext < ActiveRecord::Base
   belongs_to :news
 
   validates_presence_of :news, :title, :text
-  validates :language, uniqueness: { scope: :news }
+  validates_uniqueness_of :language, scope: :news
 
   def full_title
     subtitle? ? "#{title}: #{subtitle}" : title

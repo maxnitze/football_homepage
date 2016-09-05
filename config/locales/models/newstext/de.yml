@@ -1,5 +1,9 @@
 de:
-  models:
-    newstext:
-      mandatory: 'muss ausgefüllt sein!'
-      unique_per_lang: 'darf nur einmal für jede Sprache einer Nachricht erzeugt werden!'
+  activerecord:
+    errors:
+      messages:
+        models:
+          news:
+            attributes:
+              newstexts:
+                all_invalid: 'sind alle ungültig.'
