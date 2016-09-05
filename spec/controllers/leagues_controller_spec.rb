@@ -2,10 +2,11 @@
 require 'rails_helper'
 
 RSpec.describe LeaguesController, type: :controller do
-  login_admin
+  login_user :as_leagues_admin
 
   it "should have a current_user" do
     expect(subject.current_user).to_not eq(nil)
+    expect(subject.current_user.has_user_role? :leagues_admin).to be true
   end
 
   let(:valid_attributes) {

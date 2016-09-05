@@ -20,8 +20,8 @@ class ApplicationController < ActionController::Base
   end
   helper_method :default_locale
 
-  def current_user_has_permission? permission
-    current_user and current_user.has_user_role_permission? permission
+  def current_user_has_permission? permission, &block
+    current_user && (current_user.has_user_role_permission?(permission.to_s) || (block_given? ? yield(current_user) : false))
   end
   helper_method :current_user_has_permission?
 
