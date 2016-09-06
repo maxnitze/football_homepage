@@ -21,6 +21,8 @@ en:
       show_news: 'Show news'
     new:
       new_news: 'New News'
+    no_news:
+      no_news: 'No news to show'
     show:
       back: 'Back'
       create_info_html: 'by %{author} on %{datetime}'

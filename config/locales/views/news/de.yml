@@ -21,6 +21,8 @@ de:
       show_news: 'Nachricht anzeigen'
     new:
       new_news: 'Neue Nachricht'
+    no_news:
+      no_news: 'Keine Nachrichten zum Anzeigen'
     show:
       back: 'Zurück'
       create_info_html: 'von %{author} am %{datetime}'
