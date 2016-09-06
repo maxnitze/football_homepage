@@ -19,6 +19,6 @@ FactoryGirl.define do
     t.ishometeam          { Faker::Boolean.boolean }
     t.hometeamname        { ishometeam ? Faker::Company.name : nil }
     t.isfemale            { Faker::Boolean.boolean }
-    t.class_id   					{ FOOTBALL_CLASSES.map { |c| c.first }.sample }
+    t.class_id   					{ FOOTBALL_CLASSES.sample.first }
   end
 end

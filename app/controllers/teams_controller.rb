@@ -39,7 +39,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: [t('teams.flash.create.success')] }
+        format.html { redirect_to @team, notice: [ t('teams.flash.create.success') ] }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class TeamsController < ApplicationController
   def update
     respond_to do |format|
       if @team.update(team_params)
-        format.html { redirect_to @team, notice: [t('teams.flash.update.success')] }
+        format.html { redirect_to @team, notice: [ t('teams.flash.update.success') ] }
         format.json { render :show, status: :ok, location: @team }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: [t('teams.flash.destroy.success')] }
+      format.html { redirect_to teams_url, notice: [ t('teams.flash.destroy.success') ] }
       format.json { head :no_content }
     end
   end
@@ -84,20 +84,20 @@ class TeamsController < ApplicationController
     end
 
     def check_create_permission
-      if !(current_user && current_user.has_user_role_permission?(:can_create_team))
-        redirect_to teams_index_path, flash: { danger: [t('teams.flash.create.permission_failure')] }
+      if !current_user_has_permission?(:can_create_teams)
+        redirect_to teams_url, flash: { danger: [ t('teams.flash.create.permission_failure') ] }
       end
     end
 
     def check_update_permission
-      if !(current_user && current_user.has_user_role_permission?(:can_update_team))
-        redirect_to @team, flash: { danger: [t('teams.flash.update.permission_failure')] }
+      if !current_user_has_permission?(:can_update_teams)
+        redirect_to @team, flash: { danger: [ t('teams.flash.update.permission_failure') ] }
       end
     end
 
     def check_destroy_permission
-      if !(current_user && current_user.has_user_role_permission?(:can_destroy_team))
-        redirect_to @team, flash: { danger: [t('teams.flash.destroy.permission_failure')] }
+      if !current_user_has_permission?(:can_destroy_teams)
+        redirect_to @team, flash: { danger: [ t('teams.flash.destroy.permission_failure') ] }
       end
     end
 end
