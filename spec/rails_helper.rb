@@ -7,6 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'support/controller_macros'
+require 'support/fix_localization'
 require 'support/factory_girl'
 
 require 'coveralls'
@@ -70,4 +71,7 @@ RSpec.configure do |config|
     HomepageNew::Application.load_tasks
     Rake::Task['db:seed'].invoke
   end
+
+  # capybara
+  config.include Capybara::DSL
 end

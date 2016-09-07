@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def default_url_options options = {}
+  def default_url_options options={}
     (I18n.locale.to_s == default_locale ? { locale: nil } : { locale: I18n.locale }).merge options
   end
 
