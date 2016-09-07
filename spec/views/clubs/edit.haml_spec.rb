@@ -8,15 +8,15 @@ RSpec.describe 'clubs/edit', type: :view do
   end
 
   it 'renders the edit club form' do
-    expect(page).to have_field('Name')
-    expect(page).to have_field('Officestreet')
-    expect(page).to have_field('Officepostalcode')
-    expect(page).to have_field('Officetown')
-    expect(page).to have_field('Stadiumstreet')
-    expect(page).to have_field('Stadiumpostalcode')
-    expect(page).to have_field('Stadiumtown')
-    expect(page).to have_field('Homepage')
-    expect(page).to have_field('Crest')
-    expect(page).to have_field('Description')
+    expect(page).to have_field(nil, with: @club.name)
+    expect(page).to have_field(nil, with: @club.officestreet)
+    expect(page).to have_field(nil, with: @club.officepostalcode)
+    expect(page).to have_field(nil, with: @club.officetown)
+    expect(page).to have_field(nil, with: @club.stadiumstreet)
+    expect(page).to have_field(nil, with: @club.stadiumpostalcode)
+    expect(page).to have_field(nil, with: @club.stadiumtown)
+    expect(page).to have_field(nil, with: @club.homepage)
+    expect(page).to have_field(nil, with: @club.crest)
+    expect(page).to have_field(nil, with: @club.description)
   end
 end

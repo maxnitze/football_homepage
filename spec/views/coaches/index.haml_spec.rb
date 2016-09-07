@@ -1,25 +1,18 @@
+# spec/views/coaches/index.haml_spec.rb
 require 'rails_helper'
 
-RSpec.describe "coaches/index", :type => :view do
+RSpec.describe 'coaches/index', type: :view do
   before(:each) do
-    assign(:coaches, [
-      Coach.create!(
-        :surname => "Surname",
-        :givenname => "Givenname",
-        :picture => "Picture"
-      ),
-      Coach.create!(
-        :surname => "Surname",
-        :givenname => "Givenname",
-        :picture => "Picture"
-      )
-    ])
+    @coaches = assign(:coaches, create_list(:coach, Faker::Number.between(1, 10)))
+    visit coaches_path
   end
 
-  it "renders a list of coaches" do
-    render
-    assert_select "tr>td", :text => "Surname".to_s, :count => 2
-    assert_select "tr>td", :text => "Givenname".to_s, :count => 2
-    assert_select "tr>td", :text => "Picture".to_s, :count => 2
+  it 'renders a list of coaches' do
+    @coaches.each do |coach|
+      expect(page).to have_content(coach.surname)
+      expect(page).to have_content(coach.givenname)
+      expect(page).to have_content(coach.birthday)
+      expect(page).to have_content(coach.picture)
+    end
   end
 end

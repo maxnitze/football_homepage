@@ -7,7 +7,7 @@ RSpec.describe 'clubs/show', type: :view do
     visit club_path(@club)
   end
 
-  it 'renders attributes' do
+  it 'renders clubs attributes' do
     expect(page).to have_content(@club.name)
     expect(page).to have_content(@club.officestreet)
     expect(page).to have_content(@club.officepostalcode)

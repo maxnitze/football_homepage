@@ -1,18 +1,16 @@
+# spec/views/coaches/show.haml_spec.rb
 require 'rails_helper'
 
-RSpec.describe "coaches/show", :type => :view do
+RSpec.describe 'coaches/show', type: :view do
   before(:each) do
-    @coach = assign(:coach, Coach.create!(
-      :surname => "Surname",
-      :givenname => "Givenname",
-      :picture => "Picture"
-    ))
+    @coach = assign(:coach, FactoryGirl.create(:coach))
+    visit coach_path(@coach)
   end
 
-  it "renders attributes in <p>" do
-    render
-    expect(rendered).to match(/Surname/)
-    expect(rendered).to match(/Givenname/)
-    expect(rendered).to match(/Picture/)
+  it 'renders coaches attributes' do
+    expect(page).to have_content(@coach.surname)
+    expect(page).to have_content(@coach.givenname)
+    expect(page).to have_content(@coach.birthday)
+    expect(page).to have_content(@coach.picture)
   end
 end

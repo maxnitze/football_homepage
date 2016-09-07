@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.describe 'clubs/index', type: :view do
   before(:each) do
-    @clubs = assign(:clubs, create_list(:club, 3))
+    @clubs = assign(:clubs, create_list(:club, Faker::Number.between(1, 10)))
     visit clubs_path
   end
 
