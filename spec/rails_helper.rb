@@ -6,9 +6,11 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'support/controller_macros'
-require 'support/fix_localization'
-require 'support/factory_girl'
+
+# require all files from supprt dir
+Dir["#{Rails.root}/spec/support/**/*.rb"].each do |support_file|
+  require support_file
+end
 
 require 'coveralls'
 Coveralls.wear!
