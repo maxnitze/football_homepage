@@ -1,10 +1,46 @@
-language: ruby
-rvm:
-  - 2.3.1
 env:
   - DB=sqlite
   - DB=mysql
   - DB=postgresql
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "xkGYE6evcJqFOAjWFTM6lXYPC4+xCacETYpy3O7EaLv6Wbok4e1srVLDlfUXY168omqBu4W9iNDle1SIIqnWv6hJSH5r1ttbzOTJE76ldt21/wJKRjvPFEJq9/kfR0NWkDJWz7S7CzWxbE2pFNcGUzps/rSmhEtOAt0F+pf1zudhAzbgYjzmFfBX/D2XLGXmti2Aobpvb47IBmoct/znVzP1J1SkiZpFhpoQw8xyYS9jU5ejEe/HJbWmbd2oCZ4+RUH5bLxjOB8RfmgWhkpSHZAJG5L2Hi47fTsDPwCTG2p+76p68eRuwiwdCkV6P/QGDeliuujP1CobgUpwe7ru7A0pQgwSQgyr84yuwFXzNCphB2RY+VdP0C8yUTmYurdzYOv+4UnvFCctYfkQ7dfv9BEBSrFprCqsvRSqpdbjUeCrGwLRxqr6VQu5sWf32tYlKJT49HVJa2U7pVu/pX1srjOiYdqAdMPtT4UNvA+iag0S512WufnkpHRsVNsz+OePO/wI5HB39mIlKaFvCrGR9ta+AOUI7S5jeXYAcol8VBroudMbUCTKtSrZEZcuuOuJq0vHzASbmSvlBTrNyGj2JYUN+S3Uhoaop5s9ILqjBM1JDh5hSE1ydKHUDbKQ1iGuWPCBA/+Ify262A82uhjkKnBIg7G/xCkwUTkXG+zocdA="
+
+# project language
+language: ruby
+rvm:
+  - 2.3.1
+
+# branches to build (whitelist)
+branches:
+  only:
+    - master
+    - testing
+
+# command to run before install
+before_install:
+      - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+# success and failure notifications
+notifications:
+  email:
+    recipients:
+      - max.nitze@gmx.de
+    on_success: change
+    on_failure: always
+
+# addons
+addons:
+  coverity_scan:
+    project:
+      name: "maxnitze/football_homepage"
+      description: "Build submitted via Travis CI"
+    notification_email: max.nitze@gmx.de
+    build_command_prepend: ""
+    build_command: "bundle install --jobs=3 --retry=3 --deployment"
+    branch_pattern: testing
+
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
