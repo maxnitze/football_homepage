@@ -1,30 +1,19 @@
+# spec/views/leagues/edit.haml_spec.rb
 require 'rails_helper'
 
-RSpec.describe "leagues/edit", :type => :view do
+RSpec.describe 'leagues/edit', type: :view do
+  login_user :as_leagues_admin
+
   before(:each) do
-    @league = assign(:league, League.create!(
-      :name => "MyString",
-      :class_id => 1,
-      :iscup => false,
-      :isfemale => false,
-      :noreferee => false
-    ))
+    @league = assign(:league, FactoryGirl.create(:league))
+    visit edit_league_path(@league)
   end
 
-  it "renders the edit league form" do
-    render
-
-    assert_select "form[action=?][method=?]", league_path(@league), "post" do
-
-      assert_select "input#league_name[name=?]", "league[name]"
-
-      assert_select "input#league_class_id[name=?]", "league[class_id]"
-
-      assert_select "input#league_iscup[name=?]", "league[iscup]"
-
-      assert_select "input#league_isfemale[name=?]", "league[isfemale]"
-
-      assert_select "input#league_noreferee[name=?]", "league[noreferee]"
-    end
+  it 'renders the edit league form' do
+    expect(page).to have_field(nil, with: @league.name)
+    expect(page).to have_field(nil, with: @league.class_id)
+    expect(page).to have_field(nil, with: @league.iscup)
+    expect(page).to have_field(nil, with: @league.isfemale)
+    expect(page).to have_field(nil, with: @league.noreferee)
   end
 end

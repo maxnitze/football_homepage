@@ -27,3 +27,5 @@ en:
       show_league: 'Show league'
     new:
       new_league: 'New league'
+    show:
+      leagues: 'League'

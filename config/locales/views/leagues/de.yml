@@ -27,3 +27,5 @@ de:
       show_league: 'Liga anzeigen'
     new:
       new_league: 'Neue Liga'
+    show:
+      leagues: 'Liga'

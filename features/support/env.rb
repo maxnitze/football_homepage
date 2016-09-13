@@ -56,3 +56,21 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+# set locale if given by environment variable
+I18n.locale = ENV['LOCALE'] if ENV['LOCALE']
+
+# setup database cleaner before and after each scenario
+Before do
+  DatabaseCleaner.clean
+end
+
+After do
+  DatabaseCleaner.clean
+end
+
+# register chrome as default javascript driver
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.javascript_driver = :chrome
