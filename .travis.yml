@@ -17,6 +17,7 @@ rvm:
 branches:
   only:
     - master
+    - coverity_scan
     - testing
 
 # command to run before install
