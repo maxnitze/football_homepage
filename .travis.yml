@@ -1,3 +1,4 @@
+# environment settings
 env:
   - DB=sqlite
   - DB=mysql
@@ -24,6 +25,9 @@ branches:
 before_install:
       - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
+# arguments for the bundler
+bundler_args: --without production development
+
 # success and failure notifications
 notifications:
   email:
@@ -40,14 +44,17 @@ addons:
       description: "Build submitted via Travis CI"
     notification_email: max.nitze@gmx.de
     build_command_prepend: ""
-    build_command: "bundle install"
+    build_command: ""
     branch_pattern: coverity_scan
 
+# script
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rspec spec/
   - bundle exec cucumber
+
+# run before script
 before_script:
   - mysql -e 'create database my_app_test'
   - psql -c 'create database my_app_test' -U postgres
