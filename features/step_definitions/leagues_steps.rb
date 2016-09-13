@@ -4,11 +4,11 @@ Given /^there is a league$/ do
   @league = FactoryGirl.create :league
 end
 
-Given /^there is a league named (.+)$/ do |name|
+Given /^there is a league named '(.+)'$/ do |name|
   @league = FactoryGirl.create :league, name: name
 end
 
-Given /^I visit the path of the league$/ do
+Given /^the path of the league is visited$/ do
   visit league_path(@league)
 end
 
@@ -20,7 +20,7 @@ Then /^the leagues attributes should be shown$/ do
   expect(page).to have_content(@league.noreferee)
 end
 
-Then /^a league with the name (.+) should be shown$/ do |name|
+Then /^a league with the name '(.+)' should be shown$/ do |name|
   step "the leagues attributes should be shown"
   expect(page).to have_content(name)
 end

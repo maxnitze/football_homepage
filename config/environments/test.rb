@@ -39,4 +39,10 @@ Rails.application.configure do
 
   # propagate 'after_rollback' / 'after_commit' callback errors
   config.active_record.raise_in_transactional_callbacks = true
+
+  # General Settings
+  config.app_domain = 'localhost:3000'
+
+  # Email
+  config.action_mailer.default_url_options = { host: config.app_domain }
 end
