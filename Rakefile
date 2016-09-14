@@ -4,3 +4,8 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+# push coverage data to coveralls.io after merging them
+require 'coveralls/rake/task'
+Coveralls::RakeTask.new
+task test_with_coveralls: [ :spec, :features, 'coveralls:push' ]

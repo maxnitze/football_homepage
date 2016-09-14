@@ -13,7 +13,7 @@ Dir["#{Rails.root}/spec/support/**/*.rb"].each do |support_file|
 end
 
 require 'coveralls'
-Coveralls.wear!
+Coveralls.wear_merged!('rails')
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

@@ -56,6 +56,10 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+# Setup for merged results for coveralls.io
+require 'coveralls'
+Coveralls.wear_merged!('rails')
+
 # set locale if given by environment variable
 I18n.locale = ENV['LOCALE'] if ENV['LOCALE']
 
