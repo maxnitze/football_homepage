@@ -77,19 +77,19 @@ class LeaguesController < ApplicationController
 
     def check_create_permission
       if !current_user_has_permission?(:can_create_leagues)
-        redirect_to leagues_path, error: t('leagues.flash.create.permission_failure')
+        redirect_to (@league ? league_path(@league) : leagues_path), error: t('leagues.flash.create.permission_failure')
       end
     end
 
     def check_update_permission
       if !current_user_has_permission?(:can_update_leagues)
-        redirect_to @league, error: t('leagues.flash.update.permission_failure')
+        redirect_to (@league ? league_path(@league) : leagues_path), error: t('leagues.flash.update.permission_failure')
       end
     end
 
     def check_destroy_permission
       if !current_user_has_permission?(:can_destroy_leagues)
-        redirect_to @league, error: t('leagues.flash.destroy.permission_failure')
+        redirect_to (@league ? league_path(@league) : leagues_path), error: t('leagues.flash.destroy.permission_failure')
       end
     end
 end

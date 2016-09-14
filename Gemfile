@@ -71,8 +71,8 @@ gem 'seedbank' #, github: 'james2m/seedbank'
 
 # datetimepicker for bootstrap3
 gem 'momentjs-rails' #,github: 'derekprior/momentjs-rails'
-#gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
-gem 'bootstrap3-datetimepicker-rails' #, github: 'TrevorS/bootstrap3-datetimepicker-rails'
+gem 'bootstrap3-datetimepicker-rails'
+  #, github: 'TrevorS/bootstrap3-datetimepicker-rails'
 
 group :development do
   # nicer scaffolding templates
@@ -131,7 +131,8 @@ end
 group :development, :test do
   # SQLite3 Database
   gem 'sqlite3' #, github: 'qoobaa/sqlite3'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the
+  #   background. Read more: https://github.com/rails/spring
   gem 'spring' #, github: 'rails/spring'
   # load variables from '.env' files to 'ENV'
   gem 'dotenv-rails' #, github: 'bkeepers/dotenv'
