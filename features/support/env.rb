@@ -62,6 +62,7 @@ Coveralls.wear_merged!('rails')
 
 # set locale if given by environment variable
 I18n.locale = ENV['LOCALE'] if ENV['LOCALE']
+Rails.application.routes.default_url_options[:locale] = I18n.locale
 
 # setup database cleaner before and after each scenario
 Before do
