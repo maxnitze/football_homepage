@@ -15,6 +15,7 @@
 /log/*.log
 /tmp
 /coverage/*
+/cov-int/*
 
 # Ignore env files with secrets
 /.env

@@ -23,7 +23,7 @@ branches:
 
 # commands to run before the install
 before_install:
-  # download certi
+  # download certificate
   - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 # arguments for the bundlerficate for scan.coverity.com
