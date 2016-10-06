@@ -4,8 +4,8 @@
 set -ev
 
 # run commands if not on COVERITY_SCAN_BRANCH
-if [ "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" ]; then
-  echo -e "On branch '${TRAVIS_BRANCH}':'${COVERITY_SCAN_BRANCH}'\nRunning tests"
+if [ "${TRAVIS_BRANCH}" != "${COVERITY_BRANCH}" ]; then
+  echo -e "On branch '${TRAVIS_BRANCH}':'${COVERITY_BRANCH}'\nRunning tests"
   # create database for test environment
   RAILS_ENV=test bundle exec rake db:migrate --trace
   # prepare test database
