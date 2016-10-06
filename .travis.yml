@@ -26,6 +26,7 @@ branches:
 
 # run scripts
 before_install:
+  - chmod +x .travis/{before_install,install,before_script,script}.sh
   - .travis/before_install.sh
 install:
   - .travis/install.sh
