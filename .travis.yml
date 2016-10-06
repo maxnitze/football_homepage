@@ -23,6 +23,9 @@ branches:
     - coverity_scan
     - testing
 
+# require sudo for coverity ssl certificate
+sudo: required
+
 # run scripts
 before_install:
   - chmod +x .travis/{before_install,install,before_script,script}.sh
