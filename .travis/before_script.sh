@@ -13,5 +13,6 @@ elif [ "${DB}" = "postgresql" ]; then
   psql -c 'create database my_app_test' -U postgres
 else
   echo -e "No database initialized"
-  exit 0
 fi
+
+exit 0
