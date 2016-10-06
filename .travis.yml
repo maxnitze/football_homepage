@@ -25,16 +25,33 @@ branches:
 
 # commands to run before the install
 before_install:
+  - echo "BEGIN OF BEFORE_INSTALL"
   # break here is on COVERITY_SCAN_BRANCH but job number is not 1
   - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" -o "${TRAVIS_JOB_NUMBER##*.}" = "1" || exit 0
   # download certificate for scan.coverity.com if on COVERITY_SCAN_BRANCH
   - test "${TRAVIS_BRANCH}" = "${COVERITY_SCAN_BRANCH}" && echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+  - echo "END OF BEFORE_INSTALL"
 
-# arguments for the bundler
-bundler_args: --without production development
+# install
+install:
+  - echo "BEGIN OF INSTALL"
+  # run bundle install when not on COVERITY_SCAN_BRANCH
+  - test "${TRAVIS_BRANCH}" = "${COVERITY_SCAN_BRANCH}" || bundle install --jobs=3 --retry=3 --without production development
+  - echo "END OF INSTALL"
+
+# run before script
+before_script:
+  - echo "BEGIN OF BEFORE_SCRIPT"
+  # break here if on COVERITY_SCAN_BRANCH
+  - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" || exit 0
+  # create databases for non-sqlite
+  - test "${DB}" = "mysql" && mysql -e 'create database my_app_test'
+  - test "${DB}" = "postgresql" && psql -c 'create database my_app_test' -U postgres
+  - echo "END OF BEFORE_SCRIPT"
 
 # script
 script:
+  - echo "BEGIN OF SCRIPT"
   # create database for test environment
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   # prepare test database
@@ -42,14 +59,7 @@ script:
   # run rspec and cucumber
   - bundle exec rspec spec/
   - bundle exec cucumber features/
-
-# run before script
-before_script:
-  # break here if on COVERITY_SCAN_BRANCH
-  - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" || exit 0
-  # create databases for non-sqlite databases
-  - mysql -e 'create database my_app_test'
-  - psql -c 'create database my_app_test' -U postgres
+  - echo "END OF SCRIPT"
 
 # success and failure notifications
 notifications:
@@ -68,4 +78,4 @@ addons:
     notification_email: max.nitze@gmx.de
     build_command_prepend: ""
     build_command: "--no-command --fs-capture-search ./"
-    branch_pattern: ${COVERITY_SCAN_BRANCH}
+    branch_pattern: coverity_scan
