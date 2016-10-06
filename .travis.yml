@@ -27,16 +27,16 @@ branches:
 before_install:
   # break here is on COVERITY_SCAN_BRANCH but job number is not 1
   - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" -o "${TRAVIS_JOB_NUMBER##*.}" = "1" \
-      || exit 0
+      || exit 0 \
   # download certificate for scan.coverity.com if on COVERITY_SCAN_BRANCH
   - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" \
-      || echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+      || echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca- \
 
 # install
 install:
   # run bundle install when not on COVERITY_SCAN_BRANCH
   - test "${TRAVIS_BRANCH}" = "${COVERITY_SCAN_BRANCH}" \
-      || bundle install --jobs=3 --retry=3 --without production development
+      || bundle install --jobs=3 --retry=3 --without production development \
 
 # run before script
 before_script:
@@ -52,7 +52,7 @@ script:
       && RAILS_ENV=test bundle exec rake db:migrate --trace \
       && bundle exec rake db:test:prepare \
       && bundle exec rspec spec/ \
-      && bundle exec cucumber features/)
+      && bundle exec cucumber features/) \
 
 # success and failure notifications
 notifications:
