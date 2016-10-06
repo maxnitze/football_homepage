@@ -26,15 +26,17 @@ branches:
 # commands to run before the install
 before_install:
   # break here is on COVERITY_SCAN_BRANCH but job number is not 1
-  - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" -o "${TRAVIS_JOB_NUMBER##*.}" = "1" || exit 0
+  - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" -o "${TRAVIS_JOB_NUMBER##*.}" = "1" \
+      || exit 0
   # download certificate for scan.coverity.com if on COVERITY_SCAN_BRANCH
-  - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" || echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+  - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" \
+      || echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 # install
 install:
-  - echo "BEGIN OF INSTALL"
   # run bundle install when not on COVERITY_SCAN_BRANCH
-  - test "${TRAVIS_BRANCH}" = "${COVERITY_SCAN_BRANCH}" || bundle install --jobs=3 --retry=3 --without production development
+  - test "${TRAVIS_BRANCH}" = "${COVERITY_SCAN_BRANCH}" \
+      || bundle install --jobs=3 --retry=3 --without production development
 
 # run before script
 before_script:
@@ -45,14 +47,15 @@ before_script:
 # script
 script:
   # break here if on COVERITY_SCAN_BRANCH
-  - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" || exit 0
-  # create database for test environment
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  # prepare test database
-  - bundle exec rake db:test:prepare
-  # run rspec and cucumber
-  - bundle exec rspec spec/
-  - bundle exec cucumber features/
+  - test "${TRAVIS_BRANCH}" == "${COVERITY_SCAN_BRANCH}" \
+      || (true
+      # create database for test environment
+      && RAILS_ENV=test bundle exec rake db:migrate --trace \
+      # prepare test database
+      && bundle exec rake db:test:prepare \
+      # run rspec and cucumber
+      && bundle exec rspec spec/ \
+      && bundle exec cucumber features/)
 
 # success and failure notifications
 notifications:
@@ -71,4 +74,4 @@ addons:
     notification_email: max.nitze@gmx.de
     build_command_prepend: ""
     build_command: "--no-command --fs-capture-search ./"
-    branch_pattern: ${COVERITY_SCAN_BRANCH}
+    branch_pattern: "${COVERITY_SCAN_BRANCH}"
