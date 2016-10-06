@@ -25,6 +25,9 @@ branches:
 before_install:
   # download certificate
   - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+  # setup for coverity as described here:
+  # https://github.com/travis-ci/travis-ci/issues/1975#issuecomment-216604414
+  - test "${TRAVIS_BRANCH}" != "coverity_scan" -o "${TRAVIS_JOB_NUMBER##*.}" = "1" || exit 0
 
 # arguments for the bundlerficate for scan.coverity.com
 bundler_args: --without production development
@@ -38,6 +41,9 @@ script:
   # run rspec and cucumber
   - bundle exec rspec spec/
   - bundle exec cucumber features/
+  # setup for coverity as described here:
+  # https://github.com/travis-ci/travis-ci/issues/1975#issuecomment-216604414
+  - test "${TRAVIS_BRANCH}" != "coverity_scan" || exit 0
 
 # run before script
 before_script:
