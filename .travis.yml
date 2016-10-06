@@ -1,6 +1,8 @@
 # environment settings
 env:
   global:
+    # branch for coverity scan to run on
+    - COVERITY_SCAN_BRANCH="coverity_scan"
     # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
     #   via the "travis encrypt" command using the project repo's public key
     - secure: "pBvNdNs3D5gZ2Vyk6XXyXpis/tT7L0TmA8sq/iAHNu7JbeQHR63b+IS/mYTAw7qdfG7vtalEhxDNaV+602obiWzJ1N1+gf32JufRX/IoOpNDJnv9CtNzKDHP4akDypmIPmRtsPe2ZRruqSrSbZ6B09uOcmCE/phgh0sMhLxOeuqLsVNQ4TMEBFRT6u342cLfyKcvFRNNnC+SrX3s4IZwtQZfhldvtH7S2CXOyG0XWCXKLuPXAluGDnAgnKeDTcIN0AT/VjWuhP+ta2qP9oxvxrxUysvTHtdt60/W1bbNBteQuyJg8wU87Jy+ekII53UDxwiuE7IvFzLilQKHRQ+iaJ98SgsedZLQUKJayRsrnosuSQrzOmMQVmxyJVqCAauHRbs8NTxRPxOJW3JaIG9MNFmmDDcrqN2dWJQwoAtz3r6LnAeisjjazmASKZglJum0Gc30zDup+yMF1Mm1MHC7nmpuAQspgTEKM/iCjBvNF+UL63fuFmmNJASXIZtn6GFQrejFI2P48ULbhVKmhdIGXbdHAMafzVfNGm7hmnpRza19zQ9NajHb2nISetJvqlvQHAt5Bz9GoBfLumPYHxW31bdLqZ/bbjGm8IUhW05N0qa+VBvduZEbRPVZhOhodQMgYLJUduRYlstimPKeFOF5RHf+PB3Xv+wOKBGmC9j0V6Y="
@@ -23,13 +25,12 @@ branches:
 
 # commands to run before the install
 before_install:
-  # download certificate
-  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
-  # setup for coverity as described here:
-  # https://github.com/travis-ci/travis-ci/issues/1975#issuecomment-216604414
-  - test "${TRAVIS_BRANCH}" != "coverity_scan" -o "${TRAVIS_JOB_NUMBER##*.}" = "1" || exit 0
+  # break here is on COVERITY_SCAN_BRANCH but job number is not 1
+  - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" -o "${TRAVIS_JOB_NUMBER##*.}" = "1" || exit 0
+  # download certificate for scan.coverity.com if on COVERITY_SCAN_BRANCH
+  - test "${TRAVIS_BRANCH}" = "${COVERITY_SCAN_BRANCH}" && echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
-# arguments for the bundlerficate for scan.coverity.com
+# arguments for the bundler
 bundler_args: --without production development
 
 # script
@@ -41,12 +42,11 @@ script:
   # run rspec and cucumber
   - bundle exec rspec spec/
   - bundle exec cucumber features/
-  # setup for coverity as described here:
-  # https://github.com/travis-ci/travis-ci/issues/1975#issuecomment-216604414
-  - test "${TRAVIS_BRANCH}" != "coverity_scan" || exit 0
 
 # run before script
 before_script:
+  # break here if on COVERITY_SCAN_BRANCH
+  - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" || exit 0
   # create databases for non-sqlite databases
   - mysql -e 'create database my_app_test'
   - psql -c 'create database my_app_test' -U postgres
@@ -68,4 +68,4 @@ addons:
     notification_email: max.nitze@gmx.de
     build_command_prepend: ""
     build_command: "--no-command --fs-capture-search ./"
-    branch_pattern: coverity_scan
+    branch_pattern: ${COVERITY_SCAN_BRANCH}
