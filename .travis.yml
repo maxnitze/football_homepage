@@ -22,7 +22,6 @@ branches:
     - master
     - coverity_scan
     - testing
-    - develop
 
 # run scripts
 before_install:
