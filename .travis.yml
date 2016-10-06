@@ -49,11 +49,8 @@ script:
   # break here if on COVERITY_SCAN_BRANCH
   - test "${TRAVIS_BRANCH}" == "${COVERITY_SCAN_BRANCH}" \
       || (true
-      # create database for test environment
       && RAILS_ENV=test bundle exec rake db:migrate --trace \
-      # prepare test database
       && bundle exec rake db:test:prepare \
-      # run rspec and cucumber
       && bundle exec rspec spec/ \
       && bundle exec cucumber features/)
 
