@@ -7,6 +7,6 @@ set -ev
 if [ "${DB}" = "mysql" ]; then
   mysql -e 'create database my_app_test'
 # create postgresql database if on mysql job
-elsif [ "${DB}" = "postgresql" ]; then
+elif [ "${DB}" = "postgresql" ]; then
   psql -c 'create database my_app_test' -U postgres
 fi
