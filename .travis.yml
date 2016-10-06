@@ -42,8 +42,6 @@ install:
 # run before script
 before_script:
   - echo "BEGIN OF BEFORE_SCRIPT"
-  # break here if on COVERITY_SCAN_BRANCH
-  - test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" || exit 0
   # create databases for non-sqlite
   - test "${DB}" != "mysql" || mysql -e 'create database my_app_test'
   - test "${DB}" != "postgresql" || psql -c 'create database my_app_test' -U postgres
@@ -52,6 +50,8 @@ before_script:
 # script
 script:
   - echo "BEGIN OF SCRIPT"
+  # break here if on COVERITY_SCAN_BRANCH
+  #- test "${TRAVIS_BRANCH}" != "${COVERITY_SCAN_BRANCH}" || exit 0
   # create database for test environment
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   # prepare test database
