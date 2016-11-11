@@ -1,27 +1,29 @@
 - provide(:title, "#{full_title(@league)} | #{t('.leagues')}")
 
-%p
-  %b Name:
-  = @league.name
-%p
-  %b Start:
-  = @league.start
-%p
-  %b End:
-  = @league.end
-%p
-  %b Class:
-  = localized_football_classes[@league.class_id]
-%p
-  %b Iscup:
-  = @league.iscup
-%p
-  %b Isfemale:
-  = @league.isfemale
-%p
-  %b Noreferee:
-  = @league.noreferee
-
-= link_to 'Edit', edit_league_path(@league)
-\|
-= link_to 'Back', leagues_path
+.leagues
+  .head
+    = "#{full_title(@league)}"
+    .right
+      = render 'nav', action: :show
+  %div
+    %p
+      %b Name:
+      = @league.name
+    %p
+      %b Start:
+      = @league.start
+    %p
+      %b End:
+      = @league.end
+    %p
+      %b Class:
+      = localized_football_classes[@league.class_id]
+    %p
+      %b Iscup:
+      = @league.iscup
+    %p
+      %b Isfemale:
+      = @league.isfemale
+    %p
+      %b Noreferee:
+      = @league.noreferee

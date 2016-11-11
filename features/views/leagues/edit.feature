@@ -1,4 +1,4 @@
-# features/views/leagues.feature
+# features/views/leagues/edit.feature
 Feature: Edit action for leagues
 
   Scenario: Edit league as a guest

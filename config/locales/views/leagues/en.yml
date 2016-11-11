@@ -21,6 +21,7 @@ en:
       new_league: 'New league'
     nav:
       create_league: 'Create league'
+      edit_league: 'Edit league'
       league_index: 'Back to index'
       new_league: 'New league'
       save_league: 'Save league'

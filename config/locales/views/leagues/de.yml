@@ -21,6 +21,7 @@ de:
       new_league: 'Neue Liga'
     nav:
       create_league: 'Liga erstellen'
+      edit_league: 'Liga bearbeiten'
       league_index: 'Zurück zur Übersicht'
       new_league: 'Neue Liga'
       save_league: 'Liga speichern'

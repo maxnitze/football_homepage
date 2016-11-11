@@ -36,3 +36,11 @@ end
 Then /^the edit path of the league should be rendered$/ do
   expect(page.current_path).to eq edit_league_path(@league)
 end
+
+Then /^the edit league button is not shown$/ do
+  expect(page).to_not have_content(I18n.t 'leagues.nav.edit_league')
+end
+
+Then /^the edit league button is shown$/ do
+  expect(page).to have_content(I18n.t 'leagues.nav.edit_league')
+end

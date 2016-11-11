@@ -9,3 +9,6 @@
       = link_to t('.save_league'), '#', class: 'btn btn-default', role: 'button',onclick: "submit_form(event, 'edit_league_#{@league.id}')"
     - elsif action.eql? :new
       = link_to t('.create_league'), '#', class: 'btn btn-default', role: 'button', onclick: "submit_form(event, 'new_league')"
+    - elsif action.eql? :show
+      - if permitted_to_edit_leagues?
+        = link_to t('.edit_league'), edit_league_path(@league), class: 'btn btn-default', role: 'button'

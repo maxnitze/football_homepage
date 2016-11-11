@@ -1,4 +1,4 @@
-# features/views/leagues.feature
+# features/views/leagues/show.feature
 Feature: Show action for leagues
 
   Scenario: Show league as guest
@@ -6,14 +6,14 @@ Feature: Show action for leagues
     When there is a league
     And the path of the league is visited
     Then the leagues attributes should be shown
-    And PENDING: does not show edit league button
+    And the edit league button is not shown
 
   Scenario: Show league as a logged in user
     Given there is a logged in user
     When there is a league
     And the path of the league is visited
     Then the leagues attributes should be shown
-    And PENDING: does not show edit league button
+    And the edit league button is not shown
 
   Scenario: Show league as a leagues admin
     Given there is a logged in user
@@ -21,7 +21,7 @@ Feature: Show action for leagues
     When there is a league
     And the path of the league is visited
     Then the leagues attributes should be shown
-    And PENDING: shows edit league button
+    And the edit league button is shown
 
   Scenario: Show league as an admin
     Given there is a logged in user
@@ -29,4 +29,4 @@ Feature: Show action for leagues
     When there is a league
     And the path of the league is visited
     Then the leagues attributes should be shown
-    And PENDING: shows edit league button
+    And the edit league button is shown
