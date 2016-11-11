@@ -17,7 +17,7 @@ FactoryGirl.define do
     c.surname							{ Faker::Name.last_name }
     c.givenname						{ Faker::Name.first_name }
 
-		c.birthday            { Faker::Date.between(100.year.ago, Date.today) }
+		c.birthday            { Faker::Time.between(100.year.ago, Date.today) }
 		c.picture             { Faker::Avatar.image }
   end
 end

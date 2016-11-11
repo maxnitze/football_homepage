@@ -18,6 +18,6 @@ FactoryGirl.define do
     r.givenname						{ Faker::Name.first_name }
     r.club
 
-    r.birthday            { Faker::Date.between(100.year.ago, Date.today) }
+    r.birthday            { Faker::Time.between(100.year.ago, Date.today) }
   end
 end

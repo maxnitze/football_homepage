@@ -21,7 +21,7 @@ FactoryGirl.define do
   factory :player do |p|
     p.surname                 { Faker::Name.last_name }
     p.givenname					      { Faker::Name.first_name }
-		p.birthday                { Faker::Date.between(100.year.ago, Date.today) }
+		p.birthday                { Faker::Time.between(100.year.ago, Time.now) }
     p.position                { FIELD_POSITIONS.sample }
     p.leg                     { PLAYER_LEGS.sample }
 
