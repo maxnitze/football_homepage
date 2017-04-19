@@ -31,7 +31,7 @@ class LeagueTeam < ActiveRecord::Base
 
   validates_presence_of :league, :team, :wincount, :losecount, :remiscount,
     :goalsshot, :goalsgot
-  validates_inclusion_of :unsubscribed, in: [ true, false]
+  validates_inclusion_of :unsubscribed, in: [ true, false ]
   validates_numericality_of :wincount, :losecount, :remiscount, :goalsshot, :goalsgot,
     greater_than_or_equal_to: 0
 
@@ -42,21 +42,30 @@ class LeagueTeam < ActiveRecord::Base
     self.squadleagueteam ? self.squadleagueteam.get_squadleagueteam : self
   end
 
+  def get_possible_squadleagueteams
+    LeagueTeam.all.select do |lt|
+      self.team.eql?(lt.team) &&
+        !self.league.eql?(lt.league) &&
+          (lt.league.start >= self.league.start && lt.league.start <= self.league.end ||
+           self.league.start >= lt.league.start && self.league.start <= lt.league.end)
+    end
+  end
+
   private
     def squadleagueteam_without_recursion
-      errors.add(:squadleagueteam, I18n.t('activerecord.errors.models.attributes.looped_recursion')) unless squadleagueteam_has_no_recursion
+      errors.add(:squadleagueteam, I18n.t('activerecord.errors.models.attributes.looped_recursion')) if squadleagueteam_has_recursion
     end
 
-    def squadleagueteam_has_no_recursion
+    def squadleagueteam_has_recursion
       t_squadleagueteam = self
       visited_league_teams = [ self ]
       while t_squadleagueteam.squadleagueteam
         t_squadleagueteam = t_squadleagueteam.squadleagueteam
         if visited_league_teams.include? t_squadleagueteam
-          return false
+          return true
         end
         visited_league_teams += [ t_squadleagueteam ]
       end
-      return true
+      return false
     end
 end

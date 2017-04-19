@@ -13,7 +13,7 @@ class LeagueTeamsController < ApplicationController
         format.html { redirect_to edit_league_path(@league_team.league), success: t('league_teams.flash.create.success') }
         format.json { render :show, status: :created, location: @league_team }
       else
-        format.html { redirect_to edit_league_path(@league_team.league), danger: t('league_teams.flash.create.failure', errors: @league_team.errors) }
+        format.html { redirect_to @league_team.league ? edit_league_path(@league_team.league) : leagues_path, danger: t('league_teams.flash.create.failure', errors: @league_team.errors) }
         format.json { render json: @league_team.errors, status: :unprocessable_entity }
       end
     end
@@ -25,7 +25,7 @@ class LeagueTeamsController < ApplicationController
     respond_to do |format|
       if @league_team.update(league_team_params)
         format.html { redirect_to edit_league_path(@league_team.league), success: t('league_teams.flash.update.success') }
-        format.json { render :show, status: :ok, location: @league_team }
+        format.json { render :show, status: :ok, location: @league_team.league }
       else
         format.html { redirect_to edit_league_path(@league_team.league), danger: t('league_teams.flash.update.failure', errors: @league_team.errors.full_messages.join('; ')) }
         format.json { render json: @league_team.errors, status: :unprocessable_entity }
@@ -51,18 +51,20 @@ class LeagueTeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def league_team_params
-      params.require(:league_team).permit(:league_id, :team_id, :unsubscribed, :squadleagueteam_id)
+      params.require(:league_team).permit(:league_id, :team_id, :squadleagueteam_id, :unsubscribed,
+        :wincount, :losecount, :remiscount, :goalsshot, :goalsgot,
+        :picture_file_name, :picture_content_type, :picture_file_size, :picture_updated_at, :picturecaption)
     end
 
     def check_update_permission
-      if !(current_user_has_permission? :can_update_league)
-        redirect_to @league, flash: { danger: t('leagues.flash.update.permission_failure') }
+      if !current_user_has_permission?(:can_update_leagues)
+        redirect_to @league_team.league ? @league_team.league : @league_team, flash: { danger: t('leagues.flash.update.permission_failure') }
       end
     end
 
     def check_destroy_permission
-      if !(current_user_has_permission? :can_destroy_league)
-        redirect_to @league, flash: { danger: t('leagues.flash.destroy.permission_failure') }
+      if !current_user_has_permission?(:can_destroy_leagues)
+        redirect_to @league_team.league ? @league_team.league : @league_team, flash: { danger: t('leagues.flash.destroy.permission_failure') }
       end
     end
 end

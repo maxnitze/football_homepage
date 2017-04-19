@@ -13,7 +13,7 @@
 # spec/factories/news.rb
 FactoryGirl.define do
   factory :news do |n|
-    n.author              { FactoryGirl.build :user }
+    n.author              { build :user }
 
     n.edit_count          { Faker::Number.between(0, 300) }
     n.editor              { edit_count > 0 ? FactoryGirl.build(:user) : nil }
@@ -26,7 +26,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |news|
-        news.newstexts.map &:save
+        news.newstexts.map(&:save)
       end
     end
   end

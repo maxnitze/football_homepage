@@ -2,7 +2,7 @@
   .form-group.input-group
     %span.input-group-addon.row-leagueteam-name
       = league_team.team.name
-    = f.select :squadleagueteam_id, options_for_select([[t('.no_inheritance'), 0]].concat(get_possible_squadleagueteams(league_team).map { |lt| ["#{lt.team.name} (#{lt.league.name})", lt.id] }), selected: (league_team[:squadleagueteam_id] || 0)), {}, { class: 'form-control', title: t('.inheritance') }
+    = f.select :squadleagueteam_id, options_for_select([[t('.no_inheritance'), 0]].concat(league_team.get_possible_squadleagueteams().map { |lt| ["#{lt.team.name} (#{lt.league.name})", lt.id] }), selected: (league_team[:squadleagueteam_id] || 0)), {}, { class: 'form-control', title: t('.inheritance') }
     %span.input-group-addon.row-leagueteam-unsubscribed
       = f.check_box :unsubscribed, title: t('.unsubscribed')
     %span.input-group-btn.row-leagueteam-submit

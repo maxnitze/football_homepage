@@ -24,9 +24,9 @@
 # spec/factories/league_teams.rb
 FactoryGirl.define do
   factory :league_team do |lt|
-    lt.league
-    lt.team
-    lt.squadleagueteam      nil
+    lt.league_id            { create(:league).id }
+    lt.team_id              { create(:team).id }
+    lt.squadleagueteam_id   nil
     lt.unsubscribed         { Faker::Boolean.boolean }
 
     lt.wincount             { Faker::Number.between(0, 100) }

@@ -16,11 +16,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    if @team.ishometeam
-      render 'show_hometeam'
-    else
-      render 'show_otherteam'
-    end
+    render @team.ishometeam ? 'show_hometeam' : 'show_otherteam'
   end
 
   # GET /teams/new
