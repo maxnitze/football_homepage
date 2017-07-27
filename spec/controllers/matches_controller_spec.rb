@@ -14,7 +14,7 @@ RSpec.describe MatchesController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    FactoryGirl.attributes_for :match, name: nil
+    FactoryGirl.attributes_for :match, league_id: nil
   }
 
   describe 'GET index' do
@@ -84,14 +84,14 @@ RSpec.describe MatchesController, type: :controller do
   describe 'PUT update' do
     describe 'with valid params' do
       let(:new_attributes) {
-        skip('Add a hash of attributes valid for your model')
+        FactoryGirl.attributes_for :match
       }
 
       it 'updates the requested match' do
         match = FactoryGirl.create :match
         put :update, { id: match.to_param, match: new_attributes }
         match.reload
-        skip('Add assertions for updated state')
+        new_attributes.each { |key, value| expect(match[key]).to eq(value) }
       end
 
       it 'assigns the requested match as @match' do
