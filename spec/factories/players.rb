@@ -20,12 +20,12 @@
 FactoryGirl.define do
   factory :player do |p|
     p.surname                 { Faker::Name.last_name }
-    p.givenname					      { Faker::Name.first_name }
-		p.birthday                { Faker::Time.between(100.year.ago, Time.now) }
+    p.givenname               { Faker::Name.first_name }
+    p.birthday                { Faker::Time.between(100.year.ago, Time.now) }
     p.position                { FIELD_POSITIONS.sample }
     p.leg                     { PLAYER_LEGS.sample }
 
-		p.portrait_file_name      { Faker::Avatar.image }
+    p.portrait_file_name      { Faker::Avatar.image }
     p.portrait_content_type   { "image/#{Faker::Lorem.word}" }
     p.portrait_file_size      { Faker::Number.between(1, 1000) }
     p.portrait_updated_at     { Faker::Time.between(1.year.ago, Time.now) }
