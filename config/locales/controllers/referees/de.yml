@@ -1,3 +1,12 @@
 de:
   referees:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'Sie sind nicht berechtigt neue Schiedsrichter zu erstellen.'
+        success: 'Neuer Schiedsrichter erfolgreich erstellt.'
+      destroy:
+        permission_failure: 'Sie sind nicht berechtigt diesen Schiedsrichter zu löschen.'
+        success: 'Schiedsrichter erfolgreich gelöscht.'
+      update:
+        permission_failure: 'Sie sind nicht berechtigt diesen Schiedsrichter zu bearbeiten.'
+        success: 'Schiedsrichter erfolgreich bearbeitet.'

@@ -1,3 +1,12 @@
 en:
   referees:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'You are not allowed to create new referees.'
+        success: 'Referee was successfully created.'
+      destroy:
+        permission_failure: 'You are not allowed to destroy this referee.'
+        success: 'Referee was successfully destroyed.'
+      update:
+        permission_failure: 'You are not allowed to edit this referee.'
+        success: 'Referee was successfully updated.'

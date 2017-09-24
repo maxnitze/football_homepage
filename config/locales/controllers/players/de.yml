@@ -1,3 +1,12 @@
 de:
   players:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'Sie sind nicht berechtigt neue Spieler zu erstellen.'
+        success: 'Neuer Spieler erfolgreich erstellt.'
+      destroy:
+        permission_failure: 'Sie sind nicht berechtigt diesen Spieler zu löschen.'
+        success: 'Spieler erfolgreich gelöscht.'
+      update:
+        permission_failure: 'Sie sind nicht berechtigt diesen Spieler zu bearbeiten.'
+        success: 'Spieler erfolgreich bearbeitet.'

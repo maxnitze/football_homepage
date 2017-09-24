@@ -28,7 +28,7 @@ class RefereesController < ApplicationController
 
     respond_to do |format|
       if @referee.save
-        format.html { redirect_to @referee, notice: 'Referee was successfully created.' }
+        format.html { redirect_to @referee, success: t('referees.flash.create.success') }
         format.json { render :show, status: :created, location: @referee }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RefereesController < ApplicationController
   def update
     respond_to do |format|
       if @referee.update(referee_params)
-        format.html { redirect_to @referee, notice: 'Referee was successfully updated.' }
+        format.html { redirect_to @referee, success: t('referees.flash.update.success') }
         format.json { render :show, status: :ok, location: @referee }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RefereesController < ApplicationController
   def destroy
     @referee.destroy
     respond_to do |format|
-      format.html { redirect_to referees_url, notice: 'Referee was successfully destroyed.' }
+      format.html { redirect_to referees_url, success: t('referees.flash.destroy.success') }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,7 @@ class RefereesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def referee_params
-      params.require(:referee).permit(:surname, :givenname, :clubid)
+      params.require(:referee).permit(:surname, :givenname, :clubid, :birthday,
+      :portrait_file_name, :portrait_content_type, :portrait_file_size, :portrait_updated_at)
     end
 end
