@@ -28,7 +28,7 @@ class UserRolePermissionsController < ApplicationController
 
     respond_to do |format|
       if @user_role_permission.save
-        format.html { redirect_to @user_role_permission, notice: 'User role permission was successfully created.' }
+        format.html { redirect_to @user_role_permission, notice: [ t('user_role_permissions.flash.create.success') ] }
         format.json { render :show, status: :created, location: @user_role_permission }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class UserRolePermissionsController < ApplicationController
   def update
     respond_to do |format|
       if @user_role_permission.update(user_role_permission_params)
-        format.html { redirect_to @user_role_permission, notice: 'User role permission was successfully updated.' }
+        format.html { redirect_to @user_role_permission, notice: [ t('user_role_permissions.flash.update.success') ] }
         format.json { render :show, status: :ok, location: @user_role_permission }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class UserRolePermissionsController < ApplicationController
   def destroy
     @user_role_permission.destroy
     respond_to do |format|
-      format.html { redirect_to user_role_permissions_url, notice: 'User role permission was successfully destroyed.' }
+      format.html { redirect_to user_role_permissions_url, notice: [ t('user_role_permissions.flash.destroy.success') ] }
       format.json { head :no_content }
     end
   end

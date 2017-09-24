@@ -1,3 +1,12 @@
 de:
   clubs:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'Sie sind nicht berechtigt neue Vereine zu erstellen.'
+        success: 'Neuer Verein erfolgreich erstellt.'
+      destroy:
+        permission_failure: 'Sie sind nicht berechtigt diesen Verein zu löschen.'
+        success: 'Verein erfolgreich gelöscht.'
+      update:
+        permission_failure: 'Sie sind nicht berechtigt diesen Verein zu bearbeiten.'
+        success: 'Verein erfolgreich bearbeitet.'

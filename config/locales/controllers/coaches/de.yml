@@ -1,3 +1,12 @@
 de:
   coaches:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'Sie sind nicht berechtigt neue Trainer zu erstellen.'
+        success: 'Neuen Trainer erfolgreich erstellt.'
+      destroy:
+        permission_failure: 'Sie sind nicht berechtigt diesen Trainer zu löschen.'
+        success: 'Trainer erfolgreich gelöscht.'
+      update:
+        permission_failure: 'Sie sind nicht berechtigt diesen Trainer zu bearbeiten.'
+        success: 'Trainer erfolgreich bearbeitet.'

@@ -28,7 +28,7 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to @player, success: t('players.flash.create.success') }
+        format.html { redirect_to @player, notice: [ t('players.flash.create.success') ] }
         format.json { render :show, status: :created, location: @player }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PlayersController < ApplicationController
   def update
     respond_to do |format|
       if @player.update(player_params)
-        format.html { redirect_to @player, success: t('players.flash.update.success') }
+        format.html { redirect_to @player, notice: [ t('players.flash.update.success') ] }
         format.json { render :show, status: :ok, location: @player }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class PlayersController < ApplicationController
   def destroy
     @player.destroy
     respond_to do |format|
-      format.html { redirect_to players_url, success: t('players.flash.destroy.success') }
+      format.html { redirect_to players_url, notice: [ t('players.flash.destroy.success') ] }
       format.json { head :no_content }
     end
   end

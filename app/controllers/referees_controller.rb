@@ -28,7 +28,7 @@ class RefereesController < ApplicationController
 
     respond_to do |format|
       if @referee.save
-        format.html { redirect_to @referee, success: t('referees.flash.create.success') }
+        format.html { redirect_to @referee, notice: [ t('referees.flash.create.success') ] }
         format.json { render :show, status: :created, location: @referee }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RefereesController < ApplicationController
   def update
     respond_to do |format|
       if @referee.update(referee_params)
-        format.html { redirect_to @referee, success: t('referees.flash.update.success') }
+        format.html { redirect_to @referee, notice: [ t('referees.flash.update.success') ] }
         format.json { render :show, status: :ok, location: @referee }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RefereesController < ApplicationController
   def destroy
     @referee.destroy
     respond_to do |format|
-      format.html { redirect_to referees_url, success: t('referees.flash.destroy.success') }
+      format.html { redirect_to referees_url, notice: [ t('referees.flash.destroy.success') ] }
       format.json { head :no_content }
     end
   end

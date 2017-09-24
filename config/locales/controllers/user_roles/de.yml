@@ -1,3 +1,12 @@
 de:
   user_roles:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'Sie sind nicht berechtigt neue Nutzerrollen zu erstellen.'
+        success: 'Neuer Nutzerrolle erfolgreich erstellt.'
+      destroy:
+        permission_failure: 'Sie sind nicht berechtigt diese Nutzerrolle zu löschen.'
+        success: 'Nutzerrolle erfolgreich gelöscht.'
+      update:
+        permission_failure: 'Sie sind nicht berechtigt diese Nutzerrolle zu bearbeiten.'
+        success: 'Nutzerrolle erfolgreich bearbeitet.'

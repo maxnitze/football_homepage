@@ -28,7 +28,7 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.save
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
+        format.html { redirect_to @match, notice: [ t('matches.flash.create.success') ] }
         format.json { render :show, status: :created, location: @match }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MatchesController < ApplicationController
   def update
     respond_to do |format|
       if @match.update(match_params)
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
+        format.html { redirect_to @match, notice: [ t('matches.flash.update.success') ] }
         format.json { render :show, status: :ok, location: @match }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MatchesController < ApplicationController
   def destroy
     @match.destroy
     respond_to do |format|
-      format.html { redirect_to matches_url, notice: 'Match was successfully destroyed.' }
+      format.html { redirect_to matches_url, notice: [ t('matches.flash.destroy.success') ] }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,10 @@ class MatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.require(:match).permit(:league_id, :matchday, :home_id, :guest_id, :start, :end, :goals_home, :goals_guest, :goals_home_ht, :goals_guest_ht, :referee_id, :assistant1_id, :assistant2_id, :overtime, :penalty, :hncompete, :gncompete, :noreferee, :canceled, :enabled)
+      params.require(:match).permit(:league_id, :matchday, :home_id, :guest_id, :start, :end,
+        :goals_home, :goals_guest, :goals_home_ht, :goals_guest_ht,
+        :referee_id, :assistant1_id, :assistant2_id,
+        :overtime, :penalty, :hncompete, :gncompete, :noreferee, :canceled, :enabled
+      )
     end
 end

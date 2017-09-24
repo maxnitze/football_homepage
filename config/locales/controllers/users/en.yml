@@ -1,3 +1,15 @@
 en:
   users:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'You are not allowed to create new users.'
+        success: 'User was successfully created.'
+      destroy:
+        permission_failure: 'You are not allowed to destroy this user.'
+        success: 'User was successfully destroyed.'
+      finish_signup:
+        permission_failure: 'You're not wllowed to finish your registration.'
+        success: 'Your registration was successfully finished.'
+      update:
+        permission_failure: 'You are not allowed to edit this user.'
+        success: 'User was successfully updated.'

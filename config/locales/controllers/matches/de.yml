@@ -1,3 +1,12 @@
 de:
   matches:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'Sie sind nicht berechtigt neue Spiele zu erstellen.'
+        success: 'Neues Spiel erfolgreich erstellt.'
+      destroy:
+        permission_failure: 'Sie sind nicht berechtigt dieses Spiel zu löschen.'
+        success: 'Spiel erfolgreich gelöscht.'
+      update:
+        permission_failure: 'Sie sind nicht berechtigt dieses Spiel zu bearbeiten.'
+        success: 'Spiel erfolgreich bearbeitet.'

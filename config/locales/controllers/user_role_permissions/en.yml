@@ -12,3 +12,13 @@ en:
       description: 'can update news'
     can_update_users:
       description: 'can update users'
+    flash:
+      create:
+        permission_failure: 'You are not allowed to create new user role permissions.'
+        success: 'User role permission was successfully created.'
+      destroy:
+        permission_failure: 'You are not allowed to destroy this user role permission.'
+        success: 'User role permission was successfully destroyed.'
+      update:
+        permission_failure: 'You are not allowed to edit this user role permission.'
+        success: 'User role permission was successfully updated.'

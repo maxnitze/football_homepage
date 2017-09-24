@@ -1,3 +1,12 @@
 en:
   clubs:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'You are not allowed to create new clubs.'
+        success: 'Club was successfully created.'
+      destroy:
+        permission_failure: 'You are not allowed to destroy this club.'
+        success: 'Club was successfully destroyed.'
+      update:
+        permission_failure: 'You are not allowed to edit this club.'
+        success: 'Club was successfully updated.'

@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: [ t('users.flash.create.success') ] }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -41,8 +41,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        sign_in(@user == current_user ? @user : current_user, :bypass => true)
-        format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
+        sign_in(@user == current_user ? @user : current_user, bypass: true)
+        format.html { redirect_to @user, notice: [ t('users.flash.update.success') ] }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         @user.skip_reconfirmation!
         sign_in(@user, bypass: true)
-        redirect_to root_url, notice: 'Your profile was successfully updated.'
+        redirect_to root_url, notice: [ t('users.flash.finish_signup.success') ]
       else
         @show_errors = true
       end

@@ -12,3 +12,13 @@ de:
       description: 'darf Benutzer bearbeiten'
     can_update_users:
       description: 'darf Nachrichten bearbeiten'
+    flash:
+      create:
+        permission_failure: 'Sie sind nicht berechtigt neue Nutzerrollenberechtigungen zu erstellen.'
+        success: 'Neue Nutzerrollenberechtigung erfolgreich erstellt.'
+      destroy:
+        permission_failure: 'Sie sind nicht berechtigt diese Nutzerrollenberechtigung zu löschen.'
+        success: 'Nutzerrollenberechtigung erfolgreich gelöscht.'
+      update:
+        permission_failure: 'Sie sind nicht berechtigt diese Nutzerrollenberechtigung zu bearbeiten.'
+        success: 'Nutzerrollenberechtigung erfolgreich bearbeitet.'

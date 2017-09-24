@@ -1,3 +1,15 @@
 de:
   users:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'Sie sind nicht berechtigt neue Nutzer zu erstellen.'
+        success: 'Neuer Nutzer erfolgreich erstellt.'
+      destroy:
+        permission_failure: 'Sie sind nicht berechtigt diesen Nutzer zu löschen.'
+        success: 'Nutzer erfolgreich gelöscht.'
+      finish_signup:
+        permission_failure: 'Sie sind nicht berechtigt Ihre Registrierung abzuschließen.'
+        success: 'Ihre Registrierung wurde erfolgreich abgeschlossen.'
+      update:
+        permission_failure: 'Sie sind nicht berechtigt diesen Nutzer zu bearbeiten.'
+        success: 'Nutzer erfolgreich bearbeitet.'

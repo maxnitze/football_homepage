@@ -10,7 +10,7 @@ class LeagueTeamsController < ApplicationController
 
     respond_to do |format|
       if @league_team.save
-        format.html { redirect_to edit_league_path(@league_team.league), success: t('league_teams.flash.create.success') }
+        format.html { redirect_to edit_league_path(@league_team.league), notice: [ t('league_teams.flash.create.success') ] }
         format.json { render :show, status: :created, location: @league_team }
       else
         format.html { redirect_to @league_team.league ? edit_league_path(@league_team.league) : leagues_path, danger: t('league_teams.flash.create.failure', errors: @league_team.errors) }
@@ -24,7 +24,7 @@ class LeagueTeamsController < ApplicationController
   def update
     respond_to do |format|
       if @league_team.update(league_team_params)
-        format.html { redirect_to edit_league_path(@league_team.league), success: t('league_teams.flash.update.success') }
+        format.html { redirect_to edit_league_path(@league_team.league), notice: [ t('league_teams.flash.update.success') ] }
         format.json { render :show, status: :ok, location: @league_team.league }
       else
         format.html { redirect_to edit_league_path(@league_team.league), danger: t('league_teams.flash.update.failure', errors: @league_team.errors.full_messages.join('; ')) }
@@ -38,7 +38,7 @@ class LeagueTeamsController < ApplicationController
   def destroy
     @league_team.destroy
     respond_to do |format|
-      format.html { redirect_to edit_league_path(@league_team.league), success: t('league_teams.flash.destroy.success') }
+      format.html { redirect_to edit_league_path(@league_team.league), notice: [ t('league_teams.flash.destroy.success') ] }
       format.json { head :no_content }
     end
   end

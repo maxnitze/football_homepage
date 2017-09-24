@@ -1,3 +1,12 @@
 en:
   matches:
-    dummy: 'DUMMY'
+    flash:
+      create:
+        permission_failure: 'You are not allowed to create new matches.'
+        success: 'Match was successfully created.'
+      destroy:
+        permission_failure: 'You are not allowed to destroy this match.'
+        success: 'Match was successfully destroyed.'
+      update:
+        permission_failure: 'You are not allowed to edit this match.'
+        success: 'Match was successfully updated.'
