@@ -2,13 +2,17 @@
 #
 # Table name: referees
 #
-#  id         :integer          not null, primary key
-#  surname    :string
-#  givenname  :string
-#  club_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  birthday   :datetime
+#  id                    :integer          not null, primary key
+#  surname               :string
+#  givenname             :string
+#  club_id               :integer
+#  created_at            :datetime
+#  updated_at            :datetime
+#  birthday              :datetime
+#  portrait_file_name    :string
+#  portrait_content_type :string
+#  portrait_file_size    :integer
+#  portrait_updated_at   :datetime
 #
 
 # spec/models/referee_spec.rb

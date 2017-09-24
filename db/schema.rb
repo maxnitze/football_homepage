@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902114300) do
+ActiveRecord::Schema.define(version: 20170924103333) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
@@ -182,6 +182,10 @@ ActiveRecord::Schema.define(version: 20160902114300) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "birthday"
+    t.string   "portrait_file_name"
+    t.string   "portrait_content_type"
+    t.integer  "portrait_file_size"
+    t.datetime "portrait_updated_at"
   end
 
   create_table "taggings", force: :cascade do |t|
