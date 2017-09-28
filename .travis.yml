@@ -2,7 +2,7 @@
 env:
   global:
     # branch for coverity scan to run on
-    - COVERITY_BRANCH="coverity_scan"
+    - COVERITY_BRANCH="master"
     # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
     #   via the "travis encrypt" command using the project repo's public key
     - secure: "pBvNdNs3D5gZ2Vyk6XXyXpis/tT7L0TmA8sq/iAHNu7JbeQHR63b+IS/mYTAw7qdfG7vtalEhxDNaV+602obiWzJ1N1+gf32JufRX/IoOpNDJnv9CtNzKDHP4akDypmIPmRtsPe2ZRruqSrSbZ6B09uOcmCE/phgh0sMhLxOeuqLsVNQ4TMEBFRT6u342cLfyKcvFRNNnC+SrX3s4IZwtQZfhldvtH7S2CXOyG0XWCXKLuPXAluGDnAgnKeDTcIN0AT/VjWuhP+ta2qP9oxvxrxUysvTHtdt60/W1bbNBteQuyJg8wU87Jy+ekII53UDxwiuE7IvFzLilQKHRQ+iaJ98SgsedZLQUKJayRsrnosuSQrzOmMQVmxyJVqCAauHRbs8NTxRPxOJW3JaIG9MNFmmDDcrqN2dWJQwoAtz3r6LnAeisjjazmASKZglJum0Gc30zDup+yMF1Mm1MHC7nmpuAQspgTEKM/iCjBvNF+UL63fuFmmNJASXIZtn6GFQrejFI2P48ULbhVKmhdIGXbdHAMafzVfNGm7hmnpRza19zQ9NajHb2nISetJvqlvQHAt5Bz9GoBfLumPYHxW31bdLqZ/bbjGm8IUhW05N0qa+VBvduZEbRPVZhOhodQMgYLJUduRYlstimPKeFOF5RHf+PB3Xv+wOKBGmC9j0V6Y="
@@ -23,7 +23,6 @@ rvm:
 branches:
   only:
     - master
-    - coverity_scan
     - testing
 
 # require sudo for coverity ssl certificate
